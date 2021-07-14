@@ -1,15 +1,16 @@
 .home-page{
     min-height: 90vh;
-    .cities{
-        display: flex;
-        gap:20px;
-        margin-top:20px;
-        h4{
-            @include center
-        }
-        img{
-            border-radius: 20px;
-            width: 100%;
-        }
+    .explore-nature{
+        width: 80vh;
+        // img{
+            // width: 100%;
+        // }
+        // position: absolute;
+        // left: 0px;
+        // right: 0px;
+        // object-fit: cover;
+        // object-position: 50% 50%;
+        // vertical-align: bottom;
     }
+   
 }

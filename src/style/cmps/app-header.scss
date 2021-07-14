@@ -1,0 +1,49 @@
+.app-header {
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        .btn-start-search {
+            justify-content: space-between;
+            font-weight: bold;
+            background-color: unset;
+            border-radius: 50px;
+            border: 1px solid $clr1;
+            height: 40px;
+            width: 250px;
+            margin: 15px;
+            // span {
+            //     background-color: $clr3;
+            //     border: unset;
+            //     border-radius: 30px;
+            // }
+        }
+        .stay-filter {
+            display: flex;
+            .form-filter {
+                @include center;
+            }
+            label {
+                flex-direction: column;
+            }
+            // .btn-search {
+            //     background-color: $clr3;
+            //     border: unset;
+            //     border-radius: 30px;
+            // }
+        }
+        .user {
+            border: 1px solid $clr1;
+            border-radius: 30px;
+            height: 50px;
+            cursor: pointer;
+            .btn-user {
+                height: 50px;
+                background-color: unset;
+                border: unset;
+            }
+            img {
+                height: 100%;
+            }
+        }
+    }
+}

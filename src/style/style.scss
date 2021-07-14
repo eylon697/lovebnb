@@ -1,0 +1,17 @@
+
+// SETUP
+@import 'setup/_variable';
+@import 'setup/_mixins';
+
+// BASICS
+@import 'basics/base';
+
+//VIEWS
+@import 'views/home-page.scss';
+
+// COMPONENTS
+@import 'cmps/app-header';
+@import 'cmps/hero';
+@import 'cmps/app-footer';
+@import 'cmps/stay-filter.scss';
+

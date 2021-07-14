@@ -5,6 +5,7 @@
     <explore-list :list="{ headline: 'Inspiration destinations', items: cities }" />
     <div class="explore-nature">
      <img :src="require('@/assets/img/home-page/nature.png')" />
+     <button></button>
     </div>
   </div>
 

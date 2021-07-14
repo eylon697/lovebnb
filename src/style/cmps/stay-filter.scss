@@ -1,0 +1,62 @@
+.stay-filter {
+    border-radius: 32px;
+    font-size: .75rem;
+    display: flex;
+    align-items: center;
+    border: $clr1 solid 1px;
+    background-color: #fff;
+    .sep {
+        width: 1px;
+        height: 32px;
+        background-color: #eaeaea;
+    }
+    .location {
+        &>div {
+            padding: 14px 32px;
+            min-width: 95px;
+        }
+    }
+    .check-in,
+    .check-out {
+        &>div {
+            min-width: 100px;
+            padding: 14px 24px;
+        }
+    }
+    .guests {
+        &>div {
+            padding: 14px 24px;
+            min-width: 95px
+        }
+    }
+    input {
+        display: block;
+        border: unset;
+        width: 100%;
+        background: none;
+        font-weight: 600;
+        color: #222222;
+        text-overflow: ellipsis;
+        line-height: 1.125rem;
+        font-size: .875rem;
+    }
+    input:focus-visible {
+        outline: unset;
+    }
+    label {
+        display: flex;
+        flex-direction: column;
+        &>div>div {
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            font-size: 12px;
+            line-height: 16px;
+            padding-bottom: 2px;
+        }
+    }
+    .btn-search {
+        background-color: $clr3;
+        border: unset;
+        border-radius: 30px;
+    }
+}

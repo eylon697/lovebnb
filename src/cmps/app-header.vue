@@ -1,29 +1,45 @@
 <template>
   <header class="app-header">
-    <div class="header-container">
-      <div class="logo">  <img :src="require('@/assets/img/app-header/logo.png')" /></div>
-      <stay-filter/>
-      <div class="stay-filter">
-        <button class="btn-start-search">Start Your search<span><i class="far fa-search"></i></span></button>
-       
+    <!-- START OF MAIN LAYOUT -->
+    <div class="top">
+      <div class="logo">
+        <h1>Logo</h1>
+        <!-- <img :src="require('@/assets/img/app-header/logo.png')" /> -->
       </div>
-      <nav>
-        <router-link to="/" >Explore </router-link>
-        <router-link  to="/">Become a Host</router-link>
-      </nav>
 
-      <div class="user">
-          <button class="btn-user"> <img :src="require('@/assets/img/app-header/user.png')" /> </button>
-          <!-- <button><img src="" alt=""></button>  -->
+      <div class="middle">
+        <div>Place to stay</div>
+        <div class="sep"></div>
+        <button class="btn-start-search">
+          <span>Start Your search</span>
+          <i class="far fa-search"></i>
+        </button>
+      </div>
+
+      <div class="right">
+        <nav>
+          <router-link to="/">Become a host</router-link>
+        </nav>
+        <div class="preference">
+          <i class="fas fa-bars"></i>
+          <button class="btn-user">
+            <img :src="require('@/assets/img/app-header/user.png')" />
+          </button>
+        </div>
+        <!-- <button><img src="" alt=""></button>  -->
       </div>
     </div>
+    <div>
+      <stay-filter />
+    </div>
+    <!-- END OF MAIN LAYOUT -->
   </header>
 </template>
 <script>
-import stayFilter from '../cmps/stay-filter.vue'
+import stayFilter from "../cmps/stay-filter.vue";
 export default {
-  components:{
-    stayFilter
-  }
+  components: {
+    stayFilter,
+  },
 };
 </script>

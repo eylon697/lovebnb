@@ -1,48 +1,73 @@
 .app-header {
-    .header-container {
+    position: fixed;
+    width: 100%;
+    padding: 0 80px; // TODO: --> RESPONSIVE !! 40 / 24
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .top {
         display: flex;
         justify-content: space-between;
-        .btn-start-search {
-            justify-content: space-between;
-            font-weight: bold;
-            background-color: unset;
-            border-radius: 50px;
-            border: 1px solid $clr1;
-            height: 40px;
-            width: 250px;
-            margin: 15px;
-            // span {
-            //     background-color: $clr3;
-            //     border: unset;
-            //     border-radius: 30px;
-            // }
-        }
-        .stay-filter {
+        align-items: center;
+        margin-bottom: 10px;
+        .logo {}
+        .middle {
             display: flex;
-            .form-filter {
-                @include center;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            .sep {
+                margin-top: 5px;
+                // margin-bottom: 10px;
+                width: 18px;
+                height: 2px;
+                background-color: #fff;
             }
-            label {
-                flex-direction: column;
-            }
-            // .btn-search {
-            //     background-color: $clr3;
-            //     border: unset;
-            //     border-radius: 30px;
-            // }
-        }
-        .user {
-            border: 1px solid $clr1;
-            border-radius: 30px;
-            height: 50px;
-            cursor: pointer;
-            .btn-user {
-                height: 50px;
-                background-color: unset;
+            .btn-start-search {
+                display: none;
+                background-color: #fff;
+                justify-content: space-between;
+                font-weight: bold;
+                border-radius: 50px;
                 border: unset;
+                height: 40px;
+                width: 250px;
+                // margin: 15px;
+                // span {
+                //     background-color: $clr3;
+                //     border: unset;
+                //     border-radius: 30px;
+                // }
             }
-            img {
-                height: 100%;
+        }
+        .right {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 10px;
+            a {
+                text-decoration: unset;
+                color: #fff;
+            }
+            .preference {
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border: unset;
+                border-radius: 32px;
+                gap: 12px;
+                padding: 5px;
+                padding-left: 13px;
+                .btn-user {
+                    height: 30px;
+                    background-color: unset;
+                    border: unset;
+                }
+                img {
+                    height: 30px;
+                }
             }
         }
     }

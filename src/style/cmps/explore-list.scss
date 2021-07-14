@@ -1,6 +1,7 @@
 .explore-list {
     h5 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        font-family: Circular;
         margin: 40px;
     }
     .items-container {
@@ -10,10 +11,12 @@
         gap: 20px;
         margin-top: 20px;
         h4 {
-            @include center;
+            // @include center;
+            font-size: 1.125rem;
+            font-family: Avenir;
         }
         img {
-            border-radius: 20px;
+            border-radius: 8px;
             width: 100%;
             height: 100%;
         }

@@ -1,16 +1,18 @@
 .home-page{
     min-height: 90vh;
     .explore-nature{
-        width: 80vh;
-        // img{
-            // width: 100%;
-        // }
-        // position: absolute;
-        // left: 0px;
-        // right: 0px;
-        // object-fit: cover;
-        // object-position: 50% 50%;
-        // vertical-align: bottom;
+        @include center;
+        margin-top: 80px;
+        img{
+            border-radius: 10px;
+            // width: 900px;
+            // position: absolute;
+            // left: 0px;
+            // right: 0px;
+            // object-fit: cover;
+            // object-position: 50% 50%;
+            // vertical-align: bottom;
+        }
     }
    
 }

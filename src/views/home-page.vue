@@ -1,8 +1,8 @@
 <template>
   <div class="home-page">
     <hero></hero>
-    <explore-list :list="{ headline: 'Categories', items: categories }" />
-    <explore-list :list="{ headline: 'Cities', items: cities }" />
+    <explore-list :list="{ headline: 'Live anywhere', items: categories }" />
+    <explore-list :list="{ headline: 'Inspiration destinations', items: cities }" />
     <div class="explore-nature">
      <img :src="require('@/assets/img/home-page/nature.png')" />
     </div>

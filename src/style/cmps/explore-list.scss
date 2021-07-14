@@ -1,0 +1,21 @@
+.explore-list {
+    h5 {
+        font-size: 2.5rem;
+        margin: 40px;
+    }
+    .items-container {
+        @include center;
+        height: 50vh;
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        h4 {
+            @include center;
+        }
+        img {
+            border-radius: 20px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

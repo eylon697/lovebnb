@@ -10,6 +10,11 @@ const routes = [
     name: 'HomePage',
     component: HomePage
   },
+  {
+    path: '/stay/?',
+    name: '',
+    component: HomePage
+  },
   
 ]
 

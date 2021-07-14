@@ -1,4 +1,7 @@
 .app-header {
+    font-size: .88rem;
+    letter-spacing: .1px;
+    font-family: Roboto;
     position: fixed;
     width: 100%;
     padding: 0 80px; // TODO: --> RESPONSIVE !! 40 / 24
@@ -13,7 +16,6 @@
         margin-bottom: 10px;
         .logo {}
         .middle {
-            font-size: 1rem;
             line-height: 20px;
             position: absolute;
             left: 45%;
@@ -21,7 +23,6 @@
             flex-direction: column;
             align-items: center;
             color: #fff;
-            font-weight: 400;
             padding: 10px 16px;
             .sep {
                 margin-top: 5px;
@@ -53,6 +54,7 @@
             align-items: center;
             cursor: pointer;
             gap: 10px;
+            font-weight: 500;
             a {
                 text-decoration: unset;
                 color: #fff;

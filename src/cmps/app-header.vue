@@ -1,7 +1,7 @@
 <template>
   <header class="app-header">
     <div class="header-container">
-      <div class="logo">  <img :src="require('@/assets/img/logo.png')" /></div>
+      <div class="logo">  <img :src="require('@/assets/img/app-header/logo.png')" /></div>
       <stay-filter/>
       <div class="stay-filter">
         <button class="btn-start-search">Start Your search<span><i class="far fa-search"></i></span></button>
@@ -13,7 +13,7 @@
       </nav>
 
       <div class="user">
-          <button class="btn-user"> <img :src="require('@/assets/img/user.png')" /> </button>
+          <button class="btn-user"> <img :src="require('@/assets/img/app-header/user.png')" /> </button>
           <!-- <button><img src="" alt=""></button>  -->
       </div>
     </div>

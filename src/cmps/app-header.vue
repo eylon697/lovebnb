@@ -1,10 +1,9 @@
 <template>
-  <header class="app-header main-layout">
+  <header :class="classObject">
     <!-- START OF MAIN LAYOUT -->
     <div class="top">
       <div class="logo">
-        <span><i class="fab fa-airbnb"></i> </span> 
-        <!-- <img :src="require('@/assets/img/app-header/logo.png')" /> -->
+        <i class="fab fa-airbnb"></i>
         <span>lovebnb</span>
       </div>
 
@@ -30,18 +29,27 @@
         <!-- <button><img src="" alt=""></button>  -->
       </div>
     </div>
-    <div class="bottom">
+    <!-- <div class="bottom">
       <stay-filter />
-    </div>
+    </div> -->
     <!-- END OF MAIN LAYOUT -->
   </header>
 </template>
 <script>
-import stayFilter from "../cmps/stay-filter.vue";
+// import stayFilter from "../cmps/stay-filter.vue";
 export default {
-  
+  props: { fixedStyle: Boolean },
   components: {
-    stayFilter,
+    // stayFilter,
+  },
+  data() {
+    return {
+      classObject: {
+        "app-header": true,
+        "main-layout": true,
+        fixed: this.fixedStyle
+      },
+    };
   },
 };
 </script>

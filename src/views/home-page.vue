@@ -13,7 +13,7 @@
         <!-- <img :src="require('@/assets/img/home-page/nature.png')" /> -->
         <div class="info">
           <h1>The Greatest</h1>
-          <h1> Outdoors</h1>
+          <h1>Outdoors</h1>
           <p>Wishlists curated By Homebnb</p>
           <button>Get inspired</button>
         </div>
@@ -24,12 +24,12 @@
       <div>
         <h2>Join our hosts</h2>
         <p>
-          No matter what kind of home or room you want to share, MiCasa makes it
-          simple and secure to host travelers. You’re in full control of your
+          No matter what kind of home or room you want to share, lovebnb makes
+          it simple and secure to host travelers. You’re in full control of your
           availability, prices, house rules, and how you interact with guests.
         </p>
         <p>
-          There's no cost to sign up. MiCasa generally charges hosts a flat 3%
+          There's no cost to sign up. lovebnb generally charges hosts a flat 3%
           per reservation, among the lowest fees in the industry.
         </p>
         <p>
@@ -107,6 +107,20 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    //TODO: EVENT BUS
+    methods: {
+      setHeaderFixedStyle(val) {
+        this.$emit("setHeaderFixedStyle", val);
+      },
+    },
+  },
+  created() {
+    this.setHeaderFixedStyle(true);
+  },
+  destroyedss() {
+    this.setHeaderFixedStyle(false);
   },
   components: {
     Hero,

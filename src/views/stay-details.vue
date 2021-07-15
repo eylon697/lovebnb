@@ -1,76 +1,53 @@
 <template>
-  <section class="stay-details">
+  <section class="stay-details main-layout">
     <pre>
-        /
-        /
-        /
-        /
-        /
-        /
-        /
-        /
-        /
+
+
+
+
+
+
+
+
+
+
+
+
     </pre>
-    <div class="details-header">
-      <div class="title">
-        <span>{{ stay.name }}</span>
-      </div>
-      <div class="bottom">
-        <div class="left">
-          <i class="fas fa-star"></i>
-          <span> {{ stay.rateAvg }} </span>
-          <span>(</span>
-          <router-link :to="'/stay/' + stay._id + '/reviews'">
-            <span>{{ stay.reviews.length }} </span>
-            <span>reviews</span>
-          </router-link>
-          <span>)</span>
-          <span> &#8226; </span>
-          <router-link to="/">{{ stay.loc.address }}</router-link>
-        </div>
-        <div class="right">
-          <div class="share">
-            <i class="fas fa-share"></i>
-            <span>Share</span>
-          </div>
-          <div class="save">
-            <i class="far fa-heart"></i>
-            <span>Save</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <details-header :stay="stay"/>
     <div class="details-gallery">
-      <img :src="stay.imgUrls.main" />
-      <div>
-        <div>
-          <img :src="stay.imgUrls.topL" />
-          <img :src="stay.imgUrls.topR" />
-        </div>
-        <div>
-          <img :src="stay.imgUrls.btmL" />
-          <img :src="stay.imgUrls.btmR" />
-        </div>
-      </div>
+      <img v-for="(img, idx) in stay.imgUrls" :key="idx" :src="img.url" />
     </div>
   </section>
 </template>
 
 <script>
+import detailsHeader from "../cmps/details-header.vue";
 //  TODO:import stayservice
 export default {
+  components: { detailsHeader },
   data() {
     return {
       stay: {
         _id: "101",
         name: "Ribeira Charming Duplex",
-        imgUrls: {
-          main: require("../assets/img/stays/new_york/1/1.png"),
-          topL: require("../assets/img/stays/new_york/1/2.png"),
-          topR: require("../assets/img/stays/new_york/1/3.png"),
-          btmL: require("../assets/img/stays/new_york/1/4.png"),
-          btmR: require("../assets/img/stays/new_york/1/4.png"),
-        },
+        imgUrls: [
+          {
+            url: require("../assets/img/stays/new_york/1/1.png"),
+          },
+          {
+            url: require("../assets/img/stays/new_york/1/2.png"),
+          },
+          {
+            url: require("../assets/img/stays/new_york/1/3.png"),
+          },
+          {
+            url: require("../assets/img/stays/new_york/1/4.png"),
+          },
+          {
+            url: require("../assets/img/stays/new_york/1/4.png"),
+          },
+        ],
         price: 350.0,
         summary:
           "Fantastic studio apartment with three bedrooms, located in Manhattan",

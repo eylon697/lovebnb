@@ -1,31 +1,23 @@
 @mixin layout-columns($Width: 960px) {
-    grid-template-columns:
-        minmax(2rem, 1fr)
-        minmax(auto, $Width)
-        minmax(2rem, 1fr);
+    grid-template-columns: minmax(2rem, 1fr) minmax(auto, $Width) minmax(2rem, 1fr);
 }
 
 .main-layout {
     display: grid;
     grid-template-columns: 2rem 1fr 2rem;
     grid-auto-flow: dense;
-
-    > * {
+    >* {
         grid-column: 2;
     }
-
-    > .full {
+    >.full {
         grid-column: 1 / -1;
     }
-
     @include for-narrow-layout {
         @include layout-columns($break-narrow);
     }
-    
     @include for-normal-layout {
         @include layout-columns($break-normal);
     }
-    
     @include for-wide-layout {
         @include layout-columns($break-wide);
     }

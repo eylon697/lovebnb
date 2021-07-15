@@ -1,5 +1,5 @@
 <template>
-  <form class="stay-filter">
+  <form class="stay-filter ">
     <div class="first">
       <label class="location">
         <div>

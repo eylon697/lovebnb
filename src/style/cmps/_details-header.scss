@@ -1,0 +1,20 @@
+.details-header {
+    margin-bottom: 20px;
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        .right {
+            display: flex;
+            div {
+                display: flex;
+                &:first-child {
+                    margin-inline-end: 20px;
+                }
+                i {
+                    margin-inline-end: 10px;
+                    margin-block-start: 2px;
+                }
+            }
+        }
+    }
+} // HEADER END

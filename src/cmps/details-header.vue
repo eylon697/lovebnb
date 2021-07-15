@@ -1,0 +1,37 @@
+<template>
+  <div class="details-header">
+    <div class="title">
+      <span>{{ stay.name }}</span>
+    </div>
+    <div class="bottom">
+      <div class="left">
+        <i class="fas fa-star"></i>
+        <span> {{ stay.rateAvg }} </span>
+        <span>(</span>
+        <router-link :to="'/stay/' + stay._id + '/reviews'">
+          <span>{{ stay.reviews.length }} </span>
+          <span>reviews</span>
+        </router-link>
+        <span>)</span>
+        <span> &#8226; </span>
+        <router-link to="/">{{ stay.loc.address }}</router-link>
+      </div>
+      <div class="right">
+        <div class="share">
+          <i class="fas fa-share"></i>
+          <span>Share</span>
+        </div>
+        <div class="save">
+          <i class="far fa-heart"></i>
+          <span>Save</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: { stay: Object },
+};
+</script>

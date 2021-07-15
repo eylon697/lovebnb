@@ -1,0 +1,43 @@
+.stay-preview {
+    margin-left: 10px;
+    display: flex;
+    border-top: 1px $clr1 solid;
+    margin-bottom: 20px;
+    
+    button{
+        border:unset
+    }
+    
+    img {
+        margin-top: 20px;
+        border-radius: 10px;
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+    }
+    .middle {
+        margin-top: 20px;
+        margin-left: 20px;
+        @include column;
+        .rate{
+        font-weight: bold;
+        }
+        .fas {
+            color: $clr3;
+        }
+    }
+
+    .right{
+        @include column;
+        button{
+            border: unset;
+            .far {
+               font-size: 1.5rem;
+            }
+        }
+        .price{
+            font-weight: bold;
+    
+        }
+    }
+}

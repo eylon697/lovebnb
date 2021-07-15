@@ -5,6 +5,7 @@
       <div class="logo">
         <span><i class="fab fa-airbnb"></i> </span> 
         <!-- <img :src="require('@/assets/img/app-header/logo.png')" /> -->
+                <!-- <router-link to="/"><span><i class="fab fa-airbnb"></i> </span><span>lovebnb</span></router-link> -->
         <span>lovebnb</span>
       </div>
 

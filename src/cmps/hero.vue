@@ -1,5 +1,5 @@
 <template>
-<section class="hero">
+<section class="hero full">
 
 
 </section>

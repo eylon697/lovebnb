@@ -4,7 +4,7 @@
     <div class="items-container">
       <div v-for="(item, idx) in list.items" :key="idx">
         <div clas="card-explore">
-          <router-link to="/"> <img :src="item.imgUrl" /></router-link>
+          <router-link to="/stay"> <img :src="item.imgUrl" /></router-link>
           <h4>{{ item.title }}</h4>
         </div>
       </div>

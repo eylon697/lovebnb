@@ -7,10 +7,8 @@
     }
     .items-container {
         @include center;
-        height: 50vh;
         display: flex;
         gap: 20px;
-        margin-top: 20px;
         h4 {
             color:$clr5;
             // @include center;

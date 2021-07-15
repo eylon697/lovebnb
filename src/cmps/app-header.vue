@@ -1,5 +1,5 @@
 <template>
-  <header class="app-header">
+  <header class="app-header main-layout">
     <!-- START OF MAIN LAYOUT -->
     <div class="top">
       <div class="logo">

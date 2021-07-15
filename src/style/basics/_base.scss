@@ -9,3 +9,8 @@ html {
     color: $clr5;
     max-width: 100vw;
 }
+
+#app{//  stay filter down
+    display: flex;
+    flex-direction: column;
+}

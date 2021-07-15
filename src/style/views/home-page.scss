@@ -1,18 +1,87 @@
-.home-page{
-    min-height: 90vh;
-    .explore-nature{
+.home-page {
+    // min-height: 90vh;
+    flex-grow: 1;
+    .explore-nature {
+        background-image: url(~@/assets/img/home-page/nature.png);
+        background-position:50%;
+        background-size: cover;
+        position: relative;
+        border-radius: 10px;;
+        width: 85%;
+        height:360px;
+        margin: 0 auto;
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transform: translateY(-50%);
+            position: absolute;
+            top: 50%;
+            left: 30px;
+    }
+    .router{
+        color: $clr5
+    }
+    button{
+        background-color: $clr5;
+        color:$clr2;
+        border-radius: 5px;
+        border: unset;
+        width: 6rem;
+        height: 2rem;
+    }
+}
+
+    .join-host {
+        background-image: url(~@/assets/img/home-page/host.png);
+        border-radius: 10px;;
+        margin-top:20px ;
+        // width: 80vh;
         @include center;
-        margin-top: 80px;
-        img{
-            border-radius: 10px;
-            // width: 900px;
-            // position: absolute;
-            // left: 0px;
-            // right: 0px;
-            // object-fit: cover;
-            // object-position: 50% 50%;
-            // vertical-align: bottom;
+        color: $clr2;
+        p {
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: 2.5rem;
+        }
+    
+        // .imgs {
+        //     height: unset;
+        //     display: grid;
+        //     gap: 15px;
+        //     grid-template-columns: 1fr 1fr;
+        //     grid-template-rows: 190px 190px;
+        //     .img1 {
+        //         grid-column: 2/span 1;
+        //         grid-row: 1/span 1;
+        //     }
+        //     .img2 {
+        //         grid-column: 2 / span 1;
+        //         grid-row: 1 / span 1;
+        //     }
+        //     .img3 {
+        //         grid-column: 1/span 2;
+        //         grid-row: 2/span 1;
+        //     }
+        //     }
+        
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #1e1e1e;
+            color: snow;
+            border-color: snow;
+            font-weight: bolder;
+            align-self: flex-end;
+            border-radius: 2rem;
+            border: 1px solid $clr1;
         }
     }
-   
+    .outdoors{
+        border-radius: 10px;
+        width: 100%;
+        cursor: pointer;
+    }
 }

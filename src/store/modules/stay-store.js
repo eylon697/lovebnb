@@ -3,12 +3,17 @@ export const stayStore = {
     strict: true,
     state: {
         stays: [],
-        currstay: null
+        currstay: null,
     },
+    getters: {
+		stays(state) {
+			return state.stays
+		},
+	
+	},
     actions: {
-        loadStay(){
+        
 
-        },
         saveStay(){
 
         },

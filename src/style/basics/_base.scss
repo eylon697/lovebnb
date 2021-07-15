@@ -8,3 +8,8 @@
 html {
     max-width: 100vw;
 }
+
+#app{//  stay filter down
+    display: flex;
+    flex-direction: column;
+}

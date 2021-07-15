@@ -10,7 +10,7 @@
         </div>
       </label>
       <div class="sep"></div>
-      <!-- <label class="check-in">
+      <label class="check-in">
         <div>
           <div>
             <div>Check in</div>
@@ -26,8 +26,7 @@
             <input type="date" />
           </div>
         </div>
-      </label> -->
-      
+      </label>
       <div class="sep"></div>
       <label class="guests">
         <div>

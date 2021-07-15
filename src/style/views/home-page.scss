@@ -3,12 +3,13 @@
     flex-grow: 1;
     .explore-nature {
         background-image: url(~@/assets/img/home-page/nature.png);
-        background-position:50%;
+        background-position: bottom;
         background-size: cover;
         position: relative;
-        border-radius: 10px;;
-        width: 85%;
-        height:360px;
+        border-radius: 10px;
+        ;
+        width: 60%;
+        height: 360px;
         margin: 0 auto;
         .info {
             display: flex;
@@ -18,24 +19,24 @@
             position: absolute;
             top: 50%;
             left: 30px;
+        }
+        .router {
+            color: $clr5
+        }
+        button {
+            background-color: $clr5;
+            color: $clr2;
+            border-radius: 5px;
+            border: unset;
+            width: 6rem;
+            height: 2rem;
+        }
     }
-    .router{
-        color: $clr5
-    }
-    button{
-        background-color: $clr5;
-        color:$clr2;
-        border-radius: 5px;
-        border: unset;
-        width: 6rem;
-        height: 2rem;
-    }
-}
-
     .join-host {
         background-image: url(~@/assets/img/home-page/host.png);
-        border-radius: 10px;;
-        margin-top:20px ;
+        border-radius: 10px;
+        ;
+        margin-top: 20px;
         // width: 80vh;
         @include center;
         color: $clr2;
@@ -45,7 +46,6 @@
         h2 {
             font-size: 2.5rem;
         }
-    
         // .imgs {
         //     height: unset;
         //     display: grid;
@@ -65,8 +65,6 @@
         //         grid-row: 2/span 1;
         //     }
         //     }
-        
-
         button {
             padding: 10px;
             cursor: pointer;
@@ -79,7 +77,7 @@
             border: 1px solid $clr1;
         }
     }
-    .outdoors{
+    .outdoors {
         border-radius: 10px;
         width: 100%;
         cursor: pointer;

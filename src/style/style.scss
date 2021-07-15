@@ -5,10 +5,11 @@
 // BASICS
 @import 'basics/base';
 //VIEWS
-@import 'views/home-page.scss';
+@import 'views/home-page';
+@import 'views/stay-details';
 // COMPONENTS
 @import 'cmps/app-header';
 @import 'cmps/hero';
 @import 'cmps/app-footer';
-@import 'cmps/stay-filter.scss';
-@import 'cmps/explore-list.scss';
+@import 'cmps/stay-filter';
+@import 'cmps/explore-list';

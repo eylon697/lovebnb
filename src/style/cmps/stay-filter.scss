@@ -3,29 +3,45 @@
     font-size: .75rem;
     display: flex;
     align-items: center;
-    background-color: #fff;
+    width: fit-content;
+    background-color: #ffffff;
+    padding-inline-end: 8px;
+    .first {
+        border-radius: 40px;
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+    }
     .sep {
         width: 1px;
         height: 32px;
         background-color: #eaeaea;
     }
-    .location {
-        &>div {
-            padding: 14px 32px;
+    .location>div {
+        padding: 14px 32px;
+        div {
             min-width: 95px;
+            max-width: 203px;
         }
     }
     .check-in,
     .check-out {
         &>div {
-            min-width: 100px;
             padding: 14px 24px;
+            div {
+                min-width: 100px;
+                max-width: 130px;
+            }
         }
     }
     .guests {
         &>div {
             padding: 14px 24px;
-            min-width: 95px
+            min-width: 95px;
+            div {
+                min-width: 95px;
+                max-width: 121px;
+            }
         }
     }
     input {
@@ -33,7 +49,7 @@
         border: unset;
         width: 100%;
         background: none;
-        font-weight: 600;
+        font-family: Roboto;
         color: #222222;
         text-overflow: ellipsis;
         line-height: 1.125rem;
@@ -46,16 +62,24 @@
         display: flex;
         flex-direction: column;
         &>div>div {
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: 0.04em;
             font-size: 12px;
             line-height: 16px;
             padding-bottom: 2px;
         }
     }
-    .btn-search {
+    button {
+        justify-self: flex-end;
+        margin-top: 1px;
+        font-size: 16px;
+        color: $clr2;
         background-color: $clr3;
         border: unset;
-        border-radius: 30px;
+        // height: 49px;
+        // width: 49px;
+        padding: 16px 17px;
+        border-radius: 100px;
+        box-sizing: border-box;
     }
 }

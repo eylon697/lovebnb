@@ -3,8 +3,9 @@
     <!-- START OF MAIN LAYOUT -->
     <div class="top">
       <div class="logo">
-        <h1>Logo</h1>
+        <span><i class="fab fa-airbnb"></i> </span> 
         <!-- <img :src="require('@/assets/img/app-header/logo.png')" /> -->
+        <span>lovebnb</span>
       </div>
 
       <div class="middle">
@@ -29,7 +30,7 @@
         <!-- <button><img src="" alt=""></button>  -->
       </div>
     </div>
-    <div>
+    <div class="bottom">
       <stay-filter />
     </div>
     <!-- END OF MAIN LAYOUT -->
@@ -38,6 +39,7 @@
 <script>
 import stayFilter from "../cmps/stay-filter.vue";
 export default {
+  
   components: {
     stayFilter,
   },

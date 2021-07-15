@@ -1,5 +1,5 @@
 <template>
-  <section class="explore-list">
+  <section class="explore-list main-layout">
     <h5 class="headeline">{{ list.headline }}</h5>
     <div class="items-container">
       <div v-for="(item, idx) in list.items" :key="idx">

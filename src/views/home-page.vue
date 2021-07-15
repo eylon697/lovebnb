@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <div class="home-page main-layout">
     <hero></hero>
     <!-- <explore-list :list="{ headline: 'Explore nearby', items: nearStay }" /> -->
     <explore-list :list="{ headline: 'Live anywhere', items: categories }" />
@@ -20,23 +20,25 @@
       </router-link>
     </div>
 
-    <section class="join-host">
+    <section class="join-host main-layout">
       <div>
         <h2>Join our hosts</h2>
         <p>
-          No matter what kind of home or room you want to share, lovebnb makes
-          it simple and secure to host travelers. You’re in full control of your
-          availability, prices, house rules, and how you interact with guests.
+          No matter what kind of home or room you want to share, Lovebnb makes it
+          simple and secure to host travelers. 
         </p>
-        <p>
-          There's no cost to sign up. lovebnb generally charges hosts a flat 3%
+        <p>You’re in full control of your
+          availability, prices, house rules, and how you interact with guests.</p>
+        <!-- <p>
+          There's no cost to sign up. MiCasa generally charges hosts a flat 3%
           per reservation, among the lowest fees in the industry.
         </p>
         <p>
           We have your back to keep you, your home, and your belongings safe. We
           cover every booking with $ 1M USD in property damage protection and
           another $ 1M USD in insurance against accidents.
-        </p>
+        </p> -->
+        <p></p>
         <button>Join now</button>
       </div>
       <!-- <div class="imgs">

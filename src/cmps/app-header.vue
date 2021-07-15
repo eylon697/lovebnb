@@ -3,7 +3,10 @@
     <!-- START OF MAIN LAYOUT -->
     <div class="top">
       <div class="logo">
-        <i class="fab fa-airbnb"></i>
+        <router-link to="/">
+          <i class="fab fa-airbnb"></i>
+          <span>lovebnb</span>
+        </router-link>
         <span>lovebnb</span>
       </div>
 
@@ -47,7 +50,7 @@ export default {
       classObject: {
         "app-header": true,
         "main-layout": true,
-        fixed: this.fixedStyle
+        fixed: this.fixedStyle,
       },
     };
   },

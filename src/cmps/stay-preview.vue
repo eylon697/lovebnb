@@ -1,10 +1,52 @@
 <template>
- <section class="stay-preview">
-         
-<!-- <el-carousel class="img-carousell"  trigger="click" height="170px" arrow="always"  :autoplay='false' :loop='false'
->
-      <el-carousel-item v-for="(imgUrl,idx) in stay.imgUrls" :key="idx">
-              <img :src="require(`@/assets/img/stays/${stay.loc.countryCode}/${}/${}`)" @click=" -->
+  <section class="stay-preview">
+    <!-- <el-carousel class="img-carousell"  trigger="click" height="170px" arrow="always"  :autoplay='false' :loop='false'
+> 
+     <el-carousel-item v-for="(imgUrl,idx) in stay.imgUrls" :key="idx">
+        <img :src="require(`@/assets/img/stays/new_york/1/${imgUrl}`)" @click=" goToDetails(stay._id)">
+      </el-carousel-item>
+    </el-carousel>  -->
+    <button @click=" goToDetails(stay._id)">
+    <img :src="require(`@/assets/img/stays/new_york/1/1.png`)" />
+    </button>
 
- </section>
+    <div class="middle">
+      <h1>{{ stay.name }}</h1>
+      <!-- <div v-for="(item, idx) in stay.items" :key="idx"></div> -->
+      <p>{{ stay.amenities }}</p>
+
+      <div class="card-rating">
+        <span><i class="fas fa-star"></i></span>
+        <span class="rate"> {{ stay.rateAvg }} </span>
+        <span>(</span>
+
+        <span>{{ stay.reviews.legnth }}</span>
+        <span>reviews)</span>
+      </div>
+    </div>
+    <div class="right">
+      <button><i class="far fa-heart"></i></button>
+      <div>
+        <span class="price">{{ stay.price }}$ </span>/ night
+      </div>
+    </div>
+
+    <!-- <div class="card-location">{{stay.loc.country}} - {{stay.propertyType}}</div> -->
+    <router-link to="/">
+      <!-- // TODO: route to reviews page -->
+    </router-link>
+  </section>
 </template>
+
+<script>
+export default {
+  props: {
+    stay: Object,
+  },
+  methods: {
+    goToDetails(stayId) {
+      this.$router.push(`/stay/${stayId}`);
+    },
+  },
+};
+</script>

@@ -1,19 +1,18 @@
 .explore-list {
+    margin-bottom: 20px;
     h5 {
         color: $clr5;
         font-size: 2rem;
-        margin: 40px;
         font-family: Roboto;
+        margin-bottom: 20px;
     }
     .items-container {
-        @include center;
         display: flex;
         gap: 20px;
         h4 {
             color: $clr5;
             // @include center;
             font-size: 1.125rem;
-            font-family: Avenir;
             font-family: Roboto;
         }
         img {

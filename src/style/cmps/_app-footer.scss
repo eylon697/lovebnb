@@ -1,7 +1,22 @@
-.app-footer{
-  // height: 10vh;
+.app-footer {
   background-color: $clr4;
-  @include center;
-  justify-content: space-between;
- 
+  .footer-container {
+    height: 10vh;
+    .footer-inner-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    a {
+      display: inline-block;
+    }
+    i {
+      margin-inline-end: 9px;
+      font-size: 1.5rem;
+      &.fa-facebook-f {
+        font-size: 1.2rem;
+        padding-bottom: 100px;
+      }
+    }
+  }
 }

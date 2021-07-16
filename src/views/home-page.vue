@@ -24,11 +24,13 @@
       <div>
         <h2>Join our hosts</h2>
         <p>
-          No matter what kind of home or room you want to share, Lovebnb makes it
-          simple and secure to host travelers. 
+          No matter what kind of home or room you want to share, Lovebnb makes
+          it simple and secure to host travelers.
         </p>
-        <p>You’re in full control of your
-          availability, prices, house rules, and how you interact with guests.</p>
+        <p>
+          You’re in full control of your availability, prices, house rules, and
+          how you interact with guests.
+        </p>
         <!-- <p>
           There's no cost to sign up. MiCasa generally charges hosts a flat 3%
           per reservation, among the lowest fees in the industry.
@@ -110,12 +112,10 @@ export default {
       ],
     };
   },
+  //TODO: EVENT BUS
   methods: {
-    //TODO: EVENT BUS
-    methods: {
-      setHeaderFixedStyle(val) {
-        this.$emit("setHeaderFixedStyle", val);
-      },
+    setHeaderFixedStyle(val) {
+      this.$emit("setHeaderFixedStyle", val);
     },
   },
   created() {

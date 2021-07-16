@@ -24,7 +24,7 @@
           <router-link to="/">Become a host</router-link>
         </nav>
         <div class="preference">
-          <i class="fas fa-bars"></i>
+         <i class="fas fa-bars"></i>
           <button class="btn-user">
             <img :src="require('@/assets/img/app-header/user.png')" />
           </button>

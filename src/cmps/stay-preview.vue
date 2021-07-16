@@ -1,16 +1,16 @@
 <template>
-  <section class="stay-preview">
+  <section class="stay-preview"  @click="goToDetails(stay._id)">
     <!-- <el-carousel class="img-carousell"  trigger="click" height="170px" arrow="always"  :autoplay='false' :loop='false' -->
 <!-- >  -->
      <!-- <el-carousel-item v-for="(imgUrl,idx) in stay.imgUrls" :key="idx">
-        <img :src="require(`@/assets/img/stays/new_york/1/${imgUrl}`)" @click=" goToDetails(stay._id)">
+        <img :src="require(`@/assets/img/stays/#ffffff/1/${imgUrl}`)" @click=" goToDetails(stay._id)">
       </el-carousel-item>
     </el-carousel>  -->
     
     <div class="left">
 
     <button @click="goToDetails(stay._id)">
-      <img :src="require(`@/assets/img/stays/new_york/1/1.png`)" />
+      <!-- <img :src="require(`@/assets/img/stays/new_york/1/1.png`)" /> -->
     </button>
 
     <div class="middle">

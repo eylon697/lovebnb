@@ -4,7 +4,7 @@ const gStays = [{
         _id: "101",
         name: "Ribeira Charming Duplex",
         imgUrls: [{
-                url: require(`@/assets/img/stays/101/1.png`),
+                url: require(`../assets/img/stays/101/1.png`),
             },
             {
                 url: require(`../assets/img/stays/101/2.png`),
@@ -28,7 +28,7 @@ const gStays = [{
         beds: 2,
         baths: 1,
         amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
-        host: { _id: "51399391", fullName: "Davit Pok", imgUrl: "img.jpg" },
+        host: { _id: "51399391", fullName: "Davit Pok", imgUrl: require('../assets/img/user/1.png') },
         loc: {
             country: "New York",
             countryCode: "NY",
@@ -45,7 +45,7 @@ const gStays = [{
             by: {
                 _id: "u102",
                 fullname: "user2",
-                imgUrl: require("@/assets/img/app-header/user.png"),
+                imgUrl: require("../assets/img/user/1.png"),
             },
         }, ],
     },
@@ -77,7 +77,7 @@ const gStays = [{
         beds: 2,
         baths: 1,
         amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
-        host: { _id: "51399391", fullName: "Davit Pok", imgUrl: "img.jpg" },
+        host: { _id: "51399391", fullName: "Davit Pok", imgUrl: require('../assets/img/user/1.png') },
         loc: {
             country: "New York",
             countryCode: "NY",
@@ -94,7 +94,7 @@ const gStays = [{
             by: {
                 _id: "u102",
                 fullname: "user2",
-                imgUrl: require("@/assets/img/app-header/user.png"),
+                imgUrl: require("../assets/img/user/1.png"),
             },
         }, ],
     },
@@ -126,7 +126,7 @@ const gStays = [{
         beds: 2,
         baths: 1,
         amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
-        host: { _id: "51399391", fullName: "Davit Pok", imgUrl: "img.jpg" },
+        host: { _id: "51399391", fullName: "Davit Pok", imgUrl: require('../assets/img/user/1.png') },
         loc: {
             country: "New York",
             countryCode: "NY",
@@ -143,14 +143,15 @@ const gStays = [{
             by: {
                 _id: "u102",
                 fullname: "user2",
-                imgUrl: require("@/assets/img/app-header/user.png"),
+                imgUrl: require("../assets/img/user/1.png"),
             },
         }, ],
     },
 ]
 
 export const stayService = {
-    query
+    query,
+    getById
 }
 
 const STAY_KEY = 'stays'
@@ -162,4 +163,8 @@ async function query() {
         return gStays
     }
     return staysInStorage
+}
+
+async function getById(stayId) {
+    return await storageService.get(STAY_KEY, stayId)
 }

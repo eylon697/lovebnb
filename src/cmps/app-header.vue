@@ -1,15 +1,14 @@
 <template>
   <header :class="classObject">
     <!-- START OF MAIN LAYOUT -->
+
     <div class="top">
       <div class="logo">
         <router-link to="/">
           <i class="fab fa-airbnb"></i>
           <span>lovebnb</span>
         </router-link>
-        <span>lovebnb</span>
       </div>
-
       <div class="middle">
         <div>Place to stay</div>
         <div class="sep"></div>
@@ -24,7 +23,7 @@
           <router-link to="/">Become a host</router-link>
         </nav>
         <div class="preference">
-         <i class="fas fa-bars"></i>
+          <i class="fas fa-bars"></i>
           <button class="btn-user">
             <img :src="require('@/assets/img/app-header/user.png')" />
           </button>

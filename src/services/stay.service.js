@@ -1,165 +1,165 @@
-import {storageService} from './async-storage.service.js'
+import { storageService } from './async-storage.service.js'
 
-const gStays=[
-  {
-    _id: "101",
-    name: "Ribeira Charming Duplex",
-    // imgUrls: ['1.png', '2.png', '3.png', '4.png', '5.png'],
-    imgUrls: [
-      {
-        url: require("../assets/img/stays/new_york/1/1.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/2.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/3.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/4.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/4.png"),
-      },
-    ],
-    price: 350.0,
-    summary:
-      "Fantastic studio apartment with three bedrooms, located in Manhattan",
-    propertyType: "House",
-    accommodates: 2,
-    amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
-    host: { _id: "51399391", fullName: "Davit Pok", imgUrl: "img.jpg" },
-    loc: {
-      country: "New York",
-      countryCode: "NY",
-      address: "Manhattan, New York",
-      lat: 40.73061,
-      lng: -73.935242,
-    },
-    rateAvg: 4.95,
-    reviews: [
-      {
-        id: "madeId",
-        txt: "Very helpful hosts. Cooked traditional...",
-        rate: 4,
-        by: {
-          _id: "u102",
-          fullname: "user2",
-          imgUrl: require("../assets/img/user/1.png"),
+const gStays = [{
+        _id: "101",
+        name: "Ribeira Charming Duplex",
+        imgUrls: [{
+                url: require(`@/assets/img/stays/101/1.png`),
+            },
+            {
+                url: require(`../assets/img/stays/101/2.png`),
+            },
+            {
+                url: require(`../assets/img/stays/101/3.png`),
+            },
+            {
+                url: require(`../assets/img/stays/101/4.png`),
+            },
+            {
+                url: require(`../assets/img/stays/101/5.png`),
+            },
+        ],
+        price: 350.0,
+        summary: "Fantastic studio apartment with three bedrooms, located in Manhattan",
+        propertyType: "House",
+        accommodates: 2,
+        guests: 4,
+        bedrooms: 2,
+        beds: 2,
+        baths: 1,
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
+        host: { _id: "51399391", fullName: "Davit Pok", imgUrl: "img.jpg" },
+        loc: {
+            country: "New York",
+            countryCode: "NY",
+            address: "Manhattan, New York",
+            lat: 40.73061,
+            lng: -73.935242,
         },
-      },
-    ],
-  },
-  {
-    _id: "102",
-    name: "Ribeira Charming Duplex",
-    imgUrls: [
-      {
-        url: require("../assets/img/stays/new_york/1/1.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/2.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/3.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/4.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/4.png"),
-      },
-    ],
-    price: 350.0,
-    summary:
-      "Fantastic studio apartment with three bedrooms, located in Manhattan",
-    propertyType: "House",
-    accommodates: 2,
-    amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
-    host: { _id: "51399391", fullName: "Davit Pok", imgUrl: "img.jpg" },
-    loc: {
-      country: "New York",
-      countryCode: "NY",
-      address: "Manhattan, New York",
-      lat: 40.73061,
-      lng: -73.935242,
+        rateAvg: 4.95,
+        reviews: [{
+            id: "asd45",
+            txt: "Very helpful hosts. Cooked traditional...",
+            rate: 4,
+            at: 1626430025442,
+            by: {
+                _id: "u102",
+                fullname: "user2",
+                imgUrl: require("@/assets/img/app-header/user.png"),
+            },
+        }, ],
     },
-    rateAvg: 4,
-    reviews: [
-      {
-        id: "madeId",
-        txt: "Very helpful hosts. Cooked traditional...",
-        rate: 4,
-        by: {
-          _id: "u102",
-          fullname: "Tal",
-          imgUrl:  require("../assets/img/user/2.png"),
+    {
+        _id: "102",
+        name: "Ribeira Charming Duplex",
+        imgUrls: [{
+                url: require(`../assets/img/stays/102/1.png`),
+            },
+            {
+                url: require(`../assets/img/stays/102/2.png`),
+            },
+            {
+                url: require(`../assets/img/stays/102/3.png`),
+            },
+            {
+                url: require(`../assets/img/stays/102/4.png`),
+            },
+            {
+                url: require(`../assets/img/stays/102/5.png`),
+            },
+        ],
+        price: 350.0,
+        summary: "Fantastic studio apartment with three bedrooms, located in Manhattan",
+        propertyType: "House",
+        accommodates: 2,
+        guests: 4,
+        bedrooms: 2,
+        beds: 2,
+        baths: 1,
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
+        host: { _id: "51399391", fullName: "Davit Pok", imgUrl: "img.jpg" },
+        loc: {
+            country: "New York",
+            countryCode: "NY",
+            address: "Manhattan, New York",
+            lat: 40.73061,
+            lng: -73.935242,
         },
-      },
-    ],
-  },
-  {
-    _id: "103",
-    name: "Ribeira Charming Duplex",
-    imgUrls: [
-      {
-        url: require("../assets/img/stays/new_york/1/1.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/2.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/3.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/4.png"),
-      },
-      {
-        url: require("../assets/img/stays/new_york/1/4.png"),
-      },
-    ],
-    price: 350.0,
-    summary:
-      "Fantastic studio apartment with three bedrooms, located in Manhattan",
-    propertyType: "House",
-    accommodates: 2,
-    amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
-    host: { _id: "51399391", fullName: "Davit Pok", imgUrl: "img.jpg" },
-    loc: {
-      country: "New York",
-      countryCode: "NY",
-      address: "Manhattan, New York",
-      lat: 40.73061,
-      lng: -73.935242,
+        rateAvg: 4.95,
+        reviews: [{
+            id: "asd45",
+            txt: "Very helpful hosts. Cooked traditional...",
+            rate: 4,
+            at: 1626430025442,
+            by: {
+                _id: "u102",
+                fullname: "user2",
+                imgUrl: require("@/assets/img/app-header/user.png"),
+            },
+        }, ],
     },
-    rateAvg: 4,
-    reviews: [
-      {
-        id: "madeId",
-        txt: "Very helpful hosts. Cooked traditional...",
-        rate: 4,
-        by: {
-          _id: "u102",
-          fullname: "Or",
-          imgUrl: "/img/img2.jpg",
+    {
+        _id: "103",
+        name: "Ribeira Charming Duplex",
+        imgUrls: [{
+                url: require(`../assets/img/stays/103/1.png`),
+            },
+            {
+                url: require(`../assets/img/stays/103/2.png`),
+            },
+            {
+                url: require(`../assets/img/stays/103/3.png`),
+            },
+            {
+                url: require(`../assets/img/stays/103/4.png`),
+            },
+            {
+                url: require(`../assets/img/stays/103/5.png`),
+            },
+        ],
+        price: 350.0,
+        summary: "Fantastic studio apartment with three bedrooms, located in Manhattan",
+        propertyType: "House",
+        accommodates: 2,
+        guests: 4,
+        bedrooms: 2,
+        beds: 2,
+        baths: 1,
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
+        host: { _id: "51399391", fullName: "Davit Pok", imgUrl: "img.jpg" },
+        loc: {
+            country: "New York",
+            countryCode: "NY",
+            address: "Manhattan, New York",
+            lat: 40.73061,
+            lng: -73.935242,
         },
-      },
-    ],
-  }
-      
+        rateAvg: 4.95,
+        reviews: [{
+            id: "asd45",
+            txt: "Very helpful hosts. Cooked traditional...",
+            rate: 4,
+            at: 1626430025442,
+            by: {
+                _id: "u102",
+                fullname: "user2",
+                imgUrl: require("@/assets/img/app-header/user.png"),
+            },
+        }, ],
+    },
 ]
 
-export const stayService={
+export const stayService = {
     query
-} 
+}
 
-const STAY_KEY='stays'
+const STAY_KEY = 'stays'
 
- async function query(){
+async function query() {
     const staysInStorage = await storageService.query(STAY_KEY)
     if (!staysInStorage || !staysInStorage.length) {
-        storageService.postMany(STAY_KEY,gStays)
+        storageService.postMany(STAY_KEY, gStays)
         return gStays
     }
-    return staysInStorage 
+    return staysInStorage
 }

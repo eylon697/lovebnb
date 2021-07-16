@@ -1,5 +1,14 @@
 <template>
   <section class="stay-details main-layout">
+        <pre>
+
+      
+
+
+
+
+      
+    </pre>
     <details-header :stay="stay" />
     <div class="details-gallery">
       <img v-for="(img, idx) in stay.imgUrls" :key="idx" :src="img.url" />

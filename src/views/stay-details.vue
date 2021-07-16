@@ -14,7 +14,7 @@
 
 
 
-        
+
       </pre>
       <details-header :stay="stay" />
       <div class="details-gallery">

@@ -64,19 +64,19 @@ export default {
         name: "Ribeira Charming Duplex",
         imgUrls: [
           {
-            url: require("../assets/img/stays/new_york/1/1.png"),
+            url: require("../assets/img/stays/101/1.png"),
           },
           {
-            url: require("../assets/img/stays/new_york/1/2.png"),
+            url: require("../assets/img/stays/101/2.png"),
           },
           {
-            url: require("../assets/img/stays/new_york/1/3.png"),
+            url: require("../assets/img/stays/101/3.png"),
           },
           {
-            url: require("../assets/img/stays/new_york/1/4.png"),
+            url: require("../assets/img/stays/101/4.png"),
           },
           {
-            url: require("../assets/img/stays/new_york/1/4.png"),
+            url: require("../assets/img/stays/101/4.png"),
           },
         ],
         price: 350.0,

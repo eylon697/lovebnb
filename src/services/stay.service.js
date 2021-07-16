@@ -4,7 +4,7 @@ const gStays = [{
         _id: "101",
         name: "Ribeira Charming Duplex",
         imgUrls: [{
-                url: require(`@/assets/img/stays/101/1.png`),
+                url: require(`../assets/img/stays/101/1.png`),
             },
             {
                 url: require(`../assets/img/stays/101/2.png`),

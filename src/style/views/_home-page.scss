@@ -36,6 +36,8 @@
     .join-host {
         height:360px ;
         background-image: url(~@/assets/img/home-page/host.png);
+        background-repeat: no-repeat;
+        background-size: cover;
         border-radius: 10px;
         margin-bottom: 20px;
         color: $clr2;

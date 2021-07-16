@@ -2,10 +2,9 @@
 <template>
 	<section class="review-preview">
 		<section class="user">
-			<img src="@/assets/imgs/userImgs/.jpg" />
+			<img src="@/assets/img/user/1.png" />
 			<div>
 				<h2>{{ review.by.fullname }}</h2>
-				<p>{{ review.at | moment('from') }}</p>
 			</div>
 			<i class="el-icon-star-on"></i>
 			<p>
@@ -23,13 +22,3 @@ export default {
 	},
 }
 </script>
- "reviews": [{
-                "id": "madeId",
-                "txt": "Very helpful hosts. Cooked traditional...",
-                "rate": 4,
-                "by": {
-                    "_id": "u102",
-                    "fullname": "user2",
-                    "imgUrl": "/img/img2.jpg"
-                }
-            }]

@@ -3,10 +3,10 @@
     <div class="footer-container main-layout">
       <div class="footer-inner-container">
         <div>
-          <small> © 2021 Homebnb</small>
+          <small> © 2021 lovebnb</small>
         </div>
         <div class="social">
-          <a><i class="fab fa-facebook-f"></i></a>
+          <a><i class="fab fa-facebook-square"></i></a>
           <a><i class="fab fa-instagram"></i></a>
           <a><i class="fab fa-twitter"></i></a>
         </div>

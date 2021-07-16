@@ -4,6 +4,7 @@ const gStays=[
   {
     _id: "101",
     name: "Ribeira Charming Duplex",
+    // imgUrls: ['1.png', '2.png', '3.png', '4.png', '5.png'],
     imgUrls: [
       {
         url: require("../assets/img/stays/new_york/1/1.png"),
@@ -44,7 +45,7 @@ const gStays=[
         by: {
           _id: "u102",
           fullname: "user2",
-          imgUrl: "/img/img2.jpg",
+          imgUrl: require("../assets/img/user/1.png"),
         },
       },
     ],
@@ -91,8 +92,8 @@ const gStays=[
         rate: 4,
         by: {
           _id: "u102",
-          fullname: "user2",
-          imgUrl: "/img/img2.jpg",
+          fullname: "Tal",
+          imgUrl:  require("../assets/img/user/2.png"),
         },
       },
     ],
@@ -139,7 +140,7 @@ const gStays=[
         rate: 4,
         by: {
           _id: "u102",
-          fullname: "user2",
+          fullname: "Or",
           imgUrl: "/img/img2.jpg",
         },
       },

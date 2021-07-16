@@ -25,7 +25,7 @@
 import detailsHeader from "../cmps/details-header.vue";
 //  TODO:import stayservice
 export default {
-  components: { detailsHeader },
+  components: { detailsHeader},
   data() {
     return {
       stay: {

@@ -4,14 +4,18 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import '@/style/style.scss'
+import Element from 'element-ui'
+Vue.use(Element)
+import 'element-ui/lib/theme-chalk/index.css'
 
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-// library.add(faUserSecret)
 
-// Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+library.add(faUserSecret)
+
 
 Vue.config.productionTip = false
 

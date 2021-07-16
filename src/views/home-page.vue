@@ -58,11 +58,12 @@ import Hero from "../cmps/hero.vue";
 import exploreList from "../cmps/explore-list.vue";
 
 export default {
+  name:"homePage",
   data() {
     return {
       nearStay: [
         {
-          title: "Tel-Aviv",
+          title: "Tel Aviv",
           imgUrl: require("../assets/img/home-page/sky1.png"),
           time: "20 minute drive",
         },
@@ -85,7 +86,7 @@ export default {
       cities: [
         //list
         { title: "New York", imgUrl: require("../assets/img/home-page/1.png") }, //item
-        { title: "Tel-Aviv", imgUrl: require("../assets/img/home-page/2.png") },
+        { title: "Tel Aviv", imgUrl: require("../assets/img/home-page/2.png") },
         { title: "Paris", imgUrl: require("../assets/img/home-page/3.png") },
         {
           title: "Amsterdam",
@@ -119,11 +120,28 @@ export default {
     },
   },
   created() {
+      // window.addEventListener("scroll");//TODO:FUNCTION
+    
     this.setHeaderFixedStyle(true);
   },
   destroyedss() {
+    //  window.removeEventListener("scroll");//TODO:FUNCTION
     this.setHeaderFixedStyle(false);
   },
+  // methods:{
+    // TODO:FUNCTION SCROLL EVENT
+    // let scrollDiff = event.path[1].scrollY;
+    //   if (scrollDiff >= 1) {
+    //     this. = true;
+    //     this.$emit("", true);
+    //   } else if (scrollDiff < 1) {
+    //     this. = false;
+    //     this.$emit("", false);
+    //   }
+    
+
+  // },
+
   components: {
     Hero,
     exploreList,

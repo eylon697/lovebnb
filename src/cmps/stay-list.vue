@@ -5,13 +5,13 @@
       <h1>Stays in new York</h1>
       <!-- TODO:Dynamic title -->
       <!-- <h2>Stays in {{stays.loc.country}}</h2>  -->
-      <div class="filter">
+      <!-- <div class="filter">
         <button>Type of place</button>
         <button>Price</button>
         <button>Instant Book</button>
         <button>Rooms and beds</button>
         <button>Mora filter</button>
-      </div>
+      </div> -->
       <p>Review COVID-19 travel restrictions before you book. 
              <a class="covid" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019?adgroupsurvey={adgroupsurvey}&gclid=Cj0KCQjwub-HBhCyARIsAPctr7z1TnG-g4qSH8XfjvPoEXP_vNxL7VJMoZ4pSBcZudXisHg3-9sJXRwaArCAEALw_wcB">Learn more</a>
 </p>

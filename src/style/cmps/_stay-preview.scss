@@ -1,12 +1,9 @@
 .stay-preview {
-    margin-left: 10px;
+    cursor: pointer;
     display: flex;
-    border-top: 1px $clr1 solid;
-    margin-bottom: 15px;
-    justify-content: space-between;
-
-    button {
-        border: unset;
+    flex-direction: column;
+    .el-carousel__container {
+        width: 300px;
     }
 
     img {
@@ -15,45 +12,23 @@
         width: 300px;
         height: 200px;
         object-fit: cover;
-        cursor: pointer;
     }
-    .middle {
-        margin-left: 20px;
-        @include column;
-        .rate {
-            font-weight: bold;
-        }
-        .fas {
-            color: $clr3;
-        }
-        .line {
-            color: $clr1;
-            margin-bottom: 10px;
-        }
+    .fas {
+        color: $clr3;
     }
 
-    .right {
-        margin-top: 15px;
-        margin-bottom: 15px;
-        @include column;
-        button {
-            border: unset;
-            .far {
-                font-size: 1.5rem;
-                cursor: pointer;
-                // color: $clr3;
-              
-            }
-        }
-        .price {
-            font-weight: bold;
-        }
+    .rate {
+        font-weight: bold;
     }
-    .left {
-        @include center;
-        justify-content: space-between;
+
+    .price {
+        font-weight: bold;
+        display: flex;
     }
-}
-.changeColor{
-    color: $clr3;
+
+    .changeColor {
+        color: $clr3;
+    }
+    span{
+    }
 }

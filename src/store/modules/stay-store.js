@@ -6,6 +6,8 @@ export const stayStore = {
         stay: null,
         stays: [],
         currstay: null,
+        propertyType: ["Entire apartment","Hotel room"],
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
         filterBy: {
             cuntrey: null,
             propertyType: null,

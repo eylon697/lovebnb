@@ -1,7 +1,10 @@
 .stay-list{
-    margin-left: 20px;
-    margin-top: 150px;
-    // border-bottom:1px $clr1 solid; ;
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-left: 20px;
+    // margin-top: 150px;
+    // gap: 10px;
+  
     .covid {
         color: $clr5;
     }
@@ -16,9 +19,13 @@
     }
     .name{
      font-size: 1.625rem;
-    //  margin-bottom: 20px;
 }
 .amenities{
     margin-bottom: 20px;
+}
+.stay-preveiw-container{
+    display: flex;
+    // width: 300px;
+    // height: 300px;
 }
 }

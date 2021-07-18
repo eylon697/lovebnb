@@ -42,6 +42,17 @@
         <div></div>
       </div>
       <div></div>
+
+      <div class="reviews-container">
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <p class="total-rate">{{ stay.rateAvg }}</p>
+          <span class="sep"> ·</span>
+          <p>{{ stay.reviews.length }} reviews</p>
+        </div>
+        <review-list :reviews="stay.reviews" :stay="stay" />
+      </div>
+      
     </div>
     <div v-else>Loading</div>
   </section>
@@ -49,8 +60,9 @@
 
 <script>
 import detailsHeader from "../cmps/details-header.vue";
+import reviewList from "../cmps/reviews-list.vue";
 export default {
-  components: { detailsHeader },
+  components: { detailsHeader, reviewList },
   data() {
     return {
       stayId: this.$route.params.stayId,

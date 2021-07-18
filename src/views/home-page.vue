@@ -1,16 +1,13 @@
 <template>
   <div class="home-page main-layout">
     <hero></hero>
-    <!-- <explore-list :list="{ headline: 'Explore nearby', items: nearStay }" /> -->
     <explore-list :list="{ headline: 'Live anywhere', items: categories }" />
     <explore-list
       :list="{ headline: 'Inspiration destinations', items: cities }"
     />
 
-    <!-- <img class="outdoors" :src="require('@/assets/img/home-page/outdoors.png')"/> -->
     <div class="explore-nature">
       <router-link class="router" to="/">
-        <!-- <img :src="require('@/assets/img/home-page/nature.png')" /> -->
         <div class="info">
           <h1>The Greatest</h1>
           <h1>Outdoors</h1>
@@ -31,24 +28,10 @@
           You’re in full control of your availability, prices, house rules, and
           how you interact with guests.
         </p>
-        <!-- <p>
-          There's no cost to sign up. MiCasa generally charges hosts a flat 3%
-          per reservation, among the lowest fees in the industry.
-        </p>
-        <p>
-          We have your back to keep you, your home, and your belongings safe. We
-          cover every booking with $ 1M USD in property damage protection and
-          another $ 1M USD in insurance against accidents.
-        </p> -->
+
         <p></p>
         <button>Join now</button>
       </div>
-      <!-- <div class="imgs">
-        <img class="img1" :src="require('@/assets/img/app-header/user.png')" />
-        <img class="img2" :src="require('@/assets/img/app-header/user.png')" />
-        <img class="img3" :src="require('@/assets/img/app-header/user.png')" />
-      </div> -->
-      <!-- </div> -->
     </section>
   </div>
 </template>
@@ -58,57 +41,74 @@ import Hero from "../cmps/hero.vue";
 import exploreList from "../cmps/explore-list.vue";
 
 export default {
-  name:"homePage",
+  name: "homePage",
   data() {
     return {
       nearStay: [
         {
           title: "Tel Aviv",
-          imgUrl: require("../assets/img/home-page/sky1.png"),
+          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky1_tpnuc1.png',
           time: "20 minute drive",
         },
         {
           title: "Jerusalem",
-          imgUrl: require("../assets/img/home-page/sky2.png"),
+          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky3_aqyfl1.png',
           time: "1 hour drive",
         },
         {
           title: "Eilat",
-          imgUrl: require("../assets/img/home-page/sky3.png"),
+          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky2_owvvtf.png',
           time: "5 hour drive",
         },
         {
           title: "Natanya",
-          imgUrl: require("../assets/img/home-page/sky4.png"),
+          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605742/sky4_edkkdp.png',
           time: "30 minute drive",
         },
       ],
       cities: [
         //list
-        { title: "New York", imgUrl: require("../assets/img/home-page/1.png") }, //item
-        { title: "Tel Aviv", imgUrl: require("../assets/img/home-page/2.png") },
-        { title: "Paris", imgUrl: require("../assets/img/home-page/3.png") },
+        {
+          title: "New York",
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605743/1_xu7vkb.png",
+        }, //item
+        {
+          title: "Tel Aviv",
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605743/2_f22ew1.png",
+        },
+        {
+          title: "Paris",
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605743/3_tglg7t.png",
+        },
         {
           title: "Amsterdam",
-          imgUrl: require("../assets/img/home-page/4.png"),
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605744/4_k5iuuu.png",
         },
       ],
       categories: [
         {
           title: "Pets allowed",
-          imgUrl: require("../assets/img/home-page/dog.png"),
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605743/dog_dzplfv.png",
         },
         {
           title: "Entire home",
-          imgUrl: require("../assets/img/home-page/entire.png"),
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605743/entire_ifxdjz.png",
         },
         {
           title: "Uniqua stays",
-          imgUrl: require("../assets/img/home-page/unique.png"),
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605742/unique_zkoaaw.png",
         },
         {
           title: "Outdoor getaways",
-          imgUrl: require("../assets/img/home-page/outdoor.png"),
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605741/outdoor_c9jujb.png",
         },
       ],
     };
@@ -120,8 +120,8 @@ export default {
     },
   },
   created() {
-      // window.addEventListener("scroll");//TODO:FUNCTION
-    
+    // window.addEventListener("scroll");//TODO:FUNCTION
+
     this.setHeaderFixedStyle(true);
   },
   destroyedss() {
@@ -129,16 +129,15 @@ export default {
     this.setHeaderFixedStyle(false);
   },
   // methods:{
-    // TODO:FUNCTION SCROLL EVENT
-    // let scrollDiff = event.path[1].scrollY;
-    //   if (scrollDiff >= 1) {
-    //     this. = true;
-    //     this.$emit("", true);
-    //   } else if (scrollDiff < 1) {
-    //     this. = false;
-    //     this.$emit("", false);
-    //   }
-    
+  // TODO:FUNCTION SCROLL EVENT
+  // let scrollDiff = event.path[1].scrollY;
+  //   if (scrollDiff >= 1) {
+  //     this. = true;
+  //     this.$emit("", true);
+  //   } else if (scrollDiff < 1) {
+  //     this. = false;
+  //     this.$emit("", false);
+  //   }
 
   // },
 

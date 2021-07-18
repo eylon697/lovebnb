@@ -26,7 +26,8 @@ const gStays = [{
         guests: 4,
         bedrooms: 3,
         beds: 4,
-        baths: 1,
+        bathrooms: 1,
+        closedDates: [],
         amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
         host: { _id: "51399391", fullName: "David plicauco", imgUrl: require('../assets/img/user/1.png') },
         loc: {
@@ -51,7 +52,7 @@ const gStays = [{
     },
     {
         _id: "102",
-        name: "Ribeira Charming Duplex",
+        name: "Lovley place",
         imgUrls: [{
                 url: require(`../assets/img/stays/102/1.png`),
             },
@@ -75,7 +76,8 @@ const gStays = [{
         guests: 4,
         bedrooms: 2,
         beds: 2,
-        baths: 1,
+        bathrooms: 1,
+        closedDates: [],
         amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
         host: { _id: "51399391", fullName: "Davit Pok", imgUrl: require('../assets/img/user/1.png') },
         loc: {
@@ -119,16 +121,18 @@ const gStays = [{
         ],
         price: 350.0,
         summary: "Fantastic studio apartment with three bedrooms, located in Manhattan",
-        propertyType: "House",
+        propertyType: "miki",
         accommodates: 2,
         guests: 4,
         bedrooms: 2,
+
         beds: 2,
-        baths: 1,
+        bathrooms: 1,
+        closedDates: [],
         amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics"],
         host: { _id: "51399391", fullName: "Davit Pok", imgUrl: require('../assets/img/user/1.png') },
         loc: {
-            country: "New York",
+            country: "Israel",
             countryCode: "NY",
             address: "Manhattan, New York",
             lat: 40.73061,
@@ -157,8 +161,8 @@ export const stayService = {
 
 const STAY_KEY = 'stays'
 
-async function query() {
-    const staysInStorage = await storageService.query(STAY_KEY)
+async function query(filterBy) {
+    const staysInStorage = await storageService.queryfiltered(STAY_KEY, filterBy)
     if (!staysInStorage || !staysInStorage.length) {
         storageService.postMany(STAY_KEY, gStays)
         return gStays

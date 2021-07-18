@@ -1,6 +1,6 @@
 <template>
   <div class="details-header">
-    <div class="title">
+    <div v-if="stay" class="title">
       <span>{{ stay.name }}</span>
     </div>
     <div class="bottom">

@@ -3,15 +3,22 @@ export const stayStore = {
 
     strict: true,
     state: {
-        stay: null,
+        stay: '',
         stays: [],
-        currstay: null,
+        currstay: '',
         filterBy: {
-            cuntrey: null,
-            propertyType: null,
-            guests: null,
-            checkIn: null,
-            checkOut: null,
+            mainFilter: '',
+            country: '',
+            city: '',
+            propertyType: '',
+            guests: '',
+            checkIn: '',
+            checkOut: '',
+            minPrice: 0,
+            maxPrice: Infinity,
+            beds: 0,
+            bedrooms: 0,
+            bathrooms: 0
         }
     },
     getters: {
@@ -22,7 +29,7 @@ export const stayStore = {
             return state.stay
         },
         filterBy(state) {
-            return JSON.parse(JSON.stringify(state.filterBy))
+            return state.filterBy
         },
     },
     mutations: {
@@ -48,11 +55,11 @@ export const stayStore = {
                 throw err;
             }
         },
-        async loadStay({ commit }, { stayId }) {
+        async loadStay({ commit, state }, { stayId }) {
             try {
                 const stay = await stayService.getById(stayId)
                 commit({ type: 'setStay', stay })
-                console.log('Stay Loaded successfuly', stay)
+                console.log('Stay Loaded successfuly', state.stay)
             } catch (err) {
                 console.log('Cannot load stay', err);
                 throw err;

@@ -1,5 +1,5 @@
 <template>
-	<form class="filter" v-if="stays">
+	<form class="list-filter" v-if="stays">
 		<div class="type-filter">
 			<el-dropdown :hide-on-click="false">
 				<el-button

@@ -4,11 +4,12 @@ export const storageService = {
     post,
     put,
     remove,
-    postMany
+    postMany,
+    queryfiltered
 }
 
 function query(entityType, delay = 500) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || []
+    const entities = JSON.parse(localStorage.getItem(entityType)) || []
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(entities)
@@ -16,17 +17,68 @@ function query(entityType, delay = 500) {
     })
 }
 
-// function _filter(stays, filterBy) {
-//     const regex = new RegExp(filterBy.name, 'i')
-//     const filterd = stays.filter(toy => {
-//         const toyInStock = toy.inStock ? 'in' : 'out'
-//         if (!regex.test(toy.name) ||
-//             (toyInStock !== filterBy.inStock && filterBy.inStock !== 'all') ||
-//             (filterBy.type !== toy.type && filterBy.type !== 'All')) return false
-//         return true
-//     })
-//     return filterd
-// }
+async function queryfiltered(entityType, filterBy, delay = 500) {
+    const entities = await query(entityType)
+    const filtered = _filter(entities, filterBy)
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(filtered)
+        }, delay)
+    })
+}
+
+function _getFilterDates(checkIn, checkOut) {
+    if (checkIn && checkOut) return _getDates(checkIn, checkOut)
+    if (!checkIn && !checkOut) return []
+    else if (checkIn) return [new Date(checkIn)]
+    else return [new Date(checkOut)]
+}
+
+function _isEmpty(filterDates, stayClosedDates) {
+    return filterDates.every(date => {
+        return stayClosedDates.every(stayDate => {
+            date !== stayDate
+        })
+    })
+}
+
+function _filter(stays, filterBy) {
+    var { country, propertyType, guests, checkIn, checkOut, minPrice, maxPrice, beds, bedrooms, bathrooms } = filterBy
+    return stays.filter(stay => {
+        var filterDates = _getFilterDates(checkIn, checkOut)
+        if (
+            (country && stay.loc.country !== country) ||
+            (propertyType && stay.propertyType !== propertyType) ||
+            (guests && stay.guests < guests) ||
+            (stay.closedDates && filterDates && !_isEmpty(filterDates, stay.closedDates)) ||
+            (beds <= stay.price) ||
+            (bedrooms <= stay.bedrooms) ||
+            (bathrooms <= stay.bathrooms) ||
+            (minPrice <= stay.price && maxPrice >= stay.price)
+
+        )
+            return false
+        return true
+    })
+
+}
+
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+
+function _getDates(startDate, stopDate) {
+    var dateArray = new Array();
+    var currentDate = new Date(startDate)
+    stopDate = new Date(stopDate)
+    while (currentDate <= stopDate) {
+        dateArray.push(new Date(currentDate));
+        currentDate = currentDate.addDays(1);
+    }
+    return dateArray;
+}
 
 function get(entityType, entityId) {
     return query(entityType)

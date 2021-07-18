@@ -11,7 +11,7 @@
           <div class="title">
             Entire
             <span class="property-type">{{ stay.propertyType }}</span> hosted by
-            {{ stay.host.fullName }}
+            {{ hostFirstName }}
           </div>
           <div>
             <span> {{ stay.guests }} guest</span

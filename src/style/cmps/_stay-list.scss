@@ -1,24 +1,21 @@
-.stay-list{
+.stay-list {
     margin-left: 20px;
-    margin-top: 150px;
-    // border-bottom:1px $clr1 solid; ;
+    margin-top: 20px;
     .covid {
         color: $clr5;
     }
-    button{
+    button {
         border-radius: 15px;
         border: $clr1 0.6px solid;
         background-color: unset;
         padding: 10px;
-        margin: 5px;
         font-size: 0.9rem;
         margin-bottom: 20px;
     }
-    .name{
-     font-size: 1.625rem;
-    //  margin-bottom: 20px;
-}
-.amenities{
-    margin-bottom: 20px;
-}
+    .name {
+        font-size: 1.625rem;
+    }
+    .amenities {
+        margin-bottom: 20px;
+    }
 }

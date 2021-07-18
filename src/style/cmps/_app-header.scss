@@ -6,6 +6,7 @@
     background-color: $clr2;
     color: $clr5;
     width: 100%;
+    z-index: 50;
     display: flex;
     flex-direction: column;
     padding-top: 20px;
@@ -43,14 +44,14 @@
             }
         }
         .middle {
+            display: flex;
+            justify-content: center;
             font-size: 1rem;
             line-height: 20px;
+            left: 46%;
             position: absolute;
-            left: 45%;
-            display: flex;
             flex-direction: column;
             align-items: center;
-            // color: $clr2;
             padding: 10px 16px;
             .sep {
                 position: absolute;
@@ -58,13 +59,11 @@
                 margin-top: 5px;
                 width: 18px;
                 height: 2px;
-                // background-color: #ffffff;
                 background-color: $clr5;
                 border-radius: 1px;
             }
             .btn-start-search {
                 display: none;
-                // background-color: #ffffff;
                 justify-content: space-between;
                 font-weight: bold;
                 border-radius: 50px;

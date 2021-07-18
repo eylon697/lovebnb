@@ -1,7 +1,9 @@
 <template>
   <header :class="classObject">
     <!-- START OF MAIN LAYOUT -->
-
+<div>
+  
+</div>
     <div class="top">
       <div class="logo">
         <router-link to="/">

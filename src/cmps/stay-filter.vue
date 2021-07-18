@@ -13,7 +13,9 @@
               @input="loadCountries"
             />
             <datalist id="countries">
-              <option v-for="(country, idx) in countries" :key="idx">{{country}}</option>
+              <!-- <option v-for="(country, idx) in countries" :key="idx">
+                {{ country }}
+              </option> -->
             </datalist>
           </div>
         </div>
@@ -58,19 +60,23 @@
 
 <script>
 import { utilService } from "@/services/util.service.js";
-import {stayService } from "@/services/stay.service.js";
+// import { stayService } from "@/services/stay.service.js";
 export default {
   data() {
     return {
-      countries:null,
+      countries: null,
       filterBy: this.$store.getters.filterBy,
     };
   },
   methods: {
-    async loadCountries(){
-      this.countries = await stayService.getCountries(this.filterBy.countries) 
+    async loadCountries() {
+      // this.countries = await stayService.getCountries(this.filterBy.countries);
     },
     goToFilterd() {
+      if(this.filterBy.country) this.filterBy.mainFilter = 'country'
+      else if(this.filterBy.propertyType) this.filterBy.mainFilter = 'propertyType'
+      else if(this.filterBy.checkIn) this.filterBy.mainFilter = 'checkIn'
+      else if(this.filterBy.guests) this.filterBy.mainFilter = 'guests'
       const filterUrl = utilService.objToUrl(this.filterBy);
       this.$router.push(`/stay?${filterUrl}`);
     },

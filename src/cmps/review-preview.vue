@@ -1,11 +1,11 @@
 
 <template>
   <section class="review-preview">
-    <section class="user">
-      <img src="@/assets/img/user/1.png" />
+    <section class="details">
+      <img :src="review.by.imgUrl" />
       <div>
         <h1>{{ review.by.fullname }}</h1>
-        <p>{{ review.at }}</p>
+        <div>{{ formatDate }}</div>
       </div>
     </section>
     <p>{{ review.txt }}</p>
@@ -13,17 +13,15 @@
 </template>
 
 <script>
+import { utilService } from "@/services/util.service.js";
 export default {
   props: {
     review: Object,
   },
   computed: {
-    // time() {
-    // //   month = this.review.at.getMonth();
-    // //   console.log(month);
-    // //   year = this.review.atgetFullYear();
-    // //   console.log(year);
-    // },
+    formatDate() {
+        return utilService.getformatDate(this.review.at);
+    },
   },
 };
 </script>

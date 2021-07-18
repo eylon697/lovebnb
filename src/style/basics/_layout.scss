@@ -2,6 +2,10 @@
     grid-template-columns: minmax(2rem, 1fr) minmax(auto, $Width) minmax(2rem, 1fr);
 }
 
+// LAYOUT BREAKPOINTS
+$break-narrow: 460px;
+$break-normal: 90vw;
+// $break-wide: 1100px;
 .main-layout {
     display: grid;
     grid-template-columns: 2rem 1fr 2rem;
@@ -18,7 +22,7 @@
     @include for-normal-layout {
         @include layout-columns($break-normal);
     }
-    @include for-wide-layout {
-        @include layout-columns($break-wide);
-    }
+    // @include for-wide-layout {
+    //     @include layout-columns($break-wide);
+    // }
 }

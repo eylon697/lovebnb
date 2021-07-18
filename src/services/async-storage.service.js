@@ -18,7 +18,7 @@ function query(entityType, delay = 500) {
 }
 
 async function queryfiltered(entityType, filterBy, delay = 500) {
-    const entities = await query(entityType)
+    const entities = JSON.parse(localStorage.getItem(entityType)) || []
     const filtered = _filter(entities, filterBy)
     return new Promise((resolve) => {
         setTimeout(() => {

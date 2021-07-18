@@ -1,7 +1,7 @@
 <template>
   <div class="details-header">
     <div v-if="stay" class="title">
-      <span>{{ stay.name }}</span>
+     {{ stay.name }}
     </div>
     <div class="bottom">
       <div class="left">

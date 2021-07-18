@@ -60,7 +60,6 @@
 
 <script>
 import { utilService } from "@/services/util.service.js";
-// import { stayService } from "@/services/stay.service.js";
 export default {
   data() {
     return {
@@ -70,7 +69,6 @@ export default {
   },
   methods: {
     async loadCountries() {
-      // this.countries = await stayService.getCountries(this.filterBy.countries);
     },
     goToFilterd() {
       if(this.filterBy.country) this.filterBy.mainFilter = 'country'

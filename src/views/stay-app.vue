@@ -1,5 +1,5 @@
 <template>
-  <section class="stay-app">
+  <section class="stay-app main-layout">
     <list-filter v-if="stays" :stays="stays" />
     <stay-list :stays="stays" v-if="stays" />
   </section>

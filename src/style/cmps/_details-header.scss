@@ -1,6 +1,15 @@
 .details-header {
-    margin-top: 200px;
-    margin-bottom: 20px;
+    margin-top: 180px;
+    margin-bottom: 24px;
+    .title {
+        font-size: 1.625rem;
+        margin-bottom: 7px;
+        font-weight: 600;
+        letter-spacing: .5px;
+    }
+    i {
+        color: $clr3;
+    }
     .bottom {
         display: flex;
         justify-content: space-between;

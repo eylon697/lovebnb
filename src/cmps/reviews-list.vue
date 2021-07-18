@@ -13,6 +13,6 @@
 import reviewPreview from "./review-preview";
 export default {
   components: { reviewPreview },
-  props: { reviews: Array ,stay:Object },
+  props: { reviews: Array },
 };
 </script>

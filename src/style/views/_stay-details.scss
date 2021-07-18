@@ -47,4 +47,21 @@
             background-color: $clr7;
         }
     }
+    .reviews-container {
+        // font-size: 1.375rem;
+        .rating {
+            display: flex;
+            margin-bottom: 10px;
+            .fa-star {
+                color: $clr3;
+                font-size: 1.375rem;
+            }
+            p {
+                font-size: 1.375rem;
+            }
+            span {
+                font-size: 1.375rem;
+            }
+        }
+    }
 }

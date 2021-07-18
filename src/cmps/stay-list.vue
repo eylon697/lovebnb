@@ -1,5 +1,9 @@
 <template>
   <section class="stay-list" v-if="stays">
+
+
+
+
     <div class="list-header">
       <div>{{ stays.length }} stays</div>
       <h1>{{ title }}</h1>
@@ -12,12 +16,17 @@
           <span> Learn more </span>
         </a>
       </div>
-      <!-- TODO:LINK TO INFORMATION WEBSITE -->
     </div>
-    <div v-if="stays">
+
+
+
+
+    <div class="preview-container" v-if="stays">
       <stay-preview v-for="stay in stays" :stay="stay" :key="stay._id" />
     </div>
     <div v-else>Loading</div>
+
+
   </section>
 </template>
 

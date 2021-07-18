@@ -1,38 +1,27 @@
 <template>
-  <section class="stay-preview"  @click="goToDetails(stay._id)">
-    <!-- <el-carousel class="img-carousell"  trigger="click" height="170px" arrow="always"  :autoplay='false' :loop='false' -->
-<!-- >  -->
-     <!-- <el-carousel-item v-for="(imgUrl,idx) in stay.imgUrls" :key="idx">
-        <img :src="require(`@/assets/img/stays/#ffffff/1/${imgUrl}`)" @click=" goToDetails(stay._id)">
+  <section class="stay-preview" @click="goToDetails(stay._id)">
+
+    <el-carousel
+      class="img-carousell"
+      trigger="click"
+      height="222px"
+      arrow="always"
+      :autoplay="false"
+      :loop="true"
+    >
+
+
+      <el-carousel-item v-for="(imgUrl, idx) in stay.imgUrls" :key="idx">
+        <img :src="imgUrl.url" @click="goToDetails(stay._id)" />
       </el-carousel-item>
-    </el-carousel>  -->
-    
-    <div class="left">
+    </el-carousel>
 
-    <button @click="goToDetails(stay._id)">
-      <img :src="require(`@/assets/img/stays/101/1.png`)" />
-    </button>
+    <i
+      :class="{ far: true, 'fa-heart': true, changeColor: isLike }"
+      class="far fa-heart"
+    ></i>
 
-    <div class="middle">
-      <div>
-        <p>{{ stay.propertyType }}</p>
-        <p class="name">{{ stay.name }}</p>
-        <p class="line">_____</p>
-        <!-- <div v-for="(item, idx) in stay.items" :key="idx"></div> -->
-         <div>
-            <span> {{ stay.guests }} guest</span
-            ><span v-if="stay.guests > 1">s</span>
-            <span class="sep"> ·</span>
-            <span> {{ stay.bedrooms }} bedroom</span
-            ><span v-if="stay.bedrooms > 1">s</span>
-            <span class="sep"> ·</span>
-            <span> {{ stay.beds }} bed</span><span v-if="stay.beds > 1">s</span>
-            <span class="sep"> ·</span>
-            <span> {{ stay.baths }} bath</span
-            ><span v-if="stay.baths > 1">s</span>
-          </div>
-        <!-- <p class="amenities">{{ stay.amenities }}</p> -->
-      </div>
+    <div class="info">
       <div class="card-rating">
         <span><i class="fas fa-star"></i></span>
         <span class="rate"> {{ stay.rateAvg }} </span>
@@ -41,21 +30,20 @@
         <span>{{ stay.reviews.legnth }}</span>
         <span>reviews)</span>
       </div>
-    </div>
 
-    </div>
-
-    <div class="right">
-      <button  @click="like"><i :class="{ 'far':true,'fa-heart':true, changeColor: isLike }" class="far fa-heart"></i></button>
       <div>
-        <span class="price">{{ stay.price }}$ </span>/ night
+        <p>{{ stay.propertyType }}</p>
+      </div>
+      <div>
+        <p class="name">{{ stay.name }}</p>
       </div>
     </div>
 
-    <!-- <div class="card-location">{{stay.loc.country}} - {{stay.propertyType}}</div> -->
-    <router-link to="/">
-      <!-- // TODO: route to reviews page -->
-    </router-link>
+    <div class="price">
+      <span >${{ stay.price }} </span>
+      <span> / night</span>
+    </div>
+
   </section>
 </template>
 
@@ -64,19 +52,19 @@ export default {
   props: {
     stay: Object,
   },
-  data(){
+  data() {
     return {
-      isLike:false,
-    }
+      isLike: false,
+    };
   },
   methods: {
     goToDetails(stayId) {
       this.$router.push(`/stay/${stayId}`);
     },
-    like(){
-      this.isLike=!this.islike
+    like() {
+      this.isLike = !this.islike;
       console.log(this.isLike);
-    }
+    },
   },
 };
 </script>

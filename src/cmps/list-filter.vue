@@ -3,14 +3,14 @@
 		<div class="type-filter">
 			<el-dropdown :hide-on-click="false">
 				<el-button
-					>{{stays.propertyType}}Entire place<i class="el-icon-arrow-down el-icon--right"></i 
+					>{{propertyType}}Entire place<i class="el-icon-arrow-down el-icon--right"></i 
 				></el-button>
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item>
 						<el-checkbox-group class="type-list"> 
                             <!-- TODO:V-model filter types -->
 							<el-checkbox
-								v-for="(type, idx) in stays.propertyType"
+								v-for="(type, idx) in propertyType"
 								:key="idx"
 								:label="type"
 								class="checkbox"
@@ -49,10 +49,11 @@
 				</el-dropdown-item>
 			</el-dropdown-menu>
 		</el-dropdown>
+
 		<div class="type-filter">
 			<el-dropdown :hide-on-click="false">
 				<el-button
-					>Rooms and Beds{{ stays.amenities }}<i class="el-icon-arrow-down el-icon--right"></i
+					>Rooms and Beds{{ amenities }}<i class="el-icon-arrow-down el-icon--right"></i
 				></el-button>
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item>
@@ -60,7 +61,7 @@
                              <!-- TODO:v-modelfilterBy -->
 							<el-checkbox
 
-								v-for="(amenity, idx) in stays.amenities"
+								v-for="(amenity, idx) in amenities"
 								:key="idx"
 								:label="amenity"
 								class="checkbox"
@@ -91,6 +92,14 @@ export default {
 	data(){
 		return {
 
+		}
+	},
+	computed:{
+		amenities(){
+			return this.$store.getters.amenities
+		},
+		propertyType(){
+			return this.$store.getters.propertyType
 		}
 	}
 	

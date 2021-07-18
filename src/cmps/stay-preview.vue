@@ -10,7 +10,7 @@
     <div class="left">
 
     <button @click="goToDetails(stay._id)">
-      <!-- <img :src="require(`@/assets/img/stays/new_york/1/1.png`)" /> -->
+      <img :src="require(`@/assets/img/stays/101/1.png`)" />
     </button>
 
     <div class="middle">
@@ -19,7 +19,19 @@
         <p class="name">{{ stay.name }}</p>
         <p class="line">_____</p>
         <!-- <div v-for="(item, idx) in stay.items" :key="idx"></div> -->
-        <p class="amenities">{{ stay.amenities }}</p>
+         <div>
+            <span> {{ stay.guests }} guest</span
+            ><span v-if="stay.guests > 1">s</span>
+            <span class="sep"> ·</span>
+            <span> {{ stay.bedrooms }} bedroom</span
+            ><span v-if="stay.bedrooms > 1">s</span>
+            <span class="sep"> ·</span>
+            <span> {{ stay.beds }} bed</span><span v-if="stay.beds > 1">s</span>
+            <span class="sep"> ·</span>
+            <span> {{ stay.baths }} bath</span
+            ><span v-if="stay.baths > 1">s</span>
+          </div>
+        <!-- <p class="amenities">{{ stay.amenities }}</p> -->
       </div>
       <div class="card-rating">
         <span><i class="fas fa-star"></i></span>

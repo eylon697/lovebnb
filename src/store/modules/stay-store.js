@@ -6,6 +6,7 @@ export const stayStore = {
         stay: null,
         stays: [],
         currstay: null,
+      
     },
     getters: {
         stays(state) {
@@ -21,7 +22,10 @@ export const stayStore = {
         },
         setStay(state, { stay }) {
             state.stay = stay
-        }
+        },
+        // setFilter(){
+        //     state.filter=
+        // }
     },
     actions: {
         async loadStays(content) {

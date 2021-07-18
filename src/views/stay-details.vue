@@ -49,27 +49,17 @@
 
 <script>
 import detailsHeader from "../cmps/details-header.vue";
-// import { stayService } from "@/services/stay.service.js";
 export default {
   components: { detailsHeader },
   data() {
     return {
       stayId: this.$route.params.stayId,
-      // stay: this.$store.getters.stay,
-      hostFirstName: null,
     };
   },
   methods: {
     loadStay() {
       this.$store.dispatch({ type: "loadStay", stayId: this.stayId });
     },
-    // TODO: WATCH STAY
-    // loadHostFirstName() {
-    //   this.hostFirstName = this.stay.host.fullName.substring(
-    //     0,
-    //     this.stay.host.fullName.indexOf(" ")
-    //   );
-    // },
   },
   computed: {
     stay() {
@@ -85,10 +75,6 @@ export default {
   created() {
     console.log("stayId", this.stayId);
     this.loadStay();
-    // TODO:try catch
-    // const {stayId}=this.$route.params
-    // const stay= stayService.getById(stayId)
-    // this.stay = stay
   },
 };
 </script>

@@ -6,7 +6,6 @@
     .info {
         font-size: .875rem;
     }
-    .el-carousel__container {}
     img {
         border-radius: 10px;
         width: 100%;
@@ -30,5 +29,9 @@
     }
     .changeColor {
         color: $clr3;
+    }
+
+    .el-carousel__indicators.el--horizontal {
+        width: 60%;
     }
 }

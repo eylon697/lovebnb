@@ -436,7 +436,7 @@ const gStays = [{
         loc: {
             country: "France",
             countryCode: "FR",
-            city: "Manhattan",
+            city: "Paris",
             address: "Paris, Île-de-France, France",
             lat: 48.8566,
             lng: 2.3522,

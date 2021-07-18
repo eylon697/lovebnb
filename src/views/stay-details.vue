@@ -50,6 +50,13 @@
         </div>
       </div>
       <review-list :reviews="stay.reviews" />
+
+      <div class="map-container" v-if="this.stay.loc.lat">
+        <h1 class="map-title">Where you'll be</h1>
+        <google-map :loc="stay.loc" v-if="stay.loc" />
+        <div v-else>loading...</div>
+        <div class="stay-location">{{ stay.loc.address }}</div>
+      </div>
     </div>
     <div v-else>Loading</div>
   </section>
@@ -57,9 +64,10 @@
 
 <script>
 import detailsHeader from "../cmps/details-header.vue";
+import GoogleMap from "../cmps/google-map.vue";
 import reviewList from "../cmps/reviews-list.vue";
 export default {
-  components: { detailsHeader, reviewList },
+  components: { detailsHeader, reviewList, GoogleMap },
   data() {
     return {
       stayId: this.$route.params.stayId,

@@ -1,4 +1,3 @@
-
 export const storageService = {
     query,
     get,
@@ -8,19 +7,32 @@ export const storageService = {
     postMany
 }
 
-function query(entityType, delay=500) {
+function query(entityType, delay = 500) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
-    return new Promise((resolve)=>{
-        setTimeout(()=>{
+    return new Promise((resolve) => {
+        setTimeout(() => {
             resolve(entities)
         }, delay)
     })
 }
 
+// function _filter(stays, filterBy) {
+//     const regex = new RegExp(filterBy.name, 'i')
+//     const filterd = stays.filter(toy => {
+//         const toyInStock = toy.inStock ? 'in' : 'out'
+//         if (!regex.test(toy.name) ||
+//             (toyInStock !== filterBy.inStock && filterBy.inStock !== 'all') ||
+//             (filterBy.type !== toy.type && filterBy.type !== 'All')) return false
+//         return true
+//     })
+//     return filterd
+// }
+
 function get(entityType, entityId) {
     return query(entityType)
         .then(entities => entities.find(entity => entity._id === entityId))
 }
+
 function post(entityType, newEntity) {
     newEntity._id = _makeId()
     return query(entityType)

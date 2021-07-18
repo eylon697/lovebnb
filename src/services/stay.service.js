@@ -151,7 +151,8 @@ const gStays = [{
 
 export const stayService = {
     query,
-    getById
+    getById,
+    getCountries
 }
 
 const STAY_KEY = 'stays'
@@ -167,4 +168,8 @@ async function query() {
 
 async function getById(stayId) {
     return await storageService.get(STAY_KEY, stayId)
+}
+
+async function getCountries(filterTxt) {
+    return await storageService.get(STAY_KEY, filterTxt)
 }

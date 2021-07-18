@@ -21,12 +21,17 @@
             font-weight: 900;
             color: $clr3;
             font-size: 25px;
+            a {
+                text-decoration: none;
+            }
             span {
+                text-decoration: none;
+                color: $clr3;
                 // display: none;
             }
             i {
                 color: $clr3;
-                padding-bottom: 2px;
+                padding-bottom: 3px;
                 display: inline-block;
                 font-size: 35px;
                 -moz-transform: scale(1, -1);
@@ -45,7 +50,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: $clr2 !important;
+            // color: $clr2;
             padding: 10px 16px;
             .sep {
                 position: absolute;
@@ -54,6 +59,7 @@
                 width: 18px;
                 height: 2px;
                 // background-color: #ffffff;
+                background-color: $clr5;
                 border-radius: 1px;
             }
             .btn-start-search {

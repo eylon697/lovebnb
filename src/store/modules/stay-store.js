@@ -6,6 +6,13 @@ export const stayStore = {
         stay: null,
         stays: [],
         currstay: null,
+        filterBy: {
+            cuntrey: null,
+            propertyType: null,
+            guests: null,
+            checkIn: null,
+            checkOut: null,
+        }
     },
     getters: {
         stays(state) {
@@ -14,6 +21,9 @@ export const stayStore = {
         stay(state) {
             return state.stay
         },
+        filterBy(state) {
+            return JSON.parse(JSON.stringify(state.filterBy))
+        },
     },
     mutations: {
         setStays(state, { stays }) {
@@ -21,13 +31,17 @@ export const stayStore = {
         },
         setStay(state, { stay }) {
             state.stay = stay
+        },
+        setFilter(state, { filterBy }) {
+            state.filterBy = filterBy
         }
     },
     actions: {
-        async loadStays(content) {
+        async loadStays({ commit, state }, { filterBy }) {
             try {
-                const stays = await stayService.query()
-                content.commit({ type: 'setStays', stays })
+                commit({ type: 'setFilter', filterBy })
+                const stays = await stayService.query(state.filterBy)
+                commit({ type: 'setStays', stays })
                 console.log('Stays Loaded successfuly', stays)
             } catch (err) {
                 console.log('Cannot load stays', err);

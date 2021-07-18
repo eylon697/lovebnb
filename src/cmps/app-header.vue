@@ -10,7 +10,7 @@
         </router-link>
       </div>
       <div class="middle">
-        <div>Place to stay</div>
+        <div>Places to stay</div>
         <div class="sep"></div>
         <button class="btn-start-search">
           <span>Start Your search</span>
@@ -31,18 +31,18 @@
         <!-- <button><img src="" alt=""></button>  -->
       </div>
     </div>
-    <!-- <div class="bottom">
+    <div class="bottom">
       <stay-filter />
-    </div> -->
+    </div>
     <!-- END OF MAIN LAYOUT -->
   </header>
 </template>
 <script>
-// import stayFilter from "../cmps/stay-filter.vue";
+import stayFilter from "../cmps/stay-filter.vue";
 export default {
   props: { fixedStyle: Boolean },
   components: {
-    // stayFilter,
+    stayFilter,
   },
   data() {
     return {

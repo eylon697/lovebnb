@@ -1,21 +1,7 @@
 <template>
   <section class="stay-details main-layout">
     <div v-if="stay">
-      <pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </pre>
+      <pre></pre>
       <details-header :stay="stay" />
       <div class="details-gallery">
         <img v-for="(img, idx) in stay.imgUrls" :key="idx" :src="img.url" />
@@ -69,7 +55,7 @@ export default {
   data() {
     return {
       stayId: this.$route.params.stayId,
-      stay: this.$store.getters.stay,
+      // stay: this.$store.getters.stay,
       hostFirstName: null,
     };
   },
@@ -84,6 +70,17 @@ export default {
     //     this.stay.host.fullName.indexOf(" ")
     //   );
     // },
+  },
+  computed: {
+    stay() {
+      return this.$store.getters.stay;
+    },
+    hostFirstName() {
+      return this.stay.host.fullName.substring(
+        0,
+        this.stay.host.fullName.indexOf(" ")
+      );
+    },
   },
   created() {
     console.log("stayId", this.stayId);

@@ -30,6 +30,7 @@
 </template>
 
 <script>
+// import { Router } from 'express';
 import stayPreview from './stay-preview.vue'
 export default {
   props: {
@@ -44,5 +45,6 @@ export default {
     components: {
     stayPreview,
   },
+
 };
 </script>

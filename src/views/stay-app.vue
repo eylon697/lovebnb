@@ -1,21 +1,16 @@
 <template>
   <section class="stat-app">
-    <stay-list-filter v-if="stays" :stays="stays"/>
+    <stay-list-filter v-if="stays" :stays="stays" />
     <stay-list :stays="stays" v-if="stays" />
   </section>
 </template>
 <script>
-import stayList from '@/cmps/stay-list.vue'
-import stayListFilter from '@/cmps/stay-list-filter.vue'
+import stayList from "@/cmps/stay-list.vue";
+import stayListFilter from "@/cmps/stay-list-filter.vue";
 export default {
-  data() {
-    return {
-     
-    };
-  },
   components: {
     stayList,
-    stayListFilter
+    stayListFilter,
   },
   computed: {
     stays() {
@@ -23,8 +18,8 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch({ type: "loadStays" });
-    
+    const filterBy = this.$route.query;
+    this.$store.dispatch({ type: "loadStays", filterBy });
   },
 };
 </script>

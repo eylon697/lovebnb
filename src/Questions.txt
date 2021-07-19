@@ -1,3 +1,4 @@
 Eden:
 margin header(for distance)
 data home-page
+date picker center

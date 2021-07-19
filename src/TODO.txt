@@ -2,8 +2,14 @@
 TODO:
 
 hero: img,sentence
-header:logo,scroll-top:color logo,open
-filter(data),hover
+
+header:
+logo
+screen
+colors
+bgc
+
+filter
 user list(login,sign up, become a host
 pointer: filter
 details: space in entire,share,save,#href-ask asi

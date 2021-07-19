@@ -20,20 +20,9 @@
     <section class="join-host main-layout">
       <div>
         <h2>Join our hosts</h2>
-        <p>
-          No matter what kind of home or room you want to share, 
-        </p>
-        <p>
-          Lovebnb makes
-          it simple and secure to host travelers.
-        </p>
-        <p>
-          You’re in full control of your availability, 
-        </p>
-        <p>
-          prices, house rules, and
-          how you interact with guests.
-        </p>
+        <p>No matter what kind of home or room you want to share,</p>
+        <p>Lovebnb makes it simple and secure to host travelers.</p>
+
         <button>Join now</button>
       </div>
     </section>

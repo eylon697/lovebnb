@@ -17,10 +17,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 
 
-Vue.use(ElementUI, { locale })
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 library.add(faUserSecret)
+
+import * as VueGoogleMaps from 'vue2-google-maps';
+
 
 Vue.use(VueGoogleMaps, {
     load: {

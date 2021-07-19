@@ -6,7 +6,7 @@ export const stayStore = {
         stay: '',
         stays: [],
         currstay: '',
-        unfilteredStays: [],
+        unfiltered: [],
         propertyType: ["Entire apartment", "Hotel room"],
         amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics", "Washer", "Dryer", "Iron", "Free street parking", "Microwave", "Air conditioning", "First aid kit"],
         filterBy: {
@@ -16,11 +16,15 @@ export const stayStore = {
             propertyType: '',
             guests: '',
             dates: [],
-            minPrice: 0,
-            maxPrice: Infinity,
+            price: [0,1500],
+            // minPrice: 0,
+            // maxPrice: Infinity,
             beds: 0,
             bedrooms: 0,
-            bathrooms: 0
+            bathrooms: 0,
+            amenities:[]
+            
+
         }
     },
     getters: {

@@ -1,6 +1,7 @@
 export const utilService = {
     objToUrl,
-    getformatDate
+    getformatDate,
+    toShortFormat
 }
 
 function objToUrl(obj) {
@@ -36,4 +37,15 @@ function _isToday(someDate) {
     return someDate.getDate() == today.getDate() &&
         someDate.getMonth() == today.getMonth() &&
         someDate.getFullYear() == today.getFullYear()
+}
+
+function toShortFormat(date) {
+    let monthNames = ["Jan", "Feb", "Mar", "Apr",
+        "May", "Jun", "Jul", "Aug",
+        "Sep", "Oct", "Nov", "Dec"
+    ];
+    let day = date.getDate();
+    let monthIndex = date.getMonth();
+    let monthName = monthNames[monthIndex];
+    return `${monthName} ${day}`;
 }

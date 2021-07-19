@@ -28,8 +28,6 @@
           You’re in full control of your availability, prices, house rules, and
           how you interact with guests.
         </p>
-
-        <p></p>
         <button>Join now</button>
       </div>
     </section>
@@ -39,7 +37,7 @@
 <script>
 import Hero from "../cmps/hero.vue";
 import exploreList from "../cmps/explore-list.vue";
-
+import { eventBus } from "../services/event-bus.service.js";
 export default {
   name: "homePage",
   data() {
@@ -47,22 +45,26 @@ export default {
       nearStay: [
         {
           title: "Tel Aviv",
-          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky1_tpnuc1.png',
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky1_tpnuc1.png",
           time: "20 minute drive",
         },
         {
           title: "Jerusalem",
-          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky3_aqyfl1.png',
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky3_aqyfl1.png",
           time: "1 hour drive",
         },
         {
           title: "Eilat",
-          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky2_owvvtf.png',
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky2_owvvtf.png",
           time: "5 hour drive",
         },
         {
           title: "Natanya",
-          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605742/sky4_edkkdp.png',
+          imgUrl:
+            "https://res.cloudinary.com/lovebnb/image/upload/v1626605742/sky4_edkkdp.png",
           time: "30 minute drive",
         },
       ],
@@ -115,32 +117,25 @@ export default {
   },
   //TODO: EVENT BUS
   methods: {
-    setHeaderFixedStyle(val) {
-      this.$emit("setHeaderFixedStyle", val);
+    openHeader() {
+      eventBus.$emit("openHeader");
+    },
+    onScroll(ev) {
+      let scrollDiff = ev.path[1].scrollY;
+      if (scrollDiff === 0) {
+        this.openHeader();
+      }
     },
   },
+  mounted() {
+    this.openHeader();
+  },
   created() {
-    // window.addEventListener("scroll");//TODO:FUNCTION
-
-    this.setHeaderFixedStyle(true);
+    window.addEventListener("scroll", this.onScroll);
   },
-  destroyedss() {
-    //  window.removeEventListener("scroll");//TODO:FUNCTION
-    this.setHeaderFixedStyle(false);
+  destroyed() {
+    window.removeEventListener("scroll", this.onScroll);
   },
-  // methods:{
-  // TODO:FUNCTION SCROLL EVENT
-  // let scrollDiff = event.path[1].scrollY;
-  //   if (scrollDiff >= 1) {
-  //     this. = true;
-  //     this.$emit("", true);
-  //   } else if (scrollDiff < 1) {
-  //     this. = false;
-  //     this.$emit("", false);
-  //   }
-
-  // },
-
   components: {
     Hero,
     exploreList,
@@ -149,3 +144,4 @@ export default {
 </script>
 
 }
+ 

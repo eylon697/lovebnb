@@ -9,16 +9,19 @@
     z-index: 50;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 10px;
+    padding: 13px 0;
     -webkit-box-shadow: -1px -9px 7px 11px rgba(151, 151, 151, 0.64);
     box-shadow: -1px -9px 7px 11px rgba(151, 151, 151, 0.64);
     .top {
+        height: 48px;
+        padding-top: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 11px;
         .logo {
+            padding-bottom: 6px;
+            width: 193px;
             font-weight: 900;
             color: $clr3;
             font-size: 25px;
@@ -28,7 +31,6 @@
             span {
                 text-decoration: none;
                 color: $clr3;
-                // display: none;
             }
             i {
                 color: $clr3;
@@ -45,31 +47,54 @@
         }
         .middle {
             display: flex;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             font-size: 1rem;
             line-height: 20px;
-            left: 46%;
-            position: absolute;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px 16px;
-            .sep {
-                position: absolute;
-                top: 30px;
-                margin-top: 5px;
-                width: 18px;
-                height: 2px;
-                background-color: $clr5;
-                border-radius: 4px;
+            // padding: 10px 16px;
+            .places {
+                padding-top: 7px;
+                .sep {
+                    margin-top: 5px;
+                    margin-inline-start: 40.5px;
+                    width: 18px;
+                    height: 2px;
+                    background-color: $clr5;
+                    border-radius: 4px;
+                }
             }
-            .btn-start-search {
-                display: none;
+            button {
+                display: flex;
                 justify-content: space-between;
-                font-weight: bold;
+                align-items: center;
+                background-color: unset;
+                border: solid $clr1 1px;
+                padding: 1.5px 6px 0 8px;
                 border-radius: 50px;
-                border: unset;
-                height: 40px;
-                width: 250px;
+                height: 48px;
+                width: 300px;
+                -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+                box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+                span {
+                    display: inline-block;
+                    padding: 0 16px;
+                    font-size: .875rem;
+                    font-weight: 500;
+                }
+                i {
+                    justify-self: flex-end;
+                    margin-top: 1px;
+                    font-size: 12px;
+                    color: #fff;
+                    background-color: #ff385c;
+                    border: unset;
+                    height: 35px;
+                    width: 35px;
+                    padding: 11px 5px;
+                    border-radius: 100px;
+                    box-sizing: border-box;
+                }
             }
         }
         .right {
@@ -82,13 +107,14 @@
             a {
                 text-decoration: unset;
                 color: $clr5;
+                font-weight: 500;
             }
             .preference {
-                // background-color: #ffffff;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 border: unset;
+                background-color: $clr2;
                 border-radius: 32px;
                 gap: 12px;
                 padding: 5px;
@@ -112,5 +138,26 @@
     .bottom {
         display: flex;
         justify-content: center;
+    }
+    &.open {
+        background-color: unset;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        .top {
+            margin-bottom: 15px;
+            .logo span,
+            .logo i {
+                color: $clr2;
+            }
+        }
+        .middle {
+            color: $clr2;
+        }
+        .middle .places .sep {
+            background-color: $clr2;
+        }
+        .right a {
+            color: $clr2;
+        }
     }
 }

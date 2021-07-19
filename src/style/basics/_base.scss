@@ -10,13 +10,17 @@ html {
     max-width: 100vw;
 }
 
+body {
+    height: 100vh;
+}
+
 #app {
-    //  stay filter down
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.fixed {
-    position: fixed;
-    background-color: $clr2;
+div.popper__arrow,
+div.popper__arrow::after {
+    display: none;
 }

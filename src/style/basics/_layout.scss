@@ -26,3 +26,9 @@ $break-normal: 90vw;
     //     @include layout-columns($break-wide);
     // }
 }
+
+.el-popper[x-placement^=bottom] .popper__arrow::after,
+div.popper__arrow,
+div.popper__arrow::after {
+    display: none !important;
+}

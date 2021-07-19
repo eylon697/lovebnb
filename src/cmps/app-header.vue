@@ -1,9 +1,6 @@
 <template>
   <header :class="classObject">
-    <!-- START OF MAIN LAYOUT -->
-<div>
-  
-</div>
+    <div></div>
     <div class="top">
       <div class="logo">
         <router-link to="/">
@@ -12,11 +9,13 @@
         </router-link>
       </div>
       <div class="middle">
-        <div>Places to stay</div>
-        <div class="sep"></div>
-        <button class="btn-start-search">
-          <span>Start Your search</span>
-          <i class="far fa-search"></i>
+        <div class="places" v-if="isOpen">
+          <div>Places to stay</div>
+          <div class="sep"></div>
+        </div>
+        <button v-else>
+          <span>Start your search</span>
+          <i class="fas fa-search"></i>
         </button>
       </div>
 
@@ -30,30 +29,56 @@
             <img :src="require('@/assets/img/app-header/user.png')" />
           </button>
         </div>
-        <!-- <button><img src="" alt=""></button>  -->
       </div>
     </div>
     <div class="bottom">
-      <stay-filter />
+      <stay-filter v-if="isOpen" />
     </div>
-    <!-- END OF MAIN LAYOUT -->
   </header>
 </template>
 <script>
 import stayFilter from "../cmps/stay-filter.vue";
+import { eventBus } from "../services/event-bus.service";
 export default {
-  props: { fixedStyle: Boolean },
   components: {
     stayFilter,
   },
   data() {
     return {
-      classObject: {
+      isOpen: false,
+    };
+  },
+  computed: {
+    classObject() {
+      return {
         "app-header": true,
         "main-layout": true,
-        fixed: this.fixedStyle,
-      },
-    };
+        open: this.isOpen,
+      };
+    },
+  },
+  created() {
+    eventBus.$on("openHeader", this.openHeader);
+    window.addEventListener("scroll", this.onScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  methods: {
+    openHeader() {
+      console.log("open header");
+      this.isOpen = true;
+    },
+    closeHeader() {
+      console.log("close header");
+      this.isOpen = false;
+    },
+    onScroll(ev) {
+      let scrollDiff = ev.path[1].scrollY;
+      if (scrollDiff >= 1 || scrollDiff <= -1) {
+        this.closeHeader();
+      }
+    },
   },
 };
 </script>

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <app-header :fixedStyle="headerFixedStyle"
-    @toggleFixed="headerFixedToggle" />
+    <app-header />
     <router-view />
     <app-footer />
   </div>
@@ -15,17 +14,7 @@ export default {
   components: {
     appHeader,
     appFooter,
-  },
-  data() {
-    return {
-      headerFixedStyle: false,
-    };
-  },
-  methods: {
-    headerFixedToggle() {
-      this.headerFixedStyle = !this.headerFixedStyle;
-    },
-  },
+  }
 };
 </script>
 

@@ -4,9 +4,12 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import '@/style/style.scss'
-import Element from 'element-ui'
-Vue.use(Element)
+
+import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI, { locale })
+
 import * as VueGoogleMaps from 'vue2-google-maps';
 
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
@@ -22,6 +25,9 @@ Vue.use(VueGoogleMaps, {
     },
 });
 
+
+
+Vue.use(ElementUI, { locale })
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 library.add(faUserSecret)

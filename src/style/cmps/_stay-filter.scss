@@ -5,7 +5,7 @@
     align-items: center;
     width: fit-content;
     background-color: #ffffff;
-    padding-inline-end: 8px;
+    padding-inline-end: 7px;
     border: $clr1 solid 1px;
     text-overflow: ellipsis;
     .first {
@@ -27,13 +27,39 @@
             max-width: 203px;
         }
     }
-    .check-in,
-    .check-out {
-        &>div {
-            padding: 14px 24px;
-            div {
-                min-width: 100px;
-                max-width: 130px;
+    .dates {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+        .date-picker {
+            position: absolute;
+            visibility: hidden;
+            top: 100px;
+            right: 47.3vw;
+            justify-self: center;
+        }
+        .check-in,
+        .check-out {
+            &>div {
+                padding: 14px 24px;
+                div {
+                    min-width: 100px;
+                    max-width: 130px;
+                }
+                .date-value {
+                    color: $clr5;
+                    font-weight: 600;
+                    font-size: 0.75rem;
+                    line-height: 1.125rem;
+                }
+                .placeholder {
+                    color: #838383;
+                    font-weight: 300;
+                    font-size: 0.8rem;
+                    line-height: 1.125rem;
+                }
             }
         }
     }
@@ -48,6 +74,7 @@
         }
     }
     input {
+        font-family: Roboto;
         display: block;
         border: unset;
         width: 100%;
@@ -55,19 +82,27 @@
         font-family: Roboto;
         color: #222222;
         text-overflow: ellipsis;
+        font-weight: 600;
+        font-size: 0.75rem;
         line-height: 1.125rem;
-        font-size: .875rem;
+    }
+    input::placeholder {
+        color: #838383;
+        font-weight: 300;
+        font-size: 0.8rem;
+        line-height: 1.125rem;
     }
     input:focus-visible {
         outline: unset;
     }
     label {
+        cursor: pointer;
         display: flex;
         flex-direction: column;
-        &>div>div {
+        .title {
             font-weight: 900;
             letter-spacing: 0.04em;
-            font-size: 12px;
+            font-size: 14px;
             line-height: 16px;
             padding-bottom: 2px;
         }

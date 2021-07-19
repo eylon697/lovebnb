@@ -4,12 +4,13 @@
         color: $clr5;
         font-size: 2rem;
         font-family: Roboto;
-        margin-bottom: 20px;
+        margin-bottom:15px;
     }
     .items-container {
         display: flex;
         gap: 15px;
         justify-content: space-between;
+        margin-bottom: 30px;
         h4 {
             color: $clr5;
             font-size: 1.5rem;

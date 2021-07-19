@@ -113,7 +113,7 @@ const gStays = [{
 
 {
     _id: "102",
-    name: "Stunner by Met & Central Park incl maid + laundry",
+    name: "Stunner by Met & Central Park",
     imgUrls: [{
         url: 'https://res.cloudinary.com/lovebnb/image/upload/v1626610639/5789710e-207d-4801-819e-01545a6db823_rrgn5r.jpg',
     },
@@ -408,7 +408,7 @@ const gStays = [{
 },
 {
     _id: "106",
-    name: "Luxury Apartment Heart of Paris Bail Mobilité ONLY",
+    name: "Luxury Apartment Heart of Paris",
     imgUrls: [{
         url: 'https://res.cloudinary.com/lovebnb/image/upload/v1626616814/5cac9e7b-8b9f-4e56-8746-3e73ff2bf52e_rnd2ey.jpg',
     },

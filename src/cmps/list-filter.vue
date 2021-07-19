@@ -1,11 +1,8 @@
 <template>
-
-
   <form class="list-filter">
-    <button ref="priceBtn" @click.stop="changePrice">
+    <button ref="priceBtn" @click.stop="onChangePrice">
       {{ priceToShow }}
     </button>
-	
 
     <div @click.stop class="price-modal" v-if="priceOpen">
       <el-slider
@@ -15,7 +12,6 @@
         :max="1500"
       >
       </el-slider>
-
 
       <div class="price-container">
         <input
@@ -34,7 +30,10 @@
         <button @click.stop="setFilter">Update</button>
       </div>
     </div>
-  
+
+   
+
+
   </form>
 </template>
 
@@ -53,11 +52,11 @@ export default {
       priceOpen: false,
       typeOpen: false,
       amenitiesOpen: false,
-	//    filterByLocal: this.filterBy || {},
+      filterByLocal: this.filterBy || {},
     };
   },
   methods: {
-    changePrice() {
+    onChangePrice() {
       this.priceOpen = !this.priceOpen;
       this.typeOpen = false;
       this.amenitiesOpen = false;
@@ -72,21 +71,53 @@ export default {
       this.typeOpen = false;
       this.priceOpen = false;
     },
+    closeModals() {
+      this.isTypesModalOpen = false;
+      this.isPriceModalOpen = false;
+      this.isAmenitiesModalOpen = false;
+    },
+    setFilter() {
+      this.$emit("filter", this.filterBy);
+    },
+    clearFilter() {
+      const filter = {
+        price: [0, 1500],
+        types: [],
+        amenities: [],
+        city: "",
+      };
+      this.$emit("filter", filter);
+    },
   },
   computed: {
     priceToShow() {
+      //   if (this.filterBy.minPrice !== 0 && this.filterBy.maxPrice !== 0) {
       if (this.filterBy.price[0] !== 0 && this.filterBy.price[1] !== 0) {
         return `$${this.filterBy.price[0]} - $${this.filterBy.price[1]}`;
       } else {
         return "Price";
       }
     },
-    amenities() {
-      return this.$store.getters.amenities;
+    typeToShow() {
+      if (this.filterBy.propertyType !== "") {
+        return this.filterBy.propertyType;
+      } else {
+        return "Types";
+      }
     },
-    propertyType() {
-      return this.$store.getters.propertyType;
+
+	amenitiesToShow() {
+      if (this.filterBy.amenities.length) {
+        return this.filterBy.amenities.join(',');
+      } else {
+        return 'Amenities';
+      }
+	},
+	
+    typesPos() {
+      return this.$refs.priceBtn.offsetWidth + 200;
     },
+
   },
 };
 </script>

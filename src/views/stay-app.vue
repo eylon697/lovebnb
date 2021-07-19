@@ -32,7 +32,7 @@ export default {
       return this.$store.getters.unfiltered;
     },
      filterBy() {
-      return this.$store.getters.filterBy;
+     return this.$store.getters.filterBy;
     },
   },
   created() {

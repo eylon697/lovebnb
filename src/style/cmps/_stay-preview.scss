@@ -54,14 +54,13 @@
         font-weight: 300;
     }
     .card-rating .rate {
-        font-weight: bold;
+        font-weight: 600;
     }
     .price {
-        // display: none;
         span {
             font-weight: 300;
             &:first-child {
-                font-weight: bold;
+                font-weight: 600;
                 margin-inline-end: 3px;
             }
             display: inline-block;
@@ -71,15 +70,17 @@
         color: $clr3;
     }
     .type {
+        // font-size: .875rem;
         margin-bottom: 5px;
-        font-weight: 300;
+        // font-weight: 300;
     }
     .name {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         margin-bottom: 5px;
-        font-weight: 500;
+        font-size: 1rem;
+        font-weight: 600;
     }
     .el-carousel__button {
         border: unset;

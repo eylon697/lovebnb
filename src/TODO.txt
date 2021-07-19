@@ -1,0 +1,15 @@
+
+TODO:
+
+hero: img,sentence
+header:logo,scroll-top:color logo,open
+filter(data),hover
+user list(login,sign up, become a host
+pointer: filter
+details: space in entire,share,save,#href-ask asi
+
+Moria:
+list-margin from header
+data review
+carusale-hover
+outdoor,host-button,hover,pointer

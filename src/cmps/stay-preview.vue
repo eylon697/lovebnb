@@ -1,25 +1,24 @@
 <template>
   <section class="stay-preview" @click="goToDetails(stay._id)">
-
     <el-carousel
       class="img-carousell"
       trigger="click"
-      height="222px"
+      height="210px"
       arrow="always"
       :autoplay="false"
       :loop="true"
     >
-
-
       <el-carousel-item v-for="(imgUrl, idx) in stay.imgUrls" :key="idx">
         <img :src="imgUrl.url" @click="goToDetails(stay._id)" />
       </el-carousel-item>
     </el-carousel>
 
-    <i
-      :class="{ far: true, 'fa-heart': true, changeColor: isLike }"
-      class="far fa-heart"
-    ></i>
+    <div class="heart" @click.stop="like">
+       <i v-if="isLike" class="fas fa-heart"></i>
+      <!-- <img class="like" v-if="isLike" :src="require('@/assets/img/stay-details/heart2.svg')" /> -->
+      <img  v-else :src="require('@/assets/img/stay-details/heart.svg')" />
+    </div>
+
 
     <div class="info">
       <div class="card-rating">
@@ -40,10 +39,9 @@
     </div>
 
     <div class="price">
-      <span >${{ stay.price }} </span>
+      <span>${{ stay.price }} </span>
       <span> / night</span>
     </div>
-
   </section>
 </template>
 
@@ -62,7 +60,7 @@ export default {
       this.$router.push(`/stay/${stayId}`);
     },
     like() {
-      this.isLike = !this.islike;
+      this.isLike = !this.isLike;
       console.log(this.isLike);
     },
   },

@@ -16,15 +16,6 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-Vue.use(VueGoogleMaps, {
-    load: {
-        key: 'AIzaSyDyKytLc6HSBg15d2n3erx3dlTpxi4Xci8',
-        libraries: 'places',
-        region: 'EN',
-        language: 'en',
-    },
-});
-
 
 
 Vue.use(ElementUI, { locale })
@@ -32,6 +23,16 @@ Vue.use(ElementUI, { locale })
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 library.add(faUserSecret)
 
+
+import * as VueGoogleMaps from 'vue2-google-maps'
+
+Vue.use(VueGoogleMaps, {
+    load: {
+        key: 'AIzaSyDyKytLc6HSBg15d2n3erx3dlTpxi4Xci8',
+        libraries: 'places',
+        language: 'en',
+    },
+});
 
 Vue.config.productionTip = false
 

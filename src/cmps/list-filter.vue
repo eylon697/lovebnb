@@ -1,111 +1,94 @@
 <template>
-	<form class="list-filter" v-if="stays">
-		<div class="type-filter">
-			<el-dropdown :hide-on-click="false">
-				<el-button
-					>{{propertyType}}Entire place<i class="el-icon-arrow-down el-icon--right"></i 
-				></el-button>
-				<el-dropdown-menu slot="dropdown">
-					<el-dropdown-item>
-						<el-checkbox-group class="type-list"> 
-                            <!-- TODO:V-model filter types -->
-							<el-checkbox
-								v-for="(type, idx) in propertyType"
-								:key="idx"
-								:label="type"
-								class="checkbox"
-								>{{ type }}</el-checkbox
-							>
-						</el-checkbox-group>
-						<div class="filter-buttons">
-							<el-button type="sucsess" >Save</el-button>
-                            <!-- TODO:@click setFilter -->
-						</div>
-					</el-dropdown-item>
-				</el-dropdown-menu>
-			</el-dropdown>
-		</div>
 
-        <el-dropdown :hide-on-click="false">
-			<el-button>Price<i class="el-icon-arrow-down el-icon--right"></i></el-button>
-			<el-dropdown-menu slot="dropdown">
-				<el-dropdown-item
-					>filter
-					<div>
-						<el-slider style="color:black"  range :max="1500"> </el-slider>
-                        <!-- TODO:V-MODEL FILTER PRICE -->
-					</div>
 
-					<div class="price">
-						<el-input placeholder="Min price"  type="text"></el-input>
-                        <!-- TODO:V-MODEL FILTER PRICE -->
-						<el-input placeholder="Max price" type="text"></el-input>
-                        <!-- TODO:V-MODEL FILTER PRICE -->
-						<div class="filter-buttons">
-							<el-button type="sucsess" >Save</el-button>
-                            <!-- TODO:@click setFilter -->
-						</div>
-					</div>
-				</el-dropdown-item>
-			</el-dropdown-menu>
-		</el-dropdown>
+  <form class="list-filter">
+    <button ref="priceBtn" @click.stop="changePrice">
+      {{ priceToShow }}
+    </button>
+	
 
-		<div class="type-filter">
-			<el-dropdown :hide-on-click="false">
-				<el-button
-					>Rooms and Beds{{ amenities }}<i class="el-icon-arrow-down el-icon--right"></i
-				></el-button>
-				<el-dropdown-menu slot="dropdown">
-					<el-dropdown-item>
-						<el-checkbox-group class="type-list">
-                             <!-- TODO:v-modelfilterBy -->
-							<el-checkbox
+    <div @click.stop class="price-modal" v-if="priceOpen">
+      <el-slider
+        style="color: black"
+        v-model="filterBy.price"
+        range
+        :max="1500"
+      >
+      </el-slider>
 
-								v-for="(amenity, idx) in amenities"
-								:key="idx"
-								:label="amenity"
-								class="checkbox"
-								>{{ stays.amenity }}</el-checkbox
-							>
-						</el-checkbox-group>
-						<div class="filter-buttons">
-							<el-button type="sucsess" >Save</el-button>
-                            <!-- TODO:@click setFilter -->
-						</div>
-					</el-dropdown-item>
-				</el-dropdown-menu>
-			</el-dropdown>
-		</div>
-		<el-button>Clear</el-button>
-        <!-- TODO:@click clearFilter -->
-	</form>
+
+      <div class="price-container">
+        <input
+          v-model="filterByLocal.price[0]"
+          class="from-price"
+          placeholder="From"
+        />
+        <input
+          v-model="filterByLocal.price[1]"
+          class="to-price"
+          placeholder="To"
+        />
+      </div>
+      <div class="button-container">
+        <button @click.stop="clearFilter">Clear</button>
+        <button @click.stop="setFilter">Update</button>
+      </div>
+    </div>
+  
+  </form>
 </template>
 
 <script>
 export default {
-	props: {
-		stays: Array,
-	},
-    created(){
-        // console.log(stays);
+  props: {
+    filterBy: Object,
+    stays: Array,
+    unfilteredStays: Array,
+  },
+  created() {
+    // console.log(stays);
+  },
+  data() {
+    return {
+      priceOpen: false,
+      typeOpen: false,
+      amenitiesOpen: false,
+	//    filterByLocal: this.filterBy || {},
+    };
+  },
+  methods: {
+    changePrice() {
+      this.priceOpen = !this.priceOpen;
+      this.typeOpen = false;
+      this.amenitiesOpen = false;
     },
-	data(){
-		return {
-
-		}
-	},
-	computed:{
-		amenities(){
-			return this.$store.getters.amenities
-		},
-		propertyType(){
-			return this.$store.getters.propertyType
-		}
-	}
-	
-
-
-}
+    changeTypes() {
+      this.typeOpen = !this.typeOpen;
+      this.priceOpen = false;
+      this.amenitiesOpen = false;
+    },
+    changeAmenities() {
+      this.amenitiesOpen = !this.isAmenitiesModalOpen;
+      this.typeOpen = false;
+      this.priceOpen = false;
+    },
+  },
+  computed: {
+    priceToShow() {
+      if (this.filterBy.price[0] !== 0 && this.filterBy.price[1] !== 0) {
+        return `$${this.filterBy.price[0]} - $${this.filterBy.price[1]}`;
+      } else {
+        return "Price";
+      }
+    },
+    amenities() {
+      return this.$store.getters.amenities;
+    },
+    propertyType() {
+      return this.$store.getters.propertyType;
+    },
+  },
+};
 </script>
 
 <style></style>

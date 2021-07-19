@@ -41,6 +41,17 @@
       </div>
       <div></div>
 
+      <section class="amenities">
+        <!-- TODO:ICON IN DATA -->
+						<h2>What this place offers</h2>
+						<section>
+							<article v-for="(amenity, idx) in stay.amenities" :key="idx">
+								<!-- <i :class="amenity.icon"></i> -->
+								{{ amenity }}
+							</article>
+						</section>
+					</section>
+
       <div class="reviews-container">
         <div class="rating">
           <i class="fas fa-star"> </i>
@@ -56,6 +67,7 @@
         <google-map :loc="stay.loc" v-if="stay.loc" />
         <div v-else>loading...</div>
         <div class="stay-location">{{ stay.loc.address }}</div>
+        <p class="stay-nearness">{{ stay.loc.nearness }}</p>
       </div>
     </div>
     <div v-else>Loading</div>

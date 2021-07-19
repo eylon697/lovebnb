@@ -4,7 +4,7 @@
     width: 100%;
     flex-direction: column;
     .info {
-        font-size: .875rem;
+        font-size: 0.875rem;
     }
     img {
         border-radius: 10px;
@@ -30,8 +30,27 @@
     .changeColor {
         color: $clr3;
     }
+    // <ul class="el-carousel__indicators el-carousel__indicators--horizontal"><li class="el-carousel__indicator el-carousel__indicator--horizontal is-active"><button class="el-carousel__button"><!----></button></li><li class="el-carousel__indicator el-carousel__indicator--horizontal"><button class="el-carousel__button"><!----></button></li><li class="el-carousel__indicator el-carousel__indicator--horizontal"><button class="el-carousel__button"><!----></button></li><li class="el-carousel__indicator el-carousel__indicator--horizontal"><button class="el-carousel__button"><!----></button></li><li class="el-carousel__indicator el-carousel__indicator--horizontal"
 
-    .el-carousel__indicators.el--horizontal {
-        width: 60%;
+    .el-carousel__indicator {
+        // width: 20%;
+        // gap: 10px;
+    }
+
+    .el-carousel__button {
+        border: unset;
+        width: 1px;
+        // border: unset;
+    }
+    .el-carousel__indicators--horizontal {
+        width: 80%;
+        @include center;
+    }
+    .el-carousel__arrow {
+        background-color: rgba(224, 224, 224, 0.137);
+        border: unset;
+    }
+    .el-carousel__arrow:hover {
+        background-color: rgba(223, 219, 219, 0.65);
     }
 }

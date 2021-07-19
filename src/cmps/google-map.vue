@@ -2,7 +2,7 @@
   <section>
     <GmapMap
       :center="center"
-      :zoom="12"
+      :zoom="15"
       map-type-id="terrain"
       style="width: 100%; height: 480px"
     >
@@ -12,7 +12,7 @@
         :position="m"
         :clickable="true"
         @click="center = m"
-        :icon="{ url: require('../assets/img/stay-details/home.png') }"
+        :icon="{ url: require('../assets/img/stay-details/marker.png') }"
       />
     </GmapMap>
   </section>

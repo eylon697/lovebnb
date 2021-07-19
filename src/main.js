@@ -10,7 +10,6 @@ import locale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI, { locale })
 
-import * as VueGoogleMaps from 'vue2-google-maps';
 
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'

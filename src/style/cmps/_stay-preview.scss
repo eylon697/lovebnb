@@ -1,13 +1,15 @@
 .stay-preview {
-    -webkit-box-shadow: 0px 0px 7px -3px #000000;
-    box-shadow: 0px 0px 7px -3px #000000;
+    -webkit-box-shadow: 0px 1px 5px -2px rgba(85, 85, 85, 0.37);
+    box-shadow: 0px 1px 5px -2px rgba(85, 85, 85, 0.37);
     border-radius: 10px;
     position: relative;
     cursor: pointer;
     display: flex;
     width: 100%;
     flex-direction: column;
-
+    & * {
+        overflow: hidden !important;
+    }
     .info {
         font-size: 0.875rem;
         padding: 10px;
@@ -21,7 +23,7 @@
         object-fit: cover;
         position: relative;
     }
-    .buttom{
+    .buttom {
         display: flex;
         justify-content: space-between;
     }
@@ -48,12 +50,16 @@
     .fa-star {
         color: $clr3;
     }
-    .rate {
+    .card-rating span {
+        font-weight: 300;
+    }
+    .card-rating .rate {
         font-weight: bold;
     }
     .price {
-        display: none;
+        // display: none;
         span {
+            font-weight: 300;
             &:first-child {
                 font-weight: bold;
                 margin-inline-end: 3px;
@@ -64,14 +70,21 @@
     .changeColor {
         color: $clr3;
     }
+    .type {
+        margin-bottom: 5px;
+        font-weight: 300;
+    }
     .name {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        margin-bottom: 5px;
+        font-weight: 500;
     }
     .el-carousel__button {
         border: unset;
         width: 1px;
+        margin: 0;
     }
     .el-carousel__indicators--horizontal {
         width: 80%;
@@ -83,6 +96,16 @@
     }
     .el-carousel__arrow:hover {
         background-color: rgba(223, 219, 219, 0.65);
+    }
+    .el-carousel__indicators.el-carousel__indicators--horizontal {
+        position: relative;
+        height: 15px !important;
+        bottom: 30px;
+    }
+    .img-carousell.el-carousel.el-carousel--horizontal,
+    .el-carousel__container,
+    .el-carousel__item.is-active.is-animating {
+        height: 200px !important;
     }
     // TODO: hover on img show the button
     // .el-icon-arrow-right {

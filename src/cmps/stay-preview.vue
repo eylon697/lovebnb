@@ -21,6 +21,7 @@
 
     <div class="info">
       <div>
+        <p class="type">{{ stay.propertyType }}</p>
         <p class="name">{{ stay.name }}</p>
       </div>
     <div class="buttom">

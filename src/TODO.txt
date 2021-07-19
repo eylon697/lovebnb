@@ -7,21 +7,24 @@ filter(data),hover
 user list(login,sign up, become a host
 pointer: filter
 details: space in entire,share,save,#href-ask asi
-
-Moria:
+pagging
+users/hosts
+icon amenities
+max-main-layout
 list-margin from header
 data review
 carusale-hover
-outdoor,host-button,hover,pointer
 
-
-בהרמת בקאנד:
+backend:
 atlas
 :db
-
 user,
 stay,
 other:[], max price:5000
 
-pagging
-users/hosts
+
+Key features:Browse stays
+ Reserve a stay,
+  host (add)  stay, 
+  communicate with host/guest, 
+  read/add reviews.

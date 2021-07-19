@@ -1,17 +1,29 @@
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(50px)scale(2);
+        transform: translateY(50px)scale(2);
+    }
+    100% {
+        -webkit-transform: translateY(0)scale(1);
+        transform: translateY(0)scale(1);
+    }
+}
+
 .app-header {
+    background-color: $clr2;
     font-size: .88rem;
     letter-spacing: .1px;
     font-family: Roboto;
     position: fixed;
-    background-color: $clr2;
+    transition: background-color .5s;
     color: $clr5;
     width: 100%;
     z-index: 50;
     display: flex;
     flex-direction: column;
-    padding: 13px 0;
     -webkit-box-shadow: -1px -9px 7px 11px rgba(151, 151, 151, 0.64);
     box-shadow: -1px -9px 7px 11px rgba(151, 151, 151, 0.64);
+    padding: 13px 0;
     .top {
         height: 48px;
         padding-top: 10px;
@@ -52,7 +64,6 @@
             align-items: center;
             font-size: 1rem;
             line-height: 20px;
-            // padding: 10px 16px;
             .places {
                 padding-top: 7px;
                 .sep {
@@ -65,10 +76,14 @@
                 }
             }
             button {
+                cursor: pointer;
+                margin-top: 1px;
+                animation-name: slide-top;
+                animation-duration: .4s;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                background-color: unset;
+                background-color: $clr2;
                 border: solid $clr1 1px;
                 padding: 1.5px 6px 0 8px;
                 border-radius: 50px;
@@ -144,10 +159,11 @@
         -webkit-box-shadow: none;
         box-shadow: none;
         .top {
-            margin-bottom: 15px;
+            // margin-bottom: 15px;
             .logo span,
             .logo i {
                 color: $clr2;
+                transition: color .4s;
             }
         }
         .middle {

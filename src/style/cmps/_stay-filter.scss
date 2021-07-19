@@ -1,6 +1,21 @@
+@keyframes slide-fwd-bottom {
+    0% {
+        -webkit-transform: translateZ(-50px) translateY(-50px)scale(0.5);
+        transform: translateZ(-50px) translateY(-50px)scale(0.5);
+    }
+    100% {
+        -webkit-transform: translateZ(0) translateY(0) scale(1);
+        transform: translateZ(0) translateY(0)scale(1);
+    }
+}
+
 .stay-filter {
+    padding-top: 0.5px;
+    animation-name: slide-fwd-bottom;
+    animation-duration: .4s;
     border-radius: 40px;
     font-size: .75rem;
+    position: absolute;
     display: flex;
     align-items: center;
     width: fit-content;
@@ -96,9 +111,13 @@
         outline: unset;
     }
     label {
+        border-radius: 50px;
         cursor: pointer;
         display: flex;
         flex-direction: column;
+        &:hover {
+            background-color: #ebebeb;
+        }
         .title {
             font-weight: 900;
             letter-spacing: 0.04em;

@@ -14,33 +14,28 @@
     </el-carousel>
 
     <div class="heart" @click.stop="like">
-       <i v-if="isLike" class="fas fa-heart"></i>
+      <i v-if="isLike" class="fas fa-heart"></i>
       <!-- <img class="like" v-if="isLike" :src="require('@/assets/img/stay-details/heart2.svg')" /> -->
-      <img  v-else :src="require('@/assets/img/stay-details/heart.svg')" />
+      <img v-else :src="require('@/assets/img/stay-details/heart.svg')" />
     </div>
 
-
     <div class="info">
+      <div>
+        <p class="name">{{ stay.name }}</p>
+      </div>
+    <div class="buttom">
       <div class="card-rating">
         <span><i class="fas fa-star"></i></span>
         <span class="rate"> {{ stay.rateAvg }} </span>
         <span>(</span>
-
-        <span>{{ stay.reviews.legnth }}</span>
+        <span>{{ stay.reviews.length }} </span>
         <span>reviews)</span>
       </div>
-
-      <div>
-        <p>{{ stay.propertyType }}</p>
-      </div>
-      <div>
-        <p class="name">{{ stay.name }}</p>
+      <div class="price">
+        <span>${{ stay.price }} </span>
+        <span> / night</span>
       </div>
     </div>
-
-    <div class="price">
-      <span>${{ stay.price }} </span>
-      <span> / night</span>
     </div>
   </section>
 </template>

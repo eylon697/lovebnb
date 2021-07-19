@@ -13,3 +13,15 @@ list-margin from header
 data review
 carusale-hover
 outdoor,host-button,hover,pointer
+
+
+בהרמת בקאנד:
+atlas
+:db
+
+user,
+stay,
+other:[], max price:5000
+
+pagging
+users/hosts

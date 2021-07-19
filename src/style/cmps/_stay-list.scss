@@ -1,5 +1,4 @@
 .stay-list {
-
     .list-header {
         margin-bottom: 15px;
         div {
@@ -23,6 +22,7 @@
         margin-bottom: 20px;
     }
     .preview-container {
+        padding: 3px;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
         gap: 30px;

@@ -6,6 +6,9 @@ export const stayStore = {
         stay: '',
         stays: [],
         currstay: '',
+        unfilteredStays: [],
+        propertyType: ["Entire apartment", "Hotel room"],
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics", "Washer", "Dryer", "Iron", "Free street parking", "Microwave", "Air conditioning", "First aid kit"],
         filterBy: {
             mainFilter: '',
             country: '',
@@ -14,8 +17,9 @@ export const stayStore = {
             guests: '',
             checkIn: '',
             checkOut: '',
-            minPrice: 0,
-            maxPrice: Infinity,
+            price:[0,1500],
+            // minPrice: 0,
+            // maxPrice: Infinity,
             beds: 0,
             bedrooms: 0,
             bathrooms: 0
@@ -31,6 +35,15 @@ export const stayStore = {
         filterBy(state) {
             return state.filterBy
         },
+        amenities(state) {
+            return state.amenities
+        },
+        propertyType(state) {
+            return state.propertyType
+        },
+        unfiltered(state) {
+			return state.unfiltered
+		},
     },
     mutations: {
         setStays(state, { stays }) {
@@ -41,7 +54,10 @@ export const stayStore = {
         },
         setFilter(state, { filterBy }) {
             state.filterBy = filterBy
-        }
+        },
+        setunfilteredStays(state, { unfilteredStays }) {
+			state.unfilteredStays = unfilteredStays
+		},
     },
     actions: {
         async loadStays({ commit, state }, { filterBy }) {
@@ -65,6 +81,7 @@ export const stayStore = {
                 throw err;
             }
         },
+
         saveStay() {
 
         },

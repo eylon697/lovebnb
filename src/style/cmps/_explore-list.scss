@@ -12,14 +12,14 @@
         justify-content: space-between;
         h4 {
             color: $clr5;
-            // @include center;
-            font-size: 1.125rem;
+            font-size: 1.5rem;
             font-family: Roboto;
+            cursor: pointer;
         }
         img {
             border-radius: 8px;
             width: 100%;
-            // height: 100%;
+            cursor: pointer;
         }
     }
 }

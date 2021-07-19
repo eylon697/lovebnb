@@ -1,6 +1,11 @@
 <template>
   <section class="stay-app main-layout">
-    <list-filter v-if="stays" :stays="stays" />
+    <list-filter
+      v-if="stays && unfiltered"
+      :filterBy="filterBy"
+      :stays="stays"
+      @filter="setFilter"
+      :unfiltered="unfiltered" />
     <stay-list :stays="stays" v-if="stays" />
   </section>
 </template>
@@ -12,9 +17,22 @@ export default {
     stayList,
     listFilter,
   },
+   methods: {
+    setFilter(filterBy) {
+      console.log(filterBy);
+      this.$store.commit({ type: 'setFilter', filterBy });
+      this.$store.dispatch({ type: 'loadStays' });
+    },
+  },
   computed: {
     stays() {
       return this.$store.getters.stays;
+    },
+    unfiltered() {
+      return this.$store.getters.unfiltered;
+    },
+     filterBy() {
+      return this.$store.getters.filterBy;
     },
   },
   created() {

@@ -1,0 +1,39 @@
+nearStay: [
+        {
+          title: "Tel Aviv",
+          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky1_tpnuc1.png',
+          time: "20 minute drive",
+        },
+        {
+          title: "Jerusalem",
+          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky3_aqyfl1.png',
+          time: "1 hour drive",
+        },
+        {
+          title: "Eilat",
+          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605741/sky2_owvvtf.png',
+          time: "5 hour drive",
+        },
+        {
+          title: "Natanya",
+          imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626605742/sky4_edkkdp.png',
+          time: "30 minute drive",
+        },
+      ],
+
+              // async loadUnfilteredStays({ commit }) {
+		// 	try {
+		// 		const unfilteredStays = await stayService.query({
+		// 			price: [0, 1500],
+		// 			types: [],
+		// 			amenities: [],
+		// 			city: '',
+		// 		})
+
+		// 		commit({ type: 'setUnfiltered', unfilteredStays })
+		// 		return unfilteredStays
+		// 	} catch (err) {
+		// 		console.log('Cannot load stays', unfilteredStays)
+		// 		throw err
+		// 	}
+		// },

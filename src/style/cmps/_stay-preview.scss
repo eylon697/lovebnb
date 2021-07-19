@@ -7,6 +7,7 @@
     display: flex;
     width: 100%;
     flex-direction: column;
+
     .info {
         font-size: 0.875rem;
         padding: 10px;
@@ -19,6 +20,10 @@
         height: 200px;
         object-fit: cover;
         position: relative;
+    }
+    .buttom{
+        display: flex;
+        justify-content: space-between;
     }
     .heart {
         position: absolute;

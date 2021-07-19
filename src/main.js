@@ -23,9 +23,6 @@ Vue.use(ElementUI, { locale })
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 library.add(faUserSecret)
 
-
-import * as VueGoogleMaps from 'vue2-google-maps'
-
 Vue.use(VueGoogleMaps, {
     load: {
         key: 'AIzaSyDyKytLc6HSBg15d2n3erx3dlTpxi4Xci8',

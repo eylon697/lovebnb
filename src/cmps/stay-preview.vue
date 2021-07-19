@@ -21,22 +21,30 @@
 
     <div class="info">
       <div>
-        <p class="type">{{ stay.propertyType }}</p>
+        <p class="type">
+          <span>
+            {{ stay.propertyType }}
+          </span>
+          <span class="sep"> ·</span>
+          <span>
+            {{ stay.loc.city }}
+          </span>
+        </p>
         <p class="name">{{ stay.name }}</p>
       </div>
-    <div class="buttom">
-      <div class="card-rating">
-        <span><i class="fas fa-star"></i></span>
-        <span class="rate"> {{ stay.rateAvg }} </span>
-        <span>(</span>
-        <span>{{ stay.reviews.length }} </span>
-        <span>reviews)</span>
+      <div class="buttom">
+        <div class="card-rating">
+          <span><i class="fas fa-star"></i></span>
+          <span class="rate"> {{ stay.rateAvg }} </span>
+          <span>(</span>
+          <span>{{ stay.reviews.length }} </span>
+          <span>reviews)</span>
+        </div>
+        <div class="price">
+          <span>${{ stay.price }} </span>
+          <span> / night</span>
+        </div>
       </div>
-      <div class="price">
-        <span>${{ stay.price }} </span>
-        <span> / night</span>
-      </div>
-    </div>
     </div>
   </section>
 </template>

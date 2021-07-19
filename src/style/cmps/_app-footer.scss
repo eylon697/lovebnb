@@ -8,15 +8,32 @@
             align-items: center;
             justify-content: space-between;
         }
-        a {
-            display: inline-block;
-        }
-        i {
-            margin-inline-end: 9px;
-            font-size: 1.5rem;
-            &.fa-facebook-f {
-                font-size: 1.2rem;
+        .social {
+            a {
+                display: inline-block;
+                text-decoration: none;
+                color: $clr5;
+                i {
+                    margin-inline-end: 9px;
+                    font-size: 1.5rem;
+                    &.fa-facebook-square {
+                        &:hover {
+                            color: #1877f2;
+                        }
+                    }
+                    // &.fa-instagram {
+                    //     &:hover {
+                    //         color: 
+                    //     }
+                    // }
+                    // &.fa-twitter {
+                    //     &:hover {
+                    //         color: 
+                    //     }
+                    // }
+                }
             }
+            
         }
     }
 }

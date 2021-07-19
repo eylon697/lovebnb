@@ -6,9 +6,9 @@
           <small> © 2021 lovebnb</small>
         </div>
         <div class="social">
-          <a><i class="fab fa-facebook-square"></i></a>
-          <a><i class="fab fa-instagram"></i></a>
-          <a><i class="fab fa-twitter"></i></a>
+          <a href="https://www.facebook.com/airbnb"><i class="fab fa-facebook-square"></i></a>
+          <a href="https://www.instagram.com/airbnb" ><i class="fab fa-instagram"></i></a>
+          <a  href="https://twitter.com/airbnb"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
     </div>

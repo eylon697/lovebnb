@@ -3,7 +3,8 @@ import { storageService } from './async-storage.service.js'
 // propertyType: ["Entire apartment","Hotel room"],
 // amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics","Washer","Dryer","Iron","Free street parking","Microwave","Air conditioning","First aid kit"],
 
-const gStays = [{
+const gStays = [
+    {
     _id: "101",
     name: "Junior King size suite",
     imgUrls: [

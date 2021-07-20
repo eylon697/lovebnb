@@ -10,12 +10,12 @@
 }
 
 .stay-filter {
+    z-index: 50;
     padding-top: 0.5px;
     animation-name: slide-fwd-bottom;
     animation-duration: .4s;
     border-radius: 40px;
     font-size: .75rem;
-    position: absolute;
     display: flex;
     align-items: center;
     width: fit-content;
@@ -58,6 +58,7 @@
         .check-in,
         .check-out {
             &>div {
+                border-radius: 50px;
                 padding: 14px 24px;
                 div {
                     min-width: 100px;
@@ -74,6 +75,9 @@
                     font-weight: 300;
                     font-size: 0.8rem;
                     line-height: 1.125rem;
+                }
+                &:hover {
+                    background-color: #ebebeb;
                 }
             }
         }
@@ -115,7 +119,8 @@
         cursor: pointer;
         display: flex;
         flex-direction: column;
-        &:hover {
+        &.location:hover,
+        &.guests:hover {
             background-color: #ebebeb;
         }
         .title {
@@ -127,6 +132,7 @@
         }
     }
     button {
+        cursor: pointer;
         justify-self: flex-end;
         margin-top: 1px;
         font-size: 16px;
@@ -138,5 +144,12 @@
         padding: 16px 17px;
         border-radius: 100px;
         box-sizing: border-box;
+        &:hover {
+            background-color: #e70e36;
+        }
     }
+}
+
+.home-top .stay-filter {
+    position: absolute !important;
 }

@@ -1,39 +1,39 @@
 <template>
-  <header :class="classObject">
+  <header class="app-header main-layout" :class="classObject">
     <!-- <div class="top-container"> -->
-      <div class="top">
-        <div class="logo">
-          <router-link to="/">
-            <i class="fab fa-airbnb"></i>
-            <span>lovebnb</span>
-          </router-link>
+    <div class="top">
+      <div class="logo">
+        <router-link to="/">
+          <i class="fab fa-airbnb"></i>
+          <span>lovebnb</span>
+        </router-link>
+      </div>
+      <div class="middle">
+        <div class="places" v-if="isOpen">
+          <div>Places to stay</div>
+          <div class="sep"></div>
         </div>
-        <div class="middle">
-          <div class="places" v-if="isOpen">
-            <div>Places to stay</div>
-            <div class="sep"></div>
-          </div>
-          <button v-else @click.stop="openHeader">
-            <span>Start your search</span>
-            <i class="fas fa-search"></i>
+        <button v-else @click.stop="openHeader">
+          <span>Start your search</span>
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <div class="right">
+        <nav>
+          <router-link to="/">Become a host</router-link>
+        </nav>
+        <div class="preference">
+          <i class="fas fa-bars"></i>
+          <button class="btn-user">
+            <img :src="require('@/assets/img/app-header/user.png')" />
           </button>
         </div>
-
-        <div class="right">
-          <nav>
-            <router-link to="/">Become a host</router-link>
-          </nav>
-          <div class="preference">
-            <i class="fas fa-bars"></i>
-            <button class="btn-user">
-              <img :src="require('@/assets/img/app-header/user.png')" />
-            </button>
-          </div>
-        </div>
       </div>
+    </div>
     <!-- </div> -->
-    <div class="bottom">
-      <stay-filter v-if="isOpen" />
+    <div v-if="isOpen" class="bottom">
+      <stay-filter />
     </div>
   </header>
 </template>
@@ -47,37 +47,43 @@ export default {
   data() {
     return {
       isOpen: false,
+      scrollDiff: 0,
     };
   },
   computed: {
     classObject() {
       return {
-        "app-header": true,
-        "main-layout": true,
         open: this.isOpen,
+        "home-top": this.$route.name === "HomePage" && !this.scrollDiff,
       };
     },
   },
   created() {
-    eventBus.$on("openHeader", this.openHeader);
+    if (this.$route.name === "HomePage") this.openHeader();
+    eventBus.$on("closeHeder", this.closeHeader);
     window.addEventListener("scroll", this.onScroll);
+    console.log("this.$route.name", this.$route.name);
   },
   destroyed() {
     window.removeEventListener("scroll", this.onScroll);
   },
   methods: {
     openHeader() {
-      console.log("open header");
+      if (this.scrollDiff || this.$route.name !== "HomePage")
+        this.$emit("openScreen");
       this.isOpen = true;
     },
     closeHeader() {
-      console.log("close header");
+      console.log("header");
+      this.$emit("closeScreen");
       this.isOpen = false;
     },
     onScroll(ev) {
-      let scrollDiff = ev.path[1].scrollY;
-      if (scrollDiff >= 1 || scrollDiff <= -1) {
+      this.scrollDiff = ev.path[1].scrollY;
+      if (this.scrollDiff) {
         this.closeHeader();
+      } else if (this.$route.name === "HomePage") {
+        this.openHeader();
       }
     },
   },

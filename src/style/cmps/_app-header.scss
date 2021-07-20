@@ -15,7 +15,7 @@
     letter-spacing: .1px;
     font-family: Roboto;
     position: fixed;
-    transition: background-color .5s;
+    transition: background-color .4s;
     color: $clr5;
     width: 100%;
     z-index: 50;
@@ -91,6 +91,11 @@
                 width: 300px;
                 -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
                 box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+                &:hover {
+                    -webkit-box-shadow: 0px 2.5px 2.5px 0px rgba(0, 0, 0, 0.3);
+                    box-shadow: 0px 2.5px 2.5px 0px rgba(0, 0, 0, 0.3);
+                    transition: all .3s;
+                }
                 span {
                     display: inline-block;
                     padding: 0 16px;
@@ -106,9 +111,12 @@
                     border: unset;
                     height: 35px;
                     width: 35px;
-                    padding: 11px 5px;
+                    padding: 13px 5px;
                     border-radius: 100px;
                     box-sizing: border-box;
+                    // &:hover {
+                    //     background-color: #e70e36;
+                    // }
                 }
             }
         }
@@ -154,26 +162,31 @@
         display: flex;
         justify-content: center;
     }
+    height: 85px;
+    transition: height .4s;
     &.open {
-        background-color: unset;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        .top {
-            // margin-bottom: 15px;
+        height: 151px;
+        transition: height .4s;
+        &.home-top {
+            height: 85px;
+            background-color: unset;
+            -webkit-box-shadow: none;
+            box-shadow: none;
             .logo span,
             .logo i {
                 color: $clr2;
                 transition: color .4s;
             }
-        }
-        .middle {
-            color: $clr2;
-        }
-        .middle .places .sep {
-            background-color: $clr2;
-        }
-        .right a {
-            color: $clr2;
+            .middle {
+                color: $clr2;
+                // transition: color .4s;
+            }
+            .middle .places .sep {
+                background-color: $clr2;
+            }
+            .right a {
+                color: $clr2;
+            }
         }
     }
 }

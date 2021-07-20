@@ -26,7 +26,6 @@
           <div>
             <div>
               <div class="title">Check in</div>
-              <!-- <input type="date" v-model="filterBy.checkIn" /> -->
               <div class="date-value" v-if="filterBy.dates && filterBy.dates.length">
                 {{ checkIn }}
               </div>
@@ -45,7 +44,6 @@
           <div>
             <div>
                <div class="title">Check out</div>
-              <!-- <input type="date" v-model="filterBy.checkOut" /> -->
               <div class="date-value" v-if="filterBy.dates && filterBy.dates.length">
                 {{ checkOut }}
               </div>

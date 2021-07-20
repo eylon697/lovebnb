@@ -108,20 +108,23 @@
     .el-carousel__item.is-active.is-animating {
         height: 200px !important;
     }
-    // TODO: hover on img show the button
-    // .el-icon-arrow-right {
-    //   display: none;
-    // }
-    // .el-icon-arrow-left {
-    //   display: none;
-    // }
-    // .el-icon-arrow-right:hover {
-    //   display:block
-    // }
-    // .el-icon-arrow-left:hover {
-    //   display:
-    // }
-    // .el-icon-arrow:hover {
-    //     background-color: rgba(223, 219, 219, 0.65);
-    // }
+    .el-carousel__arrow.el-carousel__arrow--left{
+        opacity:0
+    }
+    .el-carousel__arrow.el-carousel__arrow--right{
+        opacity:0
+    }
+   
+    .el-carousel_.el-carousel__container {
+        .el-carousel__arrow.el-carousel__arrow--left{
+            opacity:1
+        }
+        .el-carousel__arrow.el-carousel__arrow--right{
+            opacity:1
+        }
+    }
+
+  
+
+
 }

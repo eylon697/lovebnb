@@ -1,19 +1,16 @@
 
 TODO:
 
-hero: img,sentence
-
 header:
+hero: img,sentence
 logo
-screen
-colors
-bgc
-
-filter
 user list(login,sign up, become a host
+
+filter:
+date-picker
+
 pointer: filter
 details: space in entire,share,save,#href-ask asi
-pagging
 users/hosts
 icon amenities
 max-main-layout
@@ -37,3 +34,22 @@ Key features:Browse stays
   
   delete img
   delete comments
+
+  data-picker:hide 
+  new input with label and place holder-desing
+  marjin-bottom-(button)
+
+
+  bug in heart-stay-list
+  same marjin in home page
+
+
+  order-make it smart
+  make it trip
+
+  loading-cancel set time (when we have backend)
+
+  user msg-from the header
+
+ carrousel: hide arrows, color gray
+

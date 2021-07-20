@@ -2,3 +2,8 @@ Eden:
 margin header(for distance)
 data home-page
 date picker center
+
+Asi:
+date picker
+cancel animation in header (create)
+img host-details

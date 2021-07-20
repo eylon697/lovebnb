@@ -24,6 +24,11 @@
             }
         }
     }
+    .main-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        
+    }
     .info {
         padding-top: 48px;
         padding-bottom: 24px;
@@ -70,16 +75,15 @@
         .map-title {
             font-size: 1.375rem;
             margin-bottom: 24px;
-            letter-spacing:1.5px;
+            letter-spacing: 1.5px;
         }
         .stay-location {
             font-weight: bold;
             margin-top: 22px;
             margin-bottom: 22px;
         }
-        .stay-nearness{
+        .stay-nearness {
             margin-bottom: 22px;
-            
         }
     }
 }

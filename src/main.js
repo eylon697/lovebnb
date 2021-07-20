@@ -5,11 +5,15 @@ import router from './router'
 import store from './store'
 import '@/style/style.scss'
 
+
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI, { locale })
+import 'vue-loaders/dist/vue-loaders.css';
+import VueLoaders from 'vue-loaders';
 
+Vue.use(VueLoaders);
 import * as VueGoogleMaps from 'vue2-google-maps'
 
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'

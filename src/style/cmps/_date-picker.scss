@@ -1,0 +1,26 @@
+  
+@import "~vue2-datepicker/scss/index.scss";
+
+$namespace: "xmx"; // change the 'mx' to 'xmx'. then <date-picker prefix-class="xmx" />
+
+$default-color: $clr5;
+$primary-color: #d3d3d3;
+
+.mx-datepicker.mx-datepicker-range{
+    width: 100%;
+  }
+  .mx-range-wrapper{
+    border-radius: 40px;
+  }
+  .mx-calendar-content .cell.active {
+    background-color: $clr3;
+    border-radius: 20px;
+
+  }
+  .mx-calendar-content .cell.in-range, .mx-calendar-content .cell.hover-in-range {
+    color: #ffffff;
+    background-color: #f8cfd7;
+    border-radius: 20px;
+}
+  
+ 

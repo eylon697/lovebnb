@@ -16,10 +16,14 @@
 @import 'cmps/details-header';
 @import 'cmps/review-preview';
 @import 'cmps/app-header';
-@import 'cmps/stay-filter.scss';
-@import 'cmps/explore-list.scss';
-@import 'cmps/stay-list.scss';
-@import 'cmps/list-filter.scss';
-@import 'cmps/stay-preview.scss';
-@import 'cmps/review-list.scss';
+@import 'cmps/stay-filter';
+@import 'cmps/explore-list';
+@import 'cmps/stay-list';
+@import 'cmps/list-filter';
+@import 'cmps/stay-order';
+@import 'cmps/stay-preview';
+@import 'cmps/review-list';
+@import 'cmps/user-msg';
+@import 'cmps/date-picker';
+
 @import 'basics/layout';

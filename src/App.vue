@@ -11,6 +11,7 @@
     ></div>
     <router-view />
     <app-footer />
+    <user-msg />
   </div>
 </template>
 
@@ -18,10 +19,13 @@
 import appHeader from "./cmps/app-header.vue";
 import appFooter from "./cmps/app-footer.vue";
 import {eventBus} from './services/event-bus.service.js'
+import userMsg from "./cmps/user-msg.vue";
+
 export default {
   components: {
     appHeader,
     appFooter,
+    userMsg
   },
   data() {
     return { isScreenOpen: false };

@@ -34,7 +34,9 @@
           </div>
         </div>
         <div class="sep"></div>
-        <el-date-picker class="date-picker"
+        <el-date-picker 
+        name="filter"
+        class="date-picker"
          v-model="filterBy.dates" 
          type="daterange"
          onPick="onPick(pick)"

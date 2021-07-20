@@ -34,3 +34,6 @@ Key features:Browse stays
   host (add)  stay, 
   communicate with host/guest, 
   read/add reviews.
+  
+  delete img
+  delete comments

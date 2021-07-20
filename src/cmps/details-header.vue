@@ -8,13 +8,13 @@
         <i class="fas fa-star"></i>
         <span> {{ stay.rateAvg }} </span>
         <span>(</span>
-        <router-link :to="'/stay/' + stay._id + '/reviews'">
+        <a href="#reviews">
           <span>{{ stay.reviews.length }} </span>
           <span>reviews</span>
-        </router-link>
+        </a>
         <span>)</span>
         <span> &#8226; </span>
-        <router-link to="/">{{ stay.loc.address }}</router-link>
+        <a href="#map">{{ stay.loc.address }}</a>
       </div>
       <div class="right">
         <div class="share">

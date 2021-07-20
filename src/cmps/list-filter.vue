@@ -1,7 +1,7 @@
 <template>
   <form class="list-filter">
     <button ref="priceBtn" @click.stop="onChangePrice">
-      {{ priceToShow }}
+       Price 
     </button>
 
     <div @click.stop class="price-modal" v-if="priceOpen">
@@ -15,12 +15,12 @@
 
       <div class="price-container">
         <input
-          v-model="filterByLocal.price[0]"
+          v-model="filterByLocal.price"
           class="from-price"
           placeholder="From"
         />
         <input
-          v-model="filterByLocal.price[1]"
+          v-model="filterByLocal.price"
           class="to-price"
           placeholder="To"
         />
@@ -90,14 +90,14 @@ export default {
     },
   },
   computed: {
-    priceToShow() {
-      //   if (this.filterBy.minPrice !== 0 && this.filterBy.maxPrice !== 0) {
-      if (this.filterBy.price[0] !== 0 && this.filterBy.price[1] !== 0) {
-        return `$${this.filterBy.price[0]} - $${this.filterBy.price[1]}`;
-      } else {
-        return "Price";
-      }
-    },
+    // priceToShow() {
+    //   //   if (this.filterBy.minPrice !== 0 && this.filterBy.maxPrice !== 0) {
+    //   // if (this.filterBy.price[0] !== 0 && this.filterBy.price[1] !== 0) {
+    //   //   return `$${this.filterBy.price[0]} - $${this.filterBy.price[1]}`;
+    //   // } else {
+    //   //   return "Price";
+    //   // }
+    // },
     typeToShow() {
       if (this.filterBy.propertyType !== "") {
         return this.filterBy.propertyType;

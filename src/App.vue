@@ -4,6 +4,7 @@
     @openScreen="openScreen"
     @closeScreen="closeScreen"
     />
+    <user-msg/>
     <div
       v-if="isScreenOpen"
       class="screen"
@@ -11,7 +12,6 @@
     ></div>
     <router-view />
     <app-footer />
-    <user-msg />
   </div>
 </template>
 

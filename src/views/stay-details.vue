@@ -44,13 +44,11 @@
             <div></div>
           </div>
           <div></div>
-
           <section class="amenities">
             <!-- TODO:ICON IN DATA -->
             <h2 class="title-amenities">What this place offers</h2>
             <section>
               <article v-for="(amenity, idx) in stay.amenities" :key="idx">
-               
                 <!-- <i :class="amenity.icon"></i> -->
                 {{ amenity }}
               </article>
@@ -66,15 +64,13 @@
           </div>
           <review-list :reviews="stay.reviews" />
         </div>
-              <stay-order
-        :price="stay.price"
-        :reviews="stay.reviews"
-        :guests="stay.guests"
-        @order="order"
-      />
-
+        <stay-order
+          :price="stay.price"
+          :reviews="stay.reviews"
+          :guests="stay.guests"
+          @order="order"
+        />
       </div>
-
 
       <div id="map" class="map-container" v-if="this.stay.loc.lat">
         <h1 class="map-title">Where you'll be</h1>
@@ -94,7 +90,6 @@ import { showMsg } from "@/services/event-bus.service.js";
 import detailsHeader from "@/cmps/details-header.vue";
 import GoogleMap from "@/cmps/google-map.vue";
 import reviewList from "@/cmps/reviews-list.vue";
-import { orderService } from "@/services/order.service.js";
 export default {
   components: { stayOrder, detailsHeader, reviewList, GoogleMap },
   data() {
@@ -120,23 +115,9 @@ export default {
         this.stay.host.fullName.indexOf(" ")
       );
     },
-    async order({ dates, total, guests }) {
-      console.log(
-        "order coming to details",
-        "data:",
-        dates,
-        "total:",
-        total,
-        "guests",
-        guests
-      );
-      const orderToSave = orderService.getEmptyOrder();
-      console.log("before", orderToSave);
-      orderToSave.startDate = dates[0].getTime();
-      orderToSave.endDate = dates[1].getTime();
-      orderToSave.total = total;
-      orderToSave.guests = guests;
-      console.log("after", orderToSave);
+
+    async order(trip) {
+
       try {
         await this.$store.dispatch({
           type: "saveOrder",

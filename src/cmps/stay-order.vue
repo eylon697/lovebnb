@@ -13,15 +13,7 @@
     </section>
 
     <section class="dates">
-      <date-picker  v-model="dates" range ref="datePicker" />
-      <!-- <el-date-picker
-      class="date-picker"
-        name="order"
-        style="width: 100%"
-        type="daterange"
-      >
-      </el-date-picker> -->
-
+      <date-picker v-model="dates" range ref="datePicker" />
       <div class="guests">
         <p>Guests:</p>
 
@@ -66,49 +58,23 @@
 </template>
 
 <script>
-import DatePicker from 'vue2-datepicker';
-  import 'vue2-datepicker/index.css';
+import DatePicker from "vue2-datepicker";
+import "vue2-datepicker/index.css";
 
 export default {
   props: { reviews: Array, price: Number, guests: Number },
-  components:{DatePicker},
+  components: { DatePicker },
   data() {
     return {
       isLoading: false,
-      // shortcuts: [
-      //   {
-      //     text: "Last week",
-      //     value: (() => {
-      //       const end = new Date();
-      //       const start = new Date();
-      //       start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-      //       return [start, end];
-      //     })(),
-      //   },
-      //   {
-      //     text: "Last month",
-      //     value: (() => {
-      //       const end = new Date();
-      //       const start = new Date();
-      //       start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-      //       return [start, end];
-      //     })(),
-      //   },
-      //   {
-      //     text: "Last 3 months",
-      //     value: (() => {
-      //       const end = new Date();
-      //       const start = new Date();
-      //       start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-      //       return [start, end];
-      //     })(),
-      //   },
-      // ],
       dates: "",
       guestsCount: 1,
     };
   },
   computed: {
+    trip() {
+      return orderService.getEmpty();
+    },
     avg() {
       const sum = this.reviews.reduce((acc, review) => {
         return acc + review.rate;
@@ -120,12 +86,12 @@ export default {
       return this.dates ? "Reserve" : "Check availabilty";
     },
     computedPrice() {
-      const checkin = this.dates[0].getTime();
-      const checkout = this.dates[1].getTime();
-      const days = (checkout - checkin) / 1000 / 60 / 60 / 24;
-      const order = this.price * days;
-      const service = this.price / 10;
-      const total = order + service;
+      var checkin = this.dates[0].getTime();
+      var checkout = this.dates[1].getTime();
+      var days = (checkout - checkin) / 1000 / 60 / 60 / 24;
+      var order = this.price * days;
+      var service = this.price / 10;
+      var total = order + service;
       var formatter = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
@@ -170,6 +136,8 @@ export default {
       }, 10000);
     },
   },
+
+
   mounted() {
     this.$refs.orderBtn.onmousemove = (e) => {
       const x = e.offsetX;

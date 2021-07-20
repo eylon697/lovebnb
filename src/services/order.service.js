@@ -78,5 +78,12 @@ function save(order) {
 
 
 function getEmptyOrder() {
-    return {}
+    return {
+        startDate: '',
+        endDate: '',
+        total: null,
+        guests: null,
+    }
+
 }
+

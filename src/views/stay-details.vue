@@ -86,7 +86,7 @@
 
 <script>
 import stayOrder from "@/cmps/stay-order.vue";
-import { showMsg } from "@/services/event-bus.service.js";
+// import { showMsg } from "@/services/event-bus.service.js";
 import detailsHeader from "@/cmps/details-header.vue";
 import GoogleMap from "@/cmps/google-map.vue";
 import reviewList from "@/cmps/reviews-list.vue";
@@ -115,31 +115,7 @@ export default {
         this.stay.host.fullName.indexOf(" ")
       );
     },
-
-    async order(trip) {
-
-      try {
-        await this.$store.dispatch({
-          type: "saveOrder",
-          order: orderToSave,
-          stay: this.stay,
-        });
-        setTimeout(() => {
-          showMsg("order sent");
-          console.log("order sent");
-        }, 2000);
-      } catch (err) {
-        showMsg("order failed", "error");
-      }
-    },
   },
-  // watch: {
-  //   stay: function () {
-  //     console.log();
-  //     this.loadFirstName();
-  //   },
-  // },
-
   created() {
     console.log("stayId", this.stayId);
     this.loadStay();

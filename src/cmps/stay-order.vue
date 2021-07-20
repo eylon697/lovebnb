@@ -60,7 +60,7 @@
 <script>
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
-
+import {orderService} from '../services/order.service.js'
 export default {
   props: { reviews: Array, price: Number, guests: Number },
   components: { DatePicker },

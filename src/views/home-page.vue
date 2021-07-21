@@ -6,18 +6,18 @@
       :list="{ headline: 'Inspiration destinations', items: cities }"
     />
     <div class="explore-nature">
-      <router-link class="router" to="/">
+      <div class="router" @click="goToOutDoor">
         <div class="info">
           <h1>The Greatest</h1>
           <h1>Outdoors</h1>
           <p>Wishlists curated By Homebnb</p>
           <button>Get inspired</button>
         </div>
-      </router-link>
+      </div>
     </div>
     <explore-list :list="{ headline: 'Live anywhere', items: categories }" />
 
-    <section class="join-host main-layout">
+    <section class="join-host main-layout full">
       <div>
         <h2>Join our hosts</h2>
         <p>No matter what kind of home or room you want to share,</p>
@@ -33,6 +33,7 @@
 import Hero from "../cmps/hero.vue";
 import exploreList from "../cmps/explore-list.vue";
 import { eventBus } from "../services/event-bus.service.js";
+import { utilService } from "../services/util.service.js";
 export default {
   name: "homePage",
   data() {
@@ -94,6 +95,18 @@ export default {
         this.openHeader();
       }
     },
+    goToOutDoor() {
+      this.filterBy.mainFilter = "propertyType";
+      this.filterBy.propertyType = "Outdoor getaways";
+      const filterUrl = utilService.objToUrl(this.filterBy);
+      this.$router.push(`/stay?${filterUrl}`);
+    },
+  },
+
+  computed: {
+    filterBy() {
+      return this.$store.getters.filterBy;
+    },
   },
   mounted() {
     this.openHeader();
@@ -111,5 +124,5 @@ export default {
 };
 </script>
 
-}
+
  

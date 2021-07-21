@@ -1,11 +1,12 @@
 .profile-modal{
+  position: absolute;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
-    top: 64px;
-    right: 15px;
+    top: 69px;
+    right: 162px;
     width: 179px;
     border-radius: 15px;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);

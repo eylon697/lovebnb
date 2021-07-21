@@ -29,7 +29,7 @@
           <span>
             {{ stay.loc.city }}
           </span>
-        </p>
+        </p>                                                                                                                                                                                                                                                                                                                                                                                                               
         <p class="name">{{ stay.name }}</p>
       </div>
       <div class="buttom">

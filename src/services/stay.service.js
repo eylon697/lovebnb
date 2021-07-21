@@ -561,7 +561,7 @@ const gStays = [{
         beds: 4,
         bathrooms: 2,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Cookingbasics", "Washer", "Dryer", "Air conditioning","Iron","Free street parking","Microwave","Air conditioning","First aid kit"],
+        amenities: ["TV", "Wifi", "Kitchen", "Washer", "Dryer", "Iron","Free street parking","Microwave","Air conditioning","First aid kit"],
         host: { _id: "51399391", fullName: "Joshua", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626611245/Untitled_design_28_j9dfgr.png' },
         loc: {
             country: "Israel",

@@ -78,12 +78,7 @@
 
           <review-list :reviews="stay.reviews" />
         </div>
-        <stay-order
-          :price="stay.price"
-          :reviews="stay.reviews"
-          :guests="stay.guests"
-          @order="order"
-        />
+        <stay-order :stay="stay" />
       </div>
 
       <div id="map" class="map-container" v-if="this.stay.loc.lat">

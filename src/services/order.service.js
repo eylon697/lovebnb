@@ -2,28 +2,26 @@
 import { storageService } from './async-storage.service.js'
 // import { utilService } from './util.service.js'
 
-const gOrders = [
-    {
-        _id: 'o100',
-        _hostId: 'u101',
-        createdAt: 1626734627736,
-        buyer: {
-            _id: 'u101',
-            fullname: 'User 1',
-            imgUrl: 'imgs/user1.jpg',
-        },
-        totalPrice: 160,
-        startDate: 162818371828,
-        endDate: 162829321938,
-        guests: 2,
-        stay: {
-            _id: '101',
-            name: 'Junior King size suite',
-            price: 138.0,
-        },
-        status: 'pending',
+const gOrders = [{
+    _id: 'o100',
+    _hostId: 'u101',
+    createdAt: 1626734627736,
+    buyer: {
+        _id: 'u101',
+        fullname: 'User 1',
+        imgUrl: 'imgs/user1.jpg',
     },
-]
+    totalPrice: 160,
+    startDate: 162818371828,
+    endDate: 162829321938,
+    guests: 2,
+    stay: {
+        _id: '101',
+        name: 'Junior King size suite',
+        price: 138.0,
+    },
+    status: 'pending',
+}, ]
 
 // const BASR_URL='/..'TODO: inner url
 
@@ -79,11 +77,9 @@ function save(order) {
 
 function getEmptyOrder() {
     return {
-        startDate: '',
-        endDate: '',
-        total: null,
-        guests: null,
+        dates: [],
+        guests: 1,
+        status: 'edit'
     }
 
 }
-

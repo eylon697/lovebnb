@@ -44,13 +44,15 @@
             <div></div>
           </div>
           <div></div>
+
           <section class="amenities">
-            <!-- TODO:ICON IN DATA -->
-            <h2 class="title-amenities">What this place offers</h2>
+            <div class="title-amenities">What this place offers</div>
             <section>
               <article v-for="(amenity, idx) in stay.amenities" :key="idx">
-                <!-- <i :class="amenity.icon"></i> -->
-                {{ amenity }}
+                <div class="amenities-list">
+                  <img :src="require(`@/assets/img/icon/${amenity}.svg`)" />
+                  <div class="txt">{{ amenity }}</div>
+                </div>
               </article>
             </section>
           </section>
@@ -81,6 +83,51 @@
       </div>
     </div>
     <div v-else>Loading</div>
+
+    <div class="host">
+      <div class="header">
+        <img :src="stay.host.imgUrl" />
+        <img
+          v-if="stay.reviews.length > 2"
+          class="medal"
+          :src="require('@/assets/img/icon/medal.svg')"
+        />
+
+        <div class="title">Hosted by {{ stay.host.fullName }}</div>
+      </div>
+      <div v-if="stay.reviews.length > 2" class="rate">
+        <i class="fas fa-star"></i>
+        <div>{{ stay.reviews.length }} reviews</div>
+        <div>
+          <img
+            class="validation"
+            :src="require('@/assets/img/icon/validation.svg')"
+          />
+          Identity verified
+        </div>
+        <!-- <div><img class="super" :src="require('@/assets/img/icon/super.svg')"/>Superhost</div> -->
+      </div>
+
+      <div class="content">
+        <div v-if="stay.reviews.length > 2">
+          <div class="super-host">{{ stay.host.fullName }} is a Superhost</div>
+          <p>
+            Superhosts are experienced, highly rated hosts who are 
+          </p>
+          <p>
+           committed to
+            providing great stays for guests.
+          </p>
+        </div>
+        <div class="Response-rate">Response rate: 100%</div>
+        <div class="Response-time">Response time: within a few hours</div>
+        <button class="contact">Content host</button>
+        <div class="securing">
+          <img  :src="require('@/assets/img/icon/securing.svg')">
+          <p>To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</p>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 

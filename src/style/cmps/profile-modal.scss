@@ -1,0 +1,30 @@
+.profile-modal{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 86px;
+    right: 15px;
+    width: 179px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  
+
+    button {
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 0.7rem;
+      border: unset;
+      background-color: white;
+      font-weight: 500;
+      &:hover {
+        background-color: #f3f3f3;
+      }
+    }
+    span {
+      color: #222;
+    }
+    z-index: 10;
+  }

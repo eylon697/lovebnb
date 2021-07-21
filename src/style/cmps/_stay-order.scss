@@ -125,8 +125,8 @@
       align-content: center;
       justify-content: center;
       color: #fafafa;
-      --x: 3px;
-      --y: 3px;
+      // --x: 0.2px;
+      // --y: 0.2px;
   
       position: relative;
       appearance: none;
@@ -159,7 +159,7 @@
         box-shadow: 0px 0px 137px 135px #fa325a, 0px 0px 140px 143px #e61e4de7,
           0px 0px 162px 206px #e31c5f, 0px 0px 80px 140px #d70466,
           0px 0px 90px 160px #bd1e59, 5px 5px 100px 200px #bd1d59;
-        transform: translate(-50%, -50%);
+        // transform: translate(-50%, -50%);
         transition: width 0.2s ease, height 0.2s ease;
       }
       &:hover::before {

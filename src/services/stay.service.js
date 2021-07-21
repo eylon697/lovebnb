@@ -1,7 +1,7 @@
 import { storageService } from './async-storage.service.js'
 
 // propertyType: ["Entire apartment","Hotel room"],
-// amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics","Washer","Dryer","Iron","Free street parking","Microwave","Air conditioning","First aid kit"],
+// amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Hair Dryer","Cookingbasics","Washer","Dryer","Iron","Free street parking","Microwave","Air conditioning","First aid kit"],
 
 const gStays = [
     {
@@ -39,6 +39,7 @@ const gStays = [
         countryCode: "NY",
         city: "Manhattan",
         address: "New York, United States",
+        nearness:"Astoria has always been a haven for new immigrants from all over the world. These days, this part of Astoria is known for its progressive politics (AOC is our Rep.), many bars and restaurants, most with sidewalk/garden dining venues. It also hosts a lovely park along the East River, popular with sports enthusiasts, dog-owners, yogis and families.",
         lat: 40.73061,
         lng: -73.935242,
     },
@@ -254,6 +255,7 @@ const gStays = [
         countryCode: "NY",
         city: "Manhattan",
         address: "New York, United States",
+        nearness:"Astoria has always been a haven for new immigrants from all over the world. These days, this part of Astoria is known for its progressive politics (AOC is our Rep.), many bars and restaurants, most with sidewalk/garden dining venues. It also hosts a lovely park along the East River, popular with sports enthusiasts, dog-owners, yogis and families.",
         lat: 40.73061,
         lng: -73.935242,
     },
@@ -379,6 +381,7 @@ const gStays = [
         countryCode: "NY",
         city: "Manhattan",
         address: "New York, United States",
+        nearness:"This new building is situated on the dynamic Bowery just steps from Soho, Nolita, Noho, and the East Village.  Its unbeatable location puts the best of downtown's galleries, boutiques, restaurants, wellness and nightlife at your doorstep.",
         lat: 40.73061,
         lng: -73.935242,
     },
@@ -441,6 +444,7 @@ const gStays = [
         countryCode: "FR",
         city: "Paris",
         address: "Paris, Île-de-France, France",
+        nearness: "Almost everything is arround with less than 2 minuts walk(Groceries,bakeries,starbucks,ATM,SNCF office,coffees,ect.)and of course don't miss the daily (even Sunday) RUE CLER typical",
         lat: 48.8566,
         lng: 56.4504,
     },

@@ -4,6 +4,7 @@ import HomePage from '@/views/home-page.vue'
 import stayApp from '@/views/stay-app.vue'
 import stayDetails from '@/views/stay-details.vue'
 import stayReviews from '@/views/stay-reviews.vue'
+import profile from '@/views/profile.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [{
         name: 'stayDetails',
         component: stayDetails
     },
+    {
+        path: '/profile/:userId',
+        name: 'profile',
+        component: profile,
+      },
 
 ]
 

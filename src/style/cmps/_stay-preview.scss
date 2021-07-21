@@ -32,7 +32,7 @@
         right: 20px;
         top: 14px;
         z-index: 2;
-        font-size: 24px;
+        font-size: 22px;
         background-color: unset;
         color: rgba(1, 9, 17, 0.424);
         width: 22px;
@@ -75,7 +75,7 @@
         // font-weight: 300;
     }
     .name {
-        overflow: hidden;
+        // overflow-y: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         margin-bottom: 5px;
@@ -92,11 +92,11 @@
         @include center;
     }
     .el-carousel__arrow {
-        background-color: rgba(224, 224, 224, 0.137);
+        background-color: rgbargba(70, 67, 67, 0.65);
         border: unset;
     }
     .el-carousel__arrow:hover {
-        background-color: rgba(223, 219, 219, 0.65);
+        background-color: rgba(104, 102, 102, 0.65);
     }
     .el-carousel__indicators.el-carousel__indicators--horizontal {
         position: relative;
@@ -115,12 +115,15 @@
         opacity:0
     }
    
-    .el-carousel_.el-carousel__container {
-        .el-carousel__arrow.el-carousel__arrow--left{
-            opacity:1
-        }
-        .el-carousel__arrow.el-carousel__arrow--right{
-            opacity:1
+    .el-carousel {
+        &:hover{
+
+            .el-carousel__arrow.el-carousel__arrow--left{
+                opacity:1
+            }
+            .el-carousel__arrow.el-carousel__arrow--right{
+                opacity:1
+            }
         }
     }
 

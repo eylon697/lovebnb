@@ -1,6 +1,8 @@
 import { storageService } from './async-storage.service.js'
 // import { httpService } from './http.service.js'
 
+
+
 export const userService = {
     login,
     logout,
@@ -10,30 +12,32 @@ export const userService = {
     getLoggedinUser,
 }
 
+
+const USER_KEY = 'stays'
+
 window.userService = userService
 
 
 function getUsers() {
-    return storageService.query('user')
+    return storageService.query(USER_KEY)
     // return httpService.get(`user`)
 }
 
 function getById(userId) {
-    return storageService.get('user', userId)
+    return storageService.get(USER_KEY, userId)
     // return httpService.get(`user/${userId}`)
 }
 
 
 async function login(userCred) {
-    const users = await storageService.query('user')
-    const user = users.find(user => user.username === userCred.username)
+   const users = await storageService.query('user')
+   const user = users.find(user => user.username === userCred.username)
+   console.log(userCred);
     return _saveLocalUser(user)
-    // console.log(userCred, 'LOGIN SERVICE ');
     // const user = await httpService.post('auth/login', userCred)
-    // if (user) return _saveLocalUser(user)
 }
 async function signup(userCred) {
-    const user = await storageService.post('user', userCred)
+    const user = await storageService.post(USER_KEY, userCred)
     console.log(user);
     // const user = await httpService.post('auth/signup', userCred)
     // if (!user) console.log('signup')

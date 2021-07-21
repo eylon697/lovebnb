@@ -5,13 +5,16 @@
       @closeScreen="closeScreen"
       @openModal="openModal"
     />
-    <!-- <profil-modal
+    <profil-modal
       :isModalOpen="isModalOpen"
       @login="login"
       @onSignUp="onSignUp"
-    /> -->
-    <!-- <login @login="login" v-if="isLoginOpen" />
-    <signup @signUp="signUp" v-if="isSignupOpen" @toggleSignUp="toggleSignUp" /> -->
+       @closeModal="closeModal"
+         @logout="logout"
+
+    />
+     <login @login="login" v-if="isLoginOpen" /> 
+    <signup @signUp="signUp" v-if="isSignupOpen" @onSignUp="onSignUp" />
     <user-msg />
     <div v-if="isScreenOpen" class="screen" @click="closeHeder"></div>
     <router-view />
@@ -24,18 +27,19 @@ import appHeader from "./cmps/app-header.vue";
 import appFooter from "./cmps/app-footer.vue";
 import { eventBus } from "./services/event-bus.service.js";
 import userMsg from "./cmps/user-msg.vue";
-// import login from "./cmps/login.vue";
-// import signup from "./cmps/signup.vue";
-// import profilModal from "./cmps/profil-modal.vue";
+import login from "./cmps/login.vue";
+import signup from "./cmps/signup.vue";
+import profilModal from "./cmps/profil-modal.vue";
+import { showMsg } from '@/services/event-bus.service';
 
 export default {
   components: {
     appHeader,
     appFooter,
     userMsg,
-    // login,
-    // signup,
-    // profilModal,
+    login,
+    signup,
+    profilModal,
   },
   data() {
     return {
@@ -65,6 +69,30 @@ export default {
     },
     onSignUp() {
       this.isSignupOpen = !this.isSignupOpen;
+    },
+        closeModal() {
+     this.isModalOpen = !this.isModalOpen;
+    },
+     async signUp(userCred) {
+
+      try {
+        await this.$store.dispatch({ type: 'signup', userCred });
+        console.log('app',userCred);
+        showMsg('Signed up successfully!');
+         this.isSignupOpen = !this.isSignupOpen;
+      } catch (err) {
+        showMsg('Sign up failed!', 'error');
+        this.isSignupOpen = !this.isSignupOpen;
+      }
+    },
+     async logout() {
+      try {
+        await this.$store.dispatch({ type: 'logout' });
+        this.$router.push('/');
+        showMsg('Logged out!');
+      } catch (err) {
+        showMsg('Logout failed!', 'error');
+      }
     },
   },
 };

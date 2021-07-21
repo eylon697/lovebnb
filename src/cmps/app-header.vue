@@ -20,13 +20,14 @@
       </div>
 
       <div class="right">
-        <nav>
+        <!-- <nav>
           <router-link class="host" to="stay/profile">Become a host</router-link>
-        </nav>
+        </nav> -->
         <div @click.stop="openModal" class="preference">
           <i class="fas fa-bars"></i>
           <button class="btn-user">
-            <img :src="require('@/assets/img/app-header/user.png')" />
+            <img v-if="!loggedinUser" :src="require('@/assets/img/app-header/user.png')" />
+            <img class="user-img" v-else :src="require('@/assets/img/user/5.png')" />
           </button>
         </div>
       </div>
@@ -57,15 +58,19 @@ export default {
         "home-top": this.$route.name === "HomePage" && !this.scrollDiff,
       };
     },
-    userId(){
-      const user = this.$store.getters.loggedinUser
-			if (user && user?._id) {
-				return user._id
-			} else {
-				return ''
-			}
+    loggedinUser(){
+      return this.$store.getters.loggedinUser
+    },
 
-    }
+    // userId(){
+    //   const user = this.$store.getters.loggedinUser
+		// 	if (user && user?._id) {
+		// 		return user._id
+		// 	} else {
+		// 		return ''
+		// 	}
+
+    // }
   },
   created() {
     if (this.$route.name === "HomePage") this.openHeader();

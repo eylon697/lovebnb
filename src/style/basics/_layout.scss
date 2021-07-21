@@ -4,7 +4,8 @@
 
 // LAYOUT BREAKPOINTS
 $break-narrow: 460px;
-$break-normal: 90vw;
+$break-normal: 960px;
+$break-wide: 1200px;
 // $break-wide: 1100px;
 .main-layout {
     display: grid;

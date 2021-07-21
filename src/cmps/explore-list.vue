@@ -24,11 +24,14 @@ export default {
   },
   methods: {
     goTo(filterVal) {
-      if (this.list.headline === "Live anywhere")
+      if (this.list.headline === "Live anywhere") {
         this.filterBy.propertyType = filterVal;
-      else if (this.list.headline === "Inspiration destinations")
+        this.filterBy.mainFilter = "propertyType";
+      } else if (this.list.headline === "Inspiration destinations") {
         this.filterBy.city = filterVal;
-      const filterUrl = utilService.objToUrl(this.filterBy)
+        this.filterBy.mainFilter = "city";
+      }
+      const filterUrl = utilService.objToUrl(this.filterBy);
       this.$router.push(`/stay?${filterUrl}`);
     },
   },

@@ -45,9 +45,10 @@
           </div>
           <div></div>
 
+          <!-- TODO:COMPONANTE amenities -->
           <section class="amenities">
             <div class="title-amenities">What this place offers</div>
-            <section>
+            <section class="amenities-container">
               <article v-for="(amenity, idx) in stay.amenities" :key="idx">
                 <div class="amenities-list">
                   <img :src="require(`@/assets/img/icon/${amenity}.svg`)" />
@@ -56,6 +57,7 @@
               </article>
             </section>
           </section>
+
           <div id="reviews" class="reviews-container">
             <div class="rating">
               <i class="fas fa-star"> </i>
@@ -64,6 +66,16 @@
               <span>{{ stay.reviews.length }} reviews</span>
             </div>
           </div>
+
+          <el-button v-if="loggedInUser" @click.stop="toggleAddReview"
+            >Add Review</el-button
+          >
+          <add-review
+            v-if="addReviewIsOpen"
+            @add-review="onAddReview"
+            @toggleAddReview="toggleAddReview"
+          />
+
           <review-list :reviews="stay.reviews" />
         </div>
         <stay-order
@@ -84,18 +96,19 @@
     </div>
     <div v-else>Loading</div>
 
+    <!-- TODO:HOST COMPONANTE -->
     <div class="host">
       <div class="header">
         <img :src="stay.host.imgUrl" />
         <img
-          v-if="stay.reviews.length > 2"
+          if="stay.rateAvg>4.7"
           class="medal"
           :src="require('@/assets/img/icon/medal.svg')"
         />
 
         <div class="title">Hosted by {{ stay.host.fullName }}</div>
       </div>
-      <div v-if="stay.reviews.length > 2" class="rate">
+      <div if="stay.rateAvg>4.7" class="rate">
         <i class="fas fa-star"></i>
         <div>{{ stay.reviews.length }} reviews</div>
         <div>
@@ -105,26 +118,23 @@
           />
           Identity verified
         </div>
-        <!-- <div><img class="super" :src="require('@/assets/img/icon/super.svg')"/>Superhost</div> -->
       </div>
 
       <div class="content">
-        <div v-if="stay.reviews.length > 2">
+        <div v-if="stay.rateAvg > 4.7">
           <div class="super-host">{{ stay.host.fullName }} is a Superhost</div>
-          <p>
-            Superhosts are experienced, highly rated hosts who are 
-          </p>
-          <p>
-           committed to
-            providing great stays for guests.
-          </p>
+          <p>Superhosts are experienced, highly rated hosts who are</p>
+          <p>committed to providing great stays for guests.</p>
         </div>
         <div class="Response-rate">Response rate: 100%</div>
         <div class="Response-time">Response time: within a few hours</div>
         <button class="contact">Content host</button>
         <div class="securing">
-          <img  :src="require('@/assets/img/icon/securing.svg')">
-          <p>To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</p>
+          <img :src="require('@/assets/img/icon/securing.svg')" />
+          <p>
+            To protect your payment, never transfer money or communicate outside
+            of the Airbnb website or app.
+          </p>
         </div>
       </div>
     </div>
@@ -137,11 +147,14 @@ import stayOrder from "@/cmps/stay-order.vue";
 import detailsHeader from "@/cmps/details-header.vue";
 import GoogleMap from "@/cmps/google-map.vue";
 import reviewList from "@/cmps/reviews-list.vue";
+import addReview from "@/cmps/add-review.vue";
+
 export default {
-  components: { stayOrder, detailsHeader, reviewList, GoogleMap },
+  components: { stayOrder, detailsHeader, reviewList, GoogleMap, addReview },
   data() {
     return {
       stayId: this.$route.params.stayId,
+      addReviewIsOpen: false,
     };
   },
   computed: {
@@ -150,6 +163,9 @@ export default {
     },
     hostFirstName() {
       return null;
+    },
+    loggedInUser() {
+      return this.$store.getters.loggedinUser;
     },
   },
   methods: {
@@ -161,6 +177,9 @@ export default {
         0,
         this.stay.host.fullName.indexOf(" ")
       );
+    },
+    toggleAddReview() {
+      this.addReviewIsOpen = !this.addReviewIsOpen;
     },
   },
   created() {

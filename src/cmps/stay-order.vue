@@ -28,6 +28,9 @@
         </div>
       </div>
     </section>
+
+
+    
     <button ref="orderBtn" class="order-btn" @click="order">
       <vue-loaders-ball-pulse
         color="white"
@@ -72,7 +75,7 @@ export default {
     };
   },
   computed: {
-    trip() {
+    torip() {
       return orderService.getEmpty();
     },
     avg() {

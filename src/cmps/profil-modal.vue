@@ -1,14 +1,16 @@
 
 <template>
   <div v-if="isModalOpen" class="profile-modal" @click.stop="closeModal">
-    <router-link :to="'/profile/' + userId" v-if="isLoggedinUser">
+    <button><router-link class= "account" :to="'/profile/' + userId" v-if="isLoggedinUser">
       <span>Account</span>
-    </router-link>
+    </router-link></button>
     <button v-if="!isLoggedinUser" @click.stop="login">Login</button>
-		<button v-if="!isLoggedinUser" @click.stop="onSignUp">Signup</button>
+		<button v-if="!isLoggedinUser" @click.stop="onSignUp">SignUp</button>
 		<button @click.stop="addStay">Host your home</button>
+    <!-- TODO:Host -->
 		<button v-if="isLoggedinUser" @click.stop="logout">Logout</button> 
-     <!-- <button @click.stop="">Help</button>TODO:help modal -->
+     <button @click.stop="">Help</button>
+     <!-- TODO:help modal -->
   </div>
 </template>
 

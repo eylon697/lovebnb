@@ -16,16 +16,16 @@
         <span> &#8226; </span>
         <a href="#map">{{ stay.loc.address }}</a>
       </div>
-      <div class="right">
+      <!-- <div class="right">
         <div class="share">
           <i class="fas fa-share"></i>
           <span>Share</span>
-        </div>
-        <div class="save">
+        </div> -->
+        <!-- <div class="save">
           <i class="far fa-heart"></i>
           <span>Save</span>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

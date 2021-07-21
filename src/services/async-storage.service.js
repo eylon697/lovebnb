@@ -30,10 +30,8 @@ async function queryfiltered(entityType, filterBy, delay = 500) {
 }
 
 function _filter(stays, filterBy) {
-    console.log(filterBy);
     var { country, propertyType, guests, dates, price, city, beds, bedrooms, bathrooms } = filterBy
-    // return stays.filter(stay => {
-    const filtered = stays.filter(stay => {
+    return stays.filter(stay => {
         return !(
             (country && !new RegExp(country, 'i').test(stay.loc.country)) ||
             (city && !new RegExp(city, 'i').test(stay.loc.city)) ||
@@ -47,7 +45,6 @@ function _filter(stays, filterBy) {
             (dates && dates.length && stay.closeDates && stay.closeDates.length && !_isAvailable(dates, stay.closeDates))
         )
     })
-    console.log(filtered);
 }
 
 function _isAvailable(filterDates, stayClosedDates) {

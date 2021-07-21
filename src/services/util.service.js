@@ -81,8 +81,10 @@ function getTitle(filterBy) {
     switch (filterBy.mainFilter) {
         case "country":
             return "Stays in " + filterBy.country;
+        case "city":
+            return "Stays in " + filterBy.city;
         case "propertyType":
-            return filterBy.propertyType + "s";
+            return filterBy.propertyType;
         case "guests":
             return "Stays to " + filterBy.guests + " guests";
         case "checkIn":

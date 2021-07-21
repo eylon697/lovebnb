@@ -1,0 +1,43 @@
+  
+.review-add {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 100;
+	background-color: #fefefe;
+	padding: 1rem 2rem;
+	border: 2px solid $clr1;
+	border-radius: 15px;
+
+	h2 {
+		margin-bottom: 0.8rem;
+		color: #555;
+	}
+
+	textarea {
+		border-radius: 8px;
+		border-color: #ccc;
+		padding: 0.5rem;
+		outline: none;
+
+		&::placeholder {
+			color: #aaa;
+			font-size: 0.9rem;
+		}
+
+		&:focus {
+			border-color: #ff385c;
+		}
+	}
+
+	button {
+		margin-top: 1rem;
+	}
+	.el-button{
+		background-color: $clr1;
+	}
+	.el-button.el-button--default{
+		background-color: $clr1;
+	}
+}

@@ -13,7 +13,7 @@ export const userService = {
 }
 
 
-const USER_KEY = 'stays'
+const USER_KEY = 'user'
 
 window.userService = userService
 
@@ -37,11 +37,11 @@ async function login(userCred) {
     // const user = await httpService.post('auth/login', userCred)
 }
 async function signup(userCred) {
-    const user = await storageService.post(USER_KEY, userCred)
-    console.log(user);
+    const user = await storageService.post('user', userCred)
+    console.log('from service',user);
     // const user = await httpService.post('auth/signup', userCred)
     // if (!user) console.log('signup')
-    // return _saveLocalUser(user)
+    return _saveLocalUser(user)
 }
 
 async function logout() {

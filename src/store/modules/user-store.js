@@ -6,7 +6,7 @@ export const userStore = {
     state: {
         loggedinUser: userService.getLoggedinUser(),
         users: [],
-       
+
     },
     getters: {
         users({ users }) { return users },
@@ -33,6 +33,7 @@ export const userStore = {
         },
         async signup({ commit }, { userCred }) {
             try {
+                console.log('store', userCred);
                 const user = await userService.signup(userCred)
                 commit({ type: 'setLoggedinUser', user })
                 return user;
@@ -51,6 +52,6 @@ export const userStore = {
                 throw err
             }
         },
-       
+
     }
 }

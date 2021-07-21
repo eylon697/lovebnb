@@ -39,7 +39,7 @@ export default {
     return {
       cities: [
         {
-          title: "New York",
+          title: "Manhattan",
           imgUrl:
             "https://res.cloudinary.com/lovebnb/image/upload/v1626605743/1_xu7vkb.png",
         },

@@ -8,6 +8,7 @@
 @import 'views/home-page';
 @import 'views/stay-details';
 @import 'views/stay-app';
+@import 'views/profile';
 // COMPONENTS
 @import 'cmps/hero';
 @import 'cmps/app-footer';
@@ -25,5 +26,7 @@
 @import 'cmps/review-list';
 @import 'cmps/user-msg';
 @import 'cmps/date-picker';
+@import 'cmps/profile-modal';
+@import 'cmps/login';
 
 @import 'basics/layout';

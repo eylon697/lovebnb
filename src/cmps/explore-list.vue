@@ -28,7 +28,7 @@ export default {
         this.filterBy.propertyType = filterVal;
       else if (this.list.headline === "Inspiration destinations")
         this.filterBy.city = filterVal;
-      const filterUrl = utilService.objToUrl()
+      const filterUrl = utilService.objToUrl(this.filterBy)
       this.$router.push(`/stay?${filterUrl}`);
     },
   },

@@ -5,26 +5,33 @@ export const stayStore = {
     state: {
         stay: '',
         stays: [],
-        currstay: '',
-        unfiltered: [],
         propertyType: ["Entire apartment", "Hotel room"],
-        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics", "Washer", "Dryer", "Iron", "Free street parking", "Microwave", "Air conditioning", "First aid kit"],
+        amenities: [
+            "TV",
+            "Wifi",
+            "Kitchen",
+            "Pets allowed",
+            "Cookingbasics",
+            "Washer",
+            "Dryer",
+            "Iron",
+            "Free street parking",
+            "Microwave",
+            "Air conditioning",
+            "First aid kit"
+        ],
         filterBy: {
             mainFilter: '',
             country: '',
             city: '',
             propertyType: '',
-            guests: '',
+            guests: 0,
             dates: [],
-            price: [0,1500],
-            // minPrice: 0,
-            // maxPrice: Infinity,
+            price: [0, 1500],
             beds: 0,
             bedrooms: 0,
             bathrooms: 0,
-            amenities:[]
-            
-
+            amenities: []
         }
     },
     getters: {
@@ -43,9 +50,6 @@ export const stayStore = {
         propertyType(state) {
             return state.propertyType
         },
-        unfiltered(state) {
-            return state.unfiltered
-        },
     },
     mutations: {
         setStays(state, { stays }) {
@@ -57,13 +61,11 @@ export const stayStore = {
         setFilter(state, { filterBy }) {
             state.filterBy = filterBy
         },
-        setunfilteredStays(state, { unfilteredStays }) {
-            state.unfilteredStays = unfilteredStays
-        },
     },
     actions: {
         async loadStays({ commit, state }, { filterBy }) {
             try {
+                filterBy = filterBy || state.filterBy
                 commit({ type: 'setFilter', filterBy })
                 const stays = await stayService.query(state.filterBy)
                 commit({ type: 'setStays', stays })

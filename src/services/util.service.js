@@ -1,7 +1,9 @@
 export const utilService = {
     objToUrl,
     getformatDate,
-    toShortFormat
+    toShortFormat,
+    convertFilter,
+    getTitle
 }
 
 function objToUrl(obj) {
@@ -21,7 +23,7 @@ function getformatDate(mDate) {
         const minutes = new Date(mDate).getMinutes()
         const hoursStr = hours < 10 ? '0' + hours : '' + hours
         const minutesStr = minutes < 10 ? '0' + minutes : '' + minutes
-        return `${ hoursStr }:${ minutesStr }`
+        return `${hoursStr}:${minutesStr}`
     } else {
         const dateStr = '' + new Date(mDate)
         const firstSepIdx = dateStr.indexOf(' ')
@@ -49,3 +51,79 @@ function toShortFormat(date) {
     let monthName = monthNames[monthIndex];
     return `${monthName} ${day}`;
 }
+
+function convertFilter(filterBy) {
+    console.log(filterBy);
+    var { mainFilter, country, propertyType, guests, dates, price, city, beds, bedrooms, bathrooms, amenities } = filterBy
+    if (price && typeof price === 'string')
+        price = [+price.substring(0, price.indexOf(',')), +price.substring(price.indexOf(',') + 1, price.length)]
+    if (dates && typeof dates === 'string')
+        dates = dates ? dates.split(',').map(date => new Date(date)) : []
+    if (amenities && typeof amenities === 'string')
+        amenities = amenities ? amenities.split(',').map(date => new Date(date)) : []
+    return {
+        mainFilter: mainFilter || '',
+        country: country || '',
+        city: city || '',
+        propertyType: propertyType || '',
+        guests: +guests || 0,
+        beds: +beds || 0,
+        bedrooms: +bedrooms || 0,
+        bathrooms: +bathrooms || 0,
+        dates: dates || [],
+        amenities: amenities || [],
+        price: price || [0, 1500],
+    }
+}
+
+function getTitle(filterBy) {
+    filterBy = convertFilter(filterBy)
+    switch (filterBy.mainFilter) {
+        case "country":
+            return "Stays in " + filterBy.country;
+        case "propertyType":
+            return filterBy.propertyType + "s";
+        case "guests":
+            return "Stays to " + filterBy.guests + " guests";
+        case "checkIn":
+            return "checkIn " + filterBy.checkIn;
+        default:
+            return "Stays results";
+    }
+}
+
+
+
+// function _getFilterDates(checkIn, checkOut) {
+//     console.log(_getDates(checkIn, checkOut));
+//     if (checkIn && checkOut) return _getDates(checkIn, checkOut)
+//     if (!checkIn && !checkOut) return []
+//     else if (checkIn) return [new Date(checkIn)]
+//     else return [new Date(checkOut)]
+// }
+
+// function _isAvailable(filterDates, stayClosedDates) {
+//     return filterDates.every(date => {
+//         return stayClosedDates.every(stayDate => {
+//             date !== stayDate
+//         })
+//     })
+// }
+// Date.prototype.addDays = function(days) {
+//     var date = new Date(this.valueOf());
+//     date.setDate(date.getDate() + days);
+//     return date;
+// }
+
+// function _getDates(startDate, stopDate) {
+//     var dateArray = new Array();
+//     var currentDate = new Date(startDate)
+//     stopDate = new Date(stopDate)
+//     console.log(currentDate);
+//     console.log(stopDate);
+//     while (currentDate <= stopDate) {
+//         dateArray.push(new Date(currentDate));
+//         currentDate = currentDate.addDays(1);
+//     }
+//     return dateArray;
+// }

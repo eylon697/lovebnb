@@ -71,7 +71,6 @@ export default {
     if (this.$route.name === "HomePage") this.openHeader();
     eventBus.$on("closeHeder", this.closeHeader);
     window.addEventListener("scroll", this.onScroll);
-    console.log("this.$route.name", this.$route.name);
   },
   destroyed() {
     window.removeEventListener("scroll", this.onScroll);
@@ -83,7 +82,6 @@ export default {
       this.isOpen = true;
     },
     closeHeader() {
-      console.log("header");
       this.$emit("closeScreen");
       this.isOpen = false;
     },

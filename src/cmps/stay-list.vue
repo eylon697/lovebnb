@@ -1,9 +1,5 @@
 <template>
   <section class="stay-list" v-if="stays">
-
-
-
-
     <div class="list-header">
       <div>{{ stays.length }} stays</div>
       <h1>{{ title }}</h1>
@@ -17,23 +13,20 @@
         </a>
       </div>
     </div>
-
-
-
-
     <div class="preview-container" v-if="stays">
       <stay-preview v-for="stay in stays" :stay="stay" :key="stay._id" />
     </div>
     <div v-else>Loading</div>
-
-
   </section>
 </template>
 
 <script>
+import { utilService } from "../services/util.service";
 import stayPreview from "./stay-preview.vue";
 export default {
-  props: { stays: Array },
+  props: {
+    stays: Array,
+  },
   data() {
     return {
       filterBy: JSON.parse(JSON.stringify(this.$route.query)),
@@ -41,23 +34,11 @@ export default {
   },
   computed: {
     title() {
-      switch (this.filterBy.mainFilter) {
-        case "country":
-          return "Stays in " + this.filterBy.country;
-        case "propertyType":
-          return this.filterBy.propertyType + "s";
-        case "guests":
-          return "Stays to " + this.filterBy.guests + " guests";
-        case "checkIn":
-          return "checkIn " + this.filterBy.checkIn;
-
-        default:
-          return "Stays results";
-      }
+      return utilService.getTitle(this.filterBy);
     },
   },
   components: {
     stayPreview,
   },
-}
+};
 </script>

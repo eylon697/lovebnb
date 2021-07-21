@@ -1,8 +1,6 @@
 <template>
   <form class="list-filter">
-    <button ref="priceBtn" @click.stop="onChangePrice">
-       Price 
-    </button>
+    <button ref="priceBtn" @click.stop="onChangePrice">Price</button>
 
     <div @click.stop class="price-modal" v-if="priceOpen">
       <el-slider
@@ -14,26 +12,14 @@
       </el-slider>
 
       <div class="price-container">
-        <input
-          v-model="filterByLocal.price"
-          class="from-price"
-          placeholder="From"
-        />
-        <input
-          v-model="filterByLocal.price"
-          class="to-price"
-          placeholder="To"
-        />
+        <input v-model="filterBy.price[0]" class="from-price" />
+        <input v-model="filterBy.price[1]" class="to-price" />
       </div>
       <div class="button-container">
         <button @click.stop="clearFilter">Clear</button>
-        <button @click.stop="setFilter">Update</button>
+        <button @click.stop="loadStays">Update</button>
       </div>
     </div>
-
-   
-
-
   </form>
 </template>
 
@@ -42,17 +28,12 @@ export default {
   props: {
     filterBy: Object,
     stays: Array,
-    unfilteredStays: Array,
-  },
-  created() {
-    // console.log(stays);
   },
   data() {
     return {
       priceOpen: false,
       typeOpen: false,
       amenitiesOpen: false,
-      filterByLocal: this.filterBy || {},
     };
   },
   methods: {
@@ -76,17 +57,15 @@ export default {
       this.isPriceModalOpen = false;
       this.isAmenitiesModalOpen = false;
     },
-    setFilter() {
-      this.$emit("filter", this.filterBy);
+    loadStays() {
+      this.$store.dispatch({ type: "loadStays", filterBy: this.filterBy });
     },
     clearFilter() {
-      const filter = {
-        price: [0, 1500],
-        types: [],
-        amenities: [],
-        city: "",
-      };
-      this.$emit("filter", filter);
+      this.filterBy.price = [0, 1500];
+      this.filterBy.types = [];
+      this.filterBy.amenities = [];
+      this.filterBy.city = "";
+      this.$store.dispatch({ type: "loadStays", filterBy: this.filterBy });
     },
   },
   computed: {
@@ -106,18 +85,16 @@ export default {
       }
     },
 
-	amenitiesToShow() {
+    amenitiesToShow() {
       if (this.filterBy.amenities.length) {
-        return this.filterBy.amenities.join(',');
+        return this.filterBy.amenities.join(",");
       } else {
-        return 'Amenities';
+        return "Amenities";
       }
-	},
-	
+    },
     typesPos() {
       return this.$refs.priceBtn.offsetWidth + 200;
     },
-
   },
 };
 </script>

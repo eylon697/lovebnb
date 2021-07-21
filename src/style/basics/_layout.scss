@@ -1,6 +1,12 @@
-@mixin layout-columns($Width: 960px) {
+// @mixin layout-columns($Width: 960px) {
+//     grid-template-columns: minmax(2rem, 1fr) minmax(auto, 1200px) minmax(2rem, 1fr);
+// }
+@mixin layout-columns($Width: 1200px) {
     grid-template-columns: minmax(2rem, 1fr) minmax(auto, $Width) minmax(2rem, 1fr);
 }
+// @mixin layout-columns($Width: 460px) {
+//     grid-template-columns: minmax(2rem, 1fr) minmax(auto, $Width) minmax(2rem, 1fr);
+// }
 
 // LAYOUT BREAKPOINTS
 $break-narrow: 460px;
@@ -23,9 +29,9 @@ $break-wide: 1200px;
     @include for-normal-layout {
         @include layout-columns($break-normal);
     }
-    // @include for-wide-layout {
-    //     @include layout-columns($break-wide);
-    // }
+    @include for-wide-layout {
+        @include layout-columns(10fr);
+    }
 }
 
 .el-popper[x-placement^=bottom] .popper__arrow::after,

@@ -1,21 +1,22 @@
 .list-filter {
-    // display: flex;
-    gap: 5px;
-    margin-top: 100px;
-    margin-bottom: 30px;
+	display: flex;
+	gap: 5px;
+	margin-top: 100px;
+	margin-bottom: 30px;
 }
 
 .list-filter {
-    & > button {
-        background-color: rgb(255, 255, 255);
-        border: 1px solid $clr1;
-        border-radius: 3rem;
-        padding: 5px 10px;
-        display: flex;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
-    }
+	& > button {
+		background-color: rgb(255, 255, 255);
+		border: 1px solid rgb(203, 203, 203);
+		border-radius: 3rem;
+		padding: 5px 20px;
+		display: flex;
+		align-items: center;
+		align-content: center;
+		justify-content: center;
+        font-size: 1rem;
+	}
 }
 
 .price-modal::before,
@@ -33,7 +34,7 @@
 
 .price-modal,
 .types-modal,
-.amenities-modal {
+.beds-modal {
     font-size: 0.7rem;
     letter-spacing: 0.6px;
     display: flex;
@@ -86,7 +87,7 @@
     }
 }
 .types-modal {
-    left: 20%;
+    left: 35%;
     & > div {
         display: flex;
         align-items: center;
@@ -94,7 +95,7 @@
         gap: 10px;
     }
 }
-.amenities-modal {
+.beds-modal {
     left: 30%;
     & > div {
         display: flex;

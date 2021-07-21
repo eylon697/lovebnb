@@ -1,6 +1,5 @@
 <template>
   <header class="app-header main-layout" :class="classObject">
-    <!-- <div class="top-container"> -->
     <div class="top">
       <div class="logo">
         <router-link to="/">
@@ -20,14 +19,29 @@
       </div>
 
       <div class="right">
-        <!-- <nav>
+        <profil-modal
+          v-if="isUserModalOpen"
+          @login="login"
+          @onSignUp="onSignUp"
+          @logout="logout"
+          @closeUserModal="closeUserModal"
+        />
+
+        <!-- <nav>TODO:PAGE HOST
           <router-link class="host" to="stay/profile">Become a host</router-link>
         </nav> -->
-        <div @click.stop="openModal" class="preference">
+        <div @click.stop="openUserModal" class="preference">
           <i class="fas fa-bars"></i>
           <button class="btn-user">
-            <img v-if="!loggedinUser" :src="require('@/assets/img/app-header/user.png')" />
-            <img class="user-img" v-else :src="require('@/assets/img/user/5.png')" />
+            <img
+              v-if="!loggedinUser"
+              :src="require('@/assets/img/app-header/user.png')"
+            />
+            <img
+              class="user-img"
+              v-else
+              :src="require('@/assets/img/user/5.png')"
+            />
           </button>
         </div>
       </div>
@@ -41,14 +55,18 @@
 <script>
 import stayFilter from "../cmps/stay-filter.vue";
 import { eventBus } from "../services/event-bus.service";
+import profilModal from "../cmps/profil-modal.vue";
+
 export default {
   components: {
     stayFilter,
+    profilModal,
   },
   data() {
     return {
       isOpen: false,
       scrollDiff: 0,
+      isUserModalOpen: false,
     };
   },
   computed: {
@@ -58,17 +76,17 @@ export default {
         "home-top": this.$route.name === "HomePage" && !this.scrollDiff,
       };
     },
-    loggedinUser(){
-      return this.$store.getters.loggedinUser
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
     },
 
     // userId(){
     //   const user = this.$store.getters.loggedinUser
-		// 	if (user && user?._id) {
-		// 		return user._id
-		// 	} else {
-		// 		return ''
-		// 	}
+    // 	if (user && user?._id) {
+    // 		return user._id
+    // 	} else {
+    // 		return ''
+    // 	}
 
     // }
   },
@@ -90,6 +108,9 @@ export default {
       this.$emit("closeScreen");
       this.isOpen = false;
     },
+    closeUserModal() {
+      this.isUserModalOpen = !this.isUserModalOpen;
+    },
     onScroll(ev) {
       this.scrollDiff = ev.path[1].scrollY;
       if (this.scrollDiff) {
@@ -98,8 +119,18 @@ export default {
         this.openHeader();
       }
     },
-    openModal(){
-      this.$emit('openModal')
+    openUserModal() {
+      this.isUserModalOpen = !this.isUserModalOpen;
+      console.log("APP", this.isUserModalOpen);
+    },
+    login() {
+      this.$emit("login");
+    },
+    onSignUp() {
+      this.$emit("signUp");
+    },
+    logout(){
+      this.$emit("logout");
     }
   },
 };

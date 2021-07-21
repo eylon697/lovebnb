@@ -22,7 +22,6 @@
     text-align: center;
     padding: 16px 0;
     font-weight: 600;
-    border-bottom: 1px solid rgb(233, 233, 233);
     p {
       font-size: 0.8rem;
     }
@@ -117,12 +116,7 @@
     }
   }
   
-  .screen {
-    position: fixed;
-    inset: 0;
-    background-color: rgba($color: #000000, $alpha: 0.6);
-    z-index: 5;
-  }
+
   
   .checkout-btn {
     width: 100%;

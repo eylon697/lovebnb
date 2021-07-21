@@ -1,11 +1,11 @@
 <template>
 <section class="hero full">
     <!-- TODO:render filter component here in screoll? -->
-    <!-- <div class="flexible">
+    <div class="flexible">
          <p>Not sure where to go? Perfect.</p>
       <button><span>I’m flexible</span></button>
 
-    </div> -->
+    </div>
 
 
 </section>

@@ -1,6 +1,6 @@
 <template>
   <section class="stay-details main-layout">
-    <div v-if="stay">
+    <template v-if="stay">
       <pre></pre>
       <details-header :stay="stay" />
       <div class="details-gallery">
@@ -45,6 +45,10 @@
           </div>
           <div></div>
 
+          <div class="summary">
+            <div class="txt">{{stay.summary}}</div>
+          </div>
+
           <!-- TODO:COMPONANTE amenities -->
           <section class="amenities">
             <div class="title-amenities">What this place offers</div>
@@ -81,14 +85,14 @@
         <stay-order :stay="stay" />
       </div>
 
-      <div id="map" class="map-container" v-if="this.stay.loc.lat">
-        <h1 class="map-title">Where you'll be</h1>
+      <div id="map" class="map-container full" v-if="this.stay.loc.lat">
+        <h1 class="map-title ">Where you'll be</h1>
         <google-map :loc="stay.loc" v-if="stay.loc" />
-        <div v-else>loading...</div>
+        <div  v-else>loading...</div>
         <div class="stay-location">{{ stay.loc.address }}</div>
         <p class="stay-nearness">{{ stay.loc.nearness }}</p>
       </div>
-    </div>
+    </template>
     <div v-else>Loading</div>
 
     <!-- TODO:HOST COMPONANTE -->
@@ -103,7 +107,7 @@
 
         <div class="title">Hosted by {{ stay.host.fullName }}</div>
       </div>
-      <div if="stay.rateAvg>4.7" class="rate">
+      <div if="stay.rateAvg > 4.7" class="rate">
         <i class="fas fa-star"></i>
         <div>{{ stay.reviews.length }} reviews</div>
         <div>

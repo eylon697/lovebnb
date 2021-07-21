@@ -1,3 +1,5 @@
+import { utilService } from "./util.service.js"
+
 export const storageService = {
     query,
     get,
@@ -19,7 +21,7 @@ function query(entityType, delay = 500) {
 
 async function queryfiltered(entityType, filterBy, delay = 500) {
     const entities = JSON.parse(localStorage.getItem(entityType)) || []
-    const filtered = _filter(entities, filterBy)
+    const filtered = _filter(entities, utilService.convertFilter(filterBy))
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(filtered)
@@ -27,57 +29,34 @@ async function queryfiltered(entityType, filterBy, delay = 500) {
     })
 }
 
-function _getFilterDates(checkIn, checkOut) {
-    if (checkIn && checkOut) return _getDates(checkIn, checkOut)
-    if (!checkIn && !checkOut) return []
-    else if (checkIn) return [new Date(checkIn)]
-    else return [new Date(checkOut)]
-}
-
-function _isEmpty(filterDates, stayClosedDates) {
-    return filterDates.every(date => {
-        return stayClosedDates.every(stayDate => {
-            date !== stayDate
-        })
-    })
-}
-
 function _filter(stays, filterBy) {
-    var { country, propertyType, guests, checkIn, checkOut, minPrice, maxPrice, beds, bedrooms, bathrooms } = filterBy
-    return stays.filter(stay => {
-        var filterDates = _getFilterDates(checkIn, checkOut)
-        if (
-            (country && stay.loc.country !== country) ||
+    console.log(filterBy);
+    var { country, propertyType, guests, dates, price, city, beds, bedrooms, bathrooms } = filterBy
+    // return stays.filter(stay => {
+    const filtered = stays.filter(stay => {
+        return !(
+            (country && !new RegExp(country, 'i').test(stay.loc.country)) ||
+            (city && !new RegExp(city, 'i').test(stay.loc.city)) ||
             (propertyType && stay.propertyType !== propertyType) ||
             (guests && stay.guests < guests) ||
-            (stay.closedDates && filterDates && !_isEmpty(filterDates, stay.closedDates)) ||
-            (beds <= stay.price) ||
-            (bedrooms <= stay.bedrooms) ||
-            (bathrooms <= stay.bathrooms) ||
-            (minPrice <= stay.price && maxPrice >= stay.price)
-
+            (beds && beds > stay.beds) ||
+            (bedrooms && bedrooms > stay.bedrooms) ||
+            (bathrooms && bathrooms > stay.bathrooms) ||
+            (price[0] && price[0] > stay.price) ||
+            (price[1] && price[1] < stay.price) ||
+            (dates && dates.length && stay.closeDates && stay.closeDates.length && !_isAvailable(dates, stay.closeDates))
         )
-            return false
-        return true
     })
-
+    console.log(filtered);
 }
 
-Date.prototype.addDays = function(days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-}
-
-function _getDates(startDate, stopDate) {
-    var dateArray = new Array();
-    var currentDate = new Date(startDate)
-    stopDate = new Date(stopDate)
-    while (currentDate <= stopDate) {
-        dateArray.push(new Date(currentDate));
-        currentDate = currentDate.addDays(1);
-    }
-    return dateArray;
+function _isAvailable(filterDates, stayClosedDates) {
+    const res = filterDates.every(date => {
+        return stayClosedDates.every(stayDate => {
+            date === stayDate
+        })
+    })
+    return res
 }
 
 function get(entityType, entityId) {
@@ -123,7 +102,6 @@ function remove(entityType, entityId) {
             _save(entityType, entities)
         })
 }
-
 
 function _save(entityType, entities) {
     localStorage.setItem(entityType, JSON.stringify(entities))

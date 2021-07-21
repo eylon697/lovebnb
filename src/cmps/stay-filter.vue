@@ -4,7 +4,7 @@
       <label class="location">
         <div>
           <div>
-           <div class="title">Location</div>
+            <div class="title">Location</div>
             <input
               type="text"
               list="countries"
@@ -13,9 +13,11 @@
               @input="loadCountries"
             />
             <datalist id="countries">
-              <!-- <option v-for="(country, idx) in countries" :key="idx">
-                {{ country }}
-              </option> -->
+              <template v-if="countries">
+                <option v-for="(country, idx) in countries" :key="idx">
+                  {{ country }}
+                </option>
+              </template>
             </datalist>
           </div>
         </div>
@@ -26,7 +28,10 @@
           <div>
             <div>
               <div class="title">Check in</div>
-              <div class="date-value" v-if="filterBy.dates && filterBy.dates.length">
+              <div
+                class="date-value"
+                v-if="filterBy.dates && filterBy.dates.length"
+              >
                 {{ checkIn }}
               </div>
               <div class="placeholder" v-else>Add date</div>
@@ -34,19 +39,21 @@
           </div>
         </div>
         <div class="sep"></div>
-        <el-date-picker 
-        name="filter"
-        class="date-picker"
-         v-model="filterBy.dates" 
-         type="daterange"
-         onPick="onPick(pick)"
-         >
+        <el-date-picker
+          name="filter"
+          class="date-picker"
+          v-model="filterBy.dates"
+          type="daterange"
+        >
         </el-date-picker>
         <div class="check-out">
           <div>
             <div>
-               <div class="title">Check out</div>
-              <div class="date-value" v-if="filterBy.dates && filterBy.dates.length">
+              <div class="title">Check out</div>
+              <div
+                class="date-value"
+                v-if="filterBy.dates && filterBy.dates.length"
+              >
                 {{ checkOut }}
               </div>
               <div class="placeholder" v-else>Add date</div>
@@ -60,7 +67,7 @@
           <div>
             <div class="title">Guests</div>
             <input
-              type="text"
+              type="number"
               placeholder="Add guests"
               v-model="filterBy.guests"
             />
@@ -76,6 +83,8 @@
 
 <script>
 import { utilService } from "@/services/util.service.js";
+import { stayService } from "@/services/stay.service.js";
+
 export default {
   data() {
     return {
@@ -96,16 +105,9 @@ export default {
     },
   },
   methods: {
-    onPick(pick){
-      console.log('onPick',pick);
-    },
     async loadCountries() {},
     goToFilterd() {
-      if (this.filterBy.country) this.filterBy.mainFilter = "country";
-      else if (this.filterBy.propertyType)
-        this.filterBy.mainFilter = "propertyType";
-      else if (this.filterBy.checkIn) this.filterBy.mainFilter = "checkIn";
-      else if (this.filterBy.guests) this.filterBy.mainFilter = "guests";
+      this.filterBy.mainFilter = stayService.getMainFilter(this.filterBy);
       const filterUrl = utilService.objToUrl(this.filterBy);
       this.$router.push(`/stay?${filterUrl}`);
     },

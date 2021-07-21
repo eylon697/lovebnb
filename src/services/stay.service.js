@@ -255,7 +255,7 @@ const gStays = [
         countryCode: "NY",
         city: "Manhattan",
         address: "New York, United States",
-        nearness:"Astoria has always been a haven for new immigrants from all over the world. These days, this part of Astoria is known for its progressive politics (AOC is our Rep.), many bars and restaurants, most with sidewalk/garden dining venues. It also hosts a lovely park along the East River, popular with sports enthusiasts, dog-owners, yogis and families.",
+        nearness:
         lat: 40.73061,
         lng: -73.935242,
     },

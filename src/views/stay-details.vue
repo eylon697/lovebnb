@@ -85,12 +85,12 @@
         <stay-order :stay="stay" />
       </div>
 
-      <div id="map" class="map-container full" v-if="this.stay.loc.lat">
+      <div id="map" class="map-container" v-if="this.stay.loc.lat">
         <h1 class="map-title ">Where you'll be</h1>
         <google-map :loc="stay.loc" v-if="stay.loc" />
         <div  v-else>loading...</div>
         <div class="stay-location">{{ stay.loc.address }}</div>
-        <p class="stay-nearness">{{ stay.loc.nearness }}</p>
+        <p v-if="stay.loc.nearness" class="stay-nearness">{{ stay.loc.nearness }}</p>
       </div>
     </template>
     <div v-else>Loading</div>

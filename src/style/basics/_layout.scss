@@ -4,14 +4,14 @@
 @mixin layout-columns($Width: 1200px) {
     grid-template-columns: minmax(2rem, 1fr) minmax(auto, $Width) minmax(2rem, 1fr);
 }
+
 // @mixin layout-columns($Width: 460px) {
 //     grid-template-columns: minmax(2rem, 1fr) minmax(auto, $Width) minmax(2rem, 1fr);
 // }
-
 // LAYOUT BREAKPOINTS
-$break-narrow: 460px;
+$break-narrow: 660px;
 $break-normal: 960px;
-$break-wide: 1200px;
+$break-wide: 1000px;
 // $break-wide: 1100px;
 .main-layout {
     display: grid;

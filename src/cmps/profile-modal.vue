@@ -1,11 +1,10 @@
 
 <template>
-  <div class="profile-modal" @click.stop="closeUserModal">
-    <button>
+  <div   class="profile-modal" @click.stop="closeUserModal">
+    <button >
       <router-link
         class="account"
         :to="'/profile/' + userId"
-        v-if="isLoggedinUser"
       >
         <span>Orders</span>
       </router-link>
@@ -39,6 +38,9 @@ export default {
       this.$emit("logout");
       this.$emit("closeUserModal");
     },
+    closeUserModal(){
+      this.$emit("closeUserModal")
+    }
   },
   computed: {
     userId() {

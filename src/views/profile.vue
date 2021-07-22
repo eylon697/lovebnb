@@ -13,13 +13,14 @@
 
 
 export default{
-data(){return{
-	   orders: [
+    data(){
+        return{
+             orders: [
             {
                 _id: '',
                 dates: [],
                 guests: 0,
-                created: 0123456789123,
+                created: '0123456789123',
                 status: 'pending',
                 stay: {
                     _id: '',
@@ -36,7 +37,7 @@ data(){return{
                 _id: '',
                 dates: [],
                 guests: 0,
-                created: 0123456789123,
+                created: '0123456789123',
                 status: 'pending',
                 stay: {
                     _id: '',
@@ -50,6 +51,10 @@ data(){return{
                 },
             }
         ]
-}}
+
+        }
+    }
+
 }
+
 </script>  

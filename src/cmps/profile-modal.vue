@@ -35,6 +35,9 @@ export default {
       this.$emit("logout");
       this.$emit("closeUserModal");
     },
+    closeUserModal(){
+      this.$emit("closeUserModal")
+    }
   },
   computed: {
     userId() {

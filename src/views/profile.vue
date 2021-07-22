@@ -14,11 +14,11 @@ export default {
           _id: "",
           dates: [],
           guests: 0,
-          // created: 0123456789123,
+          created: "0123456789123",
           status: "pending",
           stay: {
             _id: "",
-            name: "ב",
+            name: "",
             imgUrl: "",
           },
           guest: {
@@ -31,7 +31,7 @@ export default {
           _id: "",
           dates: [],
           guests: 0,
-          // created: 0123456789123,
+          created: "0123456789123",
           status: "pending",
           stay: {
             _id: "",

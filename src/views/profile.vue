@@ -1,6 +1,11 @@
 <template>
 	<section class="profile">
-		<h2>profile page</h2>
+	
+
+	<div class="inbox-container">
+		<div class="title" >All messages</div>
+
+	</div>
 		
 	</section>
 </template>

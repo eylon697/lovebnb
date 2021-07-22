@@ -1,4 +1,12 @@
 .stay-details {
+    .el-button.el-button--default {
+        margin-bottom: 40px;
+        width: fit-content;
+        &:hover {
+            background-color: $clr1;
+            color: #606266;
+        }
+    }
     .details-gallery {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -61,9 +69,11 @@
     .summary {
         border-bottom: $clr1 solid 1px;
         .txt {
-            // padding: 10px 0;
+            <<<<<<< HEAD // padding: 10px 0;
             margin-bottom: 40px;
-            line-height: 1.4rem;
+            =======padding: 10px;
+            margin-bottom: 20px;
+            >>>>>>>d79ccef1766e1eff562d311a71f6f583a4d845e6 line-height: 1.4rem;
             letter-spacing: .4px;
             text-align: justify;
             // font-size: 1rem;
@@ -81,142 +91,168 @@
             flex-wrap: wrap;
             flex-direction: column;
             max-height: 200px;
-            margin-bottom: 32px;
+            <<<<<<< HEAD margin-bottom: 32px;
         }
-        .amenities-list {
-            display: flex;
-            gap: 10px;
-            padding: 8px;
-            padding-left: 0;
-            img {
-                width: 32px;
-                height: 32px;
-            }
-            .txt {
-                font-size: 1rem;
-                padding: 6px;
-            }
+        =======margin-bottom: 40px;
+    }
+    >>>>>>>d79ccef1766e1eff562d311a71f6f583a4d845e6 .amenities-list {
+        display: flex;
+        gap: 10px;
+        padding: 8px;
+        padding-left: 0;
+        img {
+            width: 32px;
+            height: 32px;
+        }
+        .txt {
+            font-size: 1rem;
+            padding: 6px;
         }
     }
-    .reviews-container {
-        margin: 40px 0;
-        .rating {
-            margin-bottom: 10px;
-            .fa-star {
-                color: $clr3;
-                font-size: 1.375rem;
-            }
-            p {
-                font-size: 1.375rem;
-            }
-            span {
-                font-size: 1.375rem;
-            }
-        }
-    }
-    .map-container {
-        margin-top: 40px;
-        border-top: 1px solid rgba(50, 50, 50, 0.2);
-        padding-top: 40px;
-        border-bottom: $clr1 solid 1px;
-        margin-bottom: 40px;
-        .map-title {
+}
+
+.reviews-container {
+    border-bottom: 1px solid rgba(50, 50, 50, 0.2);
+    margin: 40px 0;
+    .rating {
+        margin-bottom: 10px;
+        .fa-star {
+            color: $clr3;
             font-size: 1.375rem;
-            margin-bottom: 40px;
-            letter-spacing: 1.5px;
-            // padding: 15px;
         }
-        .stay-location {
-            font-weight: 500;
-            margin-top: 22px;
-            margin-bottom: 22px;
-            // padding: 15px;
+        p {
+            font-size: 1.375rem;
         }
-        .stay-nearness {
-            margin-bottom: 40px;
-            // padding: 15px;
+        span {
+            font-size: 1.375rem;
         }
     }
-    .host {
-        .header {
-            display: flex;
-            align-items: center;
+    // .el-button.el-button--default {
+    //     margin-bottom: 40px;
+    //     &:hover{
+    //         background-color: $clr1;
+    //         color:#606266 ;
+    //     }
+    // }
+}
+
+.map-container {
+    margin-top: 40px;
+    border-top: 1px solid rgba(50, 50, 50, 0.2);
+    padding-top: 40px;
+    border-bottom: $clr1 solid 1px;
+    margin-bottom: 40px;
+    .map-title {
+        font-size: 1.375rem;
+        margin-bottom: 40px;
+        letter-spacing: 1.5px;
+        <<<<<<< HEAD // padding: 15px;
+        =======padding: 15px;
+        >>>>>>>d79ccef1766e1eff562d311a71f6f583a4d845e6
+    }
+    .stay-location {
+        font-weight: 500;
+        margin-top: 22px;
+        margin-bottom: 22px;
+        <<<<<<< HEAD // padding: 15px;
+    }
+    .stay-nearness {
+        margin-bottom: 40px;
+        // padding: 15px;
+        =======padding: 15px;
+    }
+    .stay-nearness {
+        margin-bottom: 22px;
+        padding: 15px;
+        >>>>>>>d79ccef1766e1eff562d311a71f6f583a4d845e6
+    }
+}
+
+.host {
+    .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        .title {
+            font-weight: 600;
+            font-size: 1.375rem;
+            line-height: 1.625rem;
+            // align-items: center;
+        }
+        img {
+            height: 56px;
+            width: 56px;
+            border-radius: 32px;
+            position: relative;
+            margin-right: 20px;
+        }
+        .medal {
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            // right: 86%;
+            margin-left: 42px;
+            margin-top: 14px;
+        }
+    }
+    .rate {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+        .fa-star {
+            color: $clr3;
+            font-size: 1rem;
+        }
+        .validation {
+            width: 16px;
+            height: 16px;
+        }
+    }
+    .content {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        .super-host {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        <<<<<<< HEAD=======>>>>>>>d79ccef1766e1eff562d311a71f6f583a4d845e6 .Response-time {
             margin-bottom: 20px;
-            .title {
-                font-weight: 600;
-                font-size: 1.375rem;
-                line-height: 1.625rem;
-                // align-items: center;
-            }
-            img {
-                height: 56px;
-                width: 56px;
-                border-radius: 32px;
-                position: relative;
-                margin-right: 20px;
-            }
-            .medal {
-                height: 20px;
-                width: 20px;
-                position: absolute;
-                // right: 86%;
-                margin-left: 42px;
-                margin-top: 14px;
+        }
+        .Response-rate {
+            margin-bottom: 15px;
+        }
+        p {
+            line-height: 1.3rem;
+        }
+        p:nth-child(3) {
+            margin-bottom: 20px;
+        }
+        <<<<<<< HEAD=======>>>>>>>d79ccef1766e1eff562d311a71f6f583a4d845e6 .contact {
+            cursor: pointer;
+            margin-bottom: 20px;
+            width: fit-content;
+            padding: 13px 23px;
+            border-radius: 6px;
+            <<<<<<< HEAD background-color: unset;
+            border: 1px solid $clr5;
+            =======background-color: unset;
+            border: 1px solid $clr5;
+            >>>>>>>d79ccef1766e1eff562d311a71f6f583a4d845e6 font-size: 1rem;
+            &:hover {
+                background-color: rgba(209, 209, 209, 0.191);
             }
         }
-        .rate {
+        .securing {
+            width: 300px;
             display: flex;
             gap: 15px;
-            margin-bottom: 20px;
-            .fa-star {
-                color: $clr3;
-                font-size: 1rem;
-            }
-            .validation {
-                width: 16px;
-                height: 16px;
-            }
-        }
-        .content {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-            .super-host {
-                font-weight: bold;
-                margin-bottom: 15px;
-            }
-            .Response-time {
-                margin-bottom: 20px;
-            }
-            .Response-rate {
-                margin-bottom: 15px;
-            }
-            p {
-                line-height: 1.3rem;
-            }
-            p:nth-child(3) {
-                margin-bottom: 20px;
-            }
-            .contact {
-                cursor: pointer;
-                margin-bottom: 20px;
-                width: fit-content;
-                padding: 13px 23px;
-                border-radius: 6px;
-                background-color: unset;
-                border: 1px solid $clr5;
-                font-size: 1rem;
-                &:hover {
-                    background-color: rgba(209, 209, 209, 0.191)
-                }
-            }
-            .securing {
-                width: 300px;
-                display: flex;
-                gap: 15px;
-                margin-bottom: 40px;
-                // margin-inline-start: 10px;
-            }
+            margin-bottom: 40px;
+            // margin-inline-start: 10px;
         }
     }
+    <<<<<<< HEAD=======>>>>>>>d79ccef1766e1eff562d311a71f6f583a4d845e6
+}
+
+
 }

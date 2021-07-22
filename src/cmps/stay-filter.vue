@@ -10,14 +10,14 @@
               list="countries"
               placeholder="Where are you going?"
               v-model="filterBy.country"
-              @input="loadCountries"
             />
+            <!-- @input="loadCountries" -->
             <datalist id="countries">
-              <template v-if="countries">
+              <!-- <template v-if="countries">
                 <option v-for="(country, idx) in countries" :key="idx">
                   {{ country }}
                 </option>
-              </template>
+              </template> -->
             </datalist>
           </div>
         </div>
@@ -103,13 +103,13 @@ export default {
         this.filterBy.dates[this.filterBy.dates.length - 1]
       );
     },
-    methods: {
-      async loadCountries() {},
-      goToFilterd() {
-        this.filterBy.mainFilter = stayService.getMainFilter(this.filterBy);
-        const filterUrl = utilService.objToUrl(this.filterBy);
-        this.$router.push(`/stay?${filterUrl}`);
-      },
+  },
+  methods: {
+    // async loadCountries() {},
+    goToFilterd() {
+      this.filterBy.mainFilter = stayService.getMainFilter(this.filterBy);
+      const filterUrl = utilService.objToUrl(this.filterBy);
+      this.$router.push(`/stay?${filterUrl}`);
     },
   },
 };

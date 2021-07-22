@@ -64,7 +64,6 @@
         <small>You won't be charged yet</small>
         <div class="charges">
           <div>${{ stay.price }} x {{ days }} nights</div>
-          <!-- <div>Order</div> -->
           <div>{{ coinFormater.format(nightsPrice) }}</div>
         </div>
         <div class="charges">
@@ -126,7 +125,13 @@ export default {
       return this.servPrice + this.nightsPrice;
     },
     orderBtnTxt() {
-      return this.order.dates ? "Reserve" : "Check availabilty";
+      switch (this.order.status) {
+        case "available":
+          return "Reserve";
+        case "unavailable":
+          return "Unavailable";
+      }
+      return "Check availabilty";
     },
   },
   methods: {
@@ -153,6 +158,7 @@ export default {
         servPrice,
         totalPrice,
         coinFormater,
+        created: Date.now(),
         stay: {
           _id: this.stay._id,
           name: this.stay.name,
@@ -173,25 +179,23 @@ export default {
     async checkAvailability() {
       try {
         this.isLoading = true;
-        // TODO: Check availability with server
         await orderService.checkAvailability(this.order);
         this.setStatus("available");
         this.isLoading = false;
-        this.$refs.orderBtn.disabled = true;
       } catch (err) {
         this.setStatus("unavailable");
         console.log("failed to check availability", err);
         this.isLoading = false;
       }
     },
-    setStatus(status = "edit") {
+    setStatus(status) {
+      if (!status || typeof status !== "string") status = "edit";
       this.order.status = status;
     },
     async placeOrder() {
-      if (!this.order.dates || this.order.dates.length < 2) {
-        this.$refs.datePicker.focus();
-        return;
-      }
+      if (!this.order.dates || this.order.dates.length < 2)
+        return this.$refs.datePicker.focus();
+      console.log(this.order);
       if (this.order.status === "edit") return this.checkAvailability();
       try {
         if (this.order.status === "unavailable")

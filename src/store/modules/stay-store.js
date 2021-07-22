@@ -25,7 +25,7 @@ export const stayStore = {
             country: '',
             city: '',
             propertyType: '',
-            guests: 0,
+            guests: null,
             dates: [],
             price: [0, 1500],
             beds: 0,

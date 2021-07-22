@@ -6,7 +6,7 @@
     <div class="bottom">
       <div class="left">
         <i class="fas fa-star"></i>
-        <span> {{ stay.rateAvg }} </span>
+        <span class="rate"> {{ stay.rateAvg }} </span>
         <span>(</span>
         <a href="#reviews">
           <span>{{ stay.reviews.length }} </span>

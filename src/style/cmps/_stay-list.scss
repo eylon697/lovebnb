@@ -1,6 +1,6 @@
 .stay-list {
     .list-header {
-        margin-bottom: 15px;
+        margin-bottom: 40px;
         div {
             margin-bottom: 10px;
         }
@@ -22,10 +22,10 @@
         margin-bottom: 20px;
     }
     .preview-container {
-        padding: 3px;
+        // padding: 3px;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
         gap: 40px;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 }

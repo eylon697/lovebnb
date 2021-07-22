@@ -19,7 +19,7 @@
       </div>
 
       <div class="right">
-        <profil-modal
+        <profile-modal
           v-if="isUserModalOpen"
           @login="login"
           @onSignUp="onSignUp"
@@ -55,12 +55,12 @@
 <script>
 import stayFilter from "../cmps/stay-filter.vue";
 import { eventBus } from "../services/event-bus.service";
-import profilModal from "../cmps/profil-modal.vue";
+import profileModal from "../cmps/profile-modal.vue";
 
 export default {
   components: {
     stayFilter,
-    profilModal,
+    profileModal,
   },
   data() {
     return {
@@ -129,9 +129,9 @@ export default {
     onSignUp() {
       this.$emit("signUp");
     },
-    logout(){
+    logout() {
       this.$emit("logout");
-    }
+    },
   },
 };
 </script>

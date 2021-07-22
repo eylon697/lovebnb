@@ -1,22 +1,22 @@
 .list-filter {
-	display: flex;
-	gap: 5px;
-	margin-top: 100px;
-	margin-bottom: 30px;
+    display: flex;
+    gap: 5px;
+    margin-top: 120px;
+    margin-bottom: 20px;
 }
 
 .list-filter {
-	& > button {
-		background-color: rgb(255, 255, 255);
-		border: 1px solid rgb(203, 203, 203);
-		border-radius: 3rem;
-		padding: 5px 20px;
-		display: flex;
-		align-items: center;
-		align-content: center;
-		justify-content: center;
+    &>button {
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(203, 203, 203);
+        border-radius: 3rem;
+        padding: 5px 20px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
         font-size: 1rem;
-	}
+    }
 }
 
 .price-modal::before,
@@ -75,7 +75,6 @@
 
 .price-modal {
     gap: 10px;
-
     input {
         height: 40px;
         font-size: 1rem;
@@ -86,18 +85,20 @@
         border: 1px solid #b0b0b0;
     }
 }
+
 .types-modal {
     left: 35%;
-    & > div {
+    &>div {
         display: flex;
         align-items: center;
         padding: 5px 0;
         gap: 10px;
     }
 }
+
 .beds-modal {
     left: 30%;
-    & > div {
+    &>div {
         display: flex;
         align-items: center;
         padding: 5px 0;
@@ -108,6 +109,7 @@
 .el-slider__bar {
     background-color: #b0b0b0;
 }
+
 .el-slider__button {
     border: 2px solid #dddddd;
 }

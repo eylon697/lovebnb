@@ -127,7 +127,7 @@
         </div>
         <div class="Response-rate">Response rate: 100%</div>
         <div class="Response-time">Response time: within a few hours</div>
-        <button class="contact">Content host</button>
+        <button class="contact">Contact host</button>
         <div class="securing">
           <img :src="require('@/assets/img/icon/securing.svg')" />
           <p>

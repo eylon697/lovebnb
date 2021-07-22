@@ -36,7 +36,8 @@
             width: 193px;
             font-weight: 900;
             color: $clr3;
-            font-size: 25px;
+            font-size: 27px;
+            letter-spacing: .001px;
             a {
                 text-decoration: none;
             }
@@ -126,7 +127,6 @@
             justify-content: flex-end;
             width: 193px;
             align-items: center;
-            cursor: pointer;
             gap: 15px;
             font-weight: 600;
             letter-spacing: 0.6px;
@@ -136,6 +136,7 @@
                 font-weight: 500;
             }
             .preference {
+                cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;

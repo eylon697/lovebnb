@@ -1,15 +1,12 @@
 .stay-order {
     position: sticky;
-    top: 100px;
-    // margin-top: 35px;
-    // margin-bottom: 20px;
-    // margin-inline-start: 30px;
-    // width: 326px;
+    top: 124px;
     padding: 9px 22px;
     border-radius: 15px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
     height: fit-content;
     border: 1px solid rgb(230, 230, 230);
+    min-width: 250px;
     .order-header {
         display: flex;
         align-items: center;
@@ -51,13 +48,22 @@
         padding: 14px 10px;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
+        .check-in,
+        .check-out {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         .title {
             font-weight: 500;
         }
         .value {
+            font-size: .875rem;
             font-weight: 600;
         }
         .placeholder {
+            font-size: .9rem;
             font-weight: 300;
             color: #717171;
         }
@@ -111,6 +117,7 @@
             color: #999;
             opacity: 0.2;
             cursor: default;
+            padding-right: 2px;
             &.show {
                 opacity: 1;
                 cursor: pointer;
@@ -119,11 +126,14 @@
                 border: 1px solid #333;
                 color: #333;
             }
+            *.vue-loaders.ball-pulse {
+                height: 5px !important;
+            }
         }
     }
     .order-btn {
         width: 100%;
-        padding: 0.65rem 20px;
+        padding: 12px 0;
         border-radius: 10px;
         background-color: rgb(189, 30, 89);
         display: flex;
@@ -139,7 +149,6 @@
         cursor: pointer;
         outline: none;
         overflow: hidden;
-        border: 2px rgb(255, 56, 92) solid;
         box-shadow: 1px 1px 9px rgba(0, 0, 0, 0.356);
         margin-bottom: 14px;
         span {
@@ -157,9 +166,7 @@
             height: 30px;
             border-radius: 50%;
             background-color: #fa3259;
-            //   box-shadow: 0px 0px 400px 300px #fa325adf, 0px 0px 220px 100px #e61e4dd0,
-            //     0px 0px 250px 120px #e31c5eb7, 0px 0px 280px 240px #d70466c5,
-            //     0px 0px 350px 260px #bd1e58d5, 5px 5px 400px 300px #bd1d59;
+            // box-shadow: 0px 0px 400px 300px #fa325adf, 0px 0px 220px 100px #e61e4dd0, 0px 0px 250px 120px #e31c5eb7, 0px 0px 280px 240px #d70466c5, 0px 0px 350px 260px #bd1e58d5, 5px 5px 400px 300px #bd1d59;
             box-shadow: 0px 0px 137px 135px #fa325a, 0px 0px 140px 143px #e61e4de7, 0px 0px 162px 206px #e31c5f, 0px 0px 80px 140px #d70466, 0px 0px 90px 160px #bd1e59, 5px 5px 100px 200px #bd1d59;
             // transform: translate(-50%, -50%);
             transition: width 0.2s ease, height 0.2s ease;
@@ -179,16 +186,18 @@
             font-size: 14px;
         }
         .charges-data {
+            font-weight: 300;
+            font-size: .875rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
             .charges {
+                margin-bottom: 8px;
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
                 p:nth-child(1) {
-                    margin-bottom: 10px;
                     color: #333;
                     text-decoration: underline;
                     font-size: 1rem;
@@ -200,7 +209,6 @@
                 &:nth-child(3) {
                     border-bottom: 1px solid rgba(50, 50, 50, 0.2);
                     padding-bottom: 10px;
-                    margin-bottom: 10px;
                 }
             }
         }
@@ -209,7 +217,7 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            padding: 10px 0;
+            padding: 8px 0;
             div {
                 font-weight: 600;
                 font-size: 1.1rem;

@@ -29,12 +29,12 @@
           <span>
             {{ stay.loc.city }}
           </span>
-        </p>                                                                                                                                                                                                                                                                                                                                                                                                               
+        </p>
         <p class="name">{{ stay.name }}</p>
       </div>
       <div class="buttom">
         <div class="card-rating">
-          <span><i class="fas fa-star"></i></span>
+          <i class="fas fa-star"></i>
           <span class="rate"> {{ stay.rateAvg }} </span>
           <span>(</span>
           <span>{{ stay.reviews.length }} </span>

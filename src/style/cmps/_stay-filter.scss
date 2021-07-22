@@ -91,6 +91,11 @@
                 max-width: 121px;
             }
         }
+        input {
+             ::-moz-selection {
+                display: none;
+            }
+        }
     }
     input {
         font-family: Roboto;

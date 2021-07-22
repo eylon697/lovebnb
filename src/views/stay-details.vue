@@ -6,6 +6,7 @@
       <div class="details-gallery">
         <img v-for="(img, idx) in stay.imgUrls" :key="idx" :src="img.url" />
       </div>
+
       <div class="main-content">
         <div>
           <div class="info">
@@ -69,22 +70,21 @@
               <span class="sep"> · </span>
               <span>{{ stay.reviews.length }} reviews</span>
             </div>
-          </div>
-
-          <el-button v-if="loggedInUser" @click.stop="toggleAddReview"
+          <review-list :reviews="stay.reviews" />
+          <el-button v-if="loggedInUser" @click.stop="openAddReview"
             >Add Review</el-button
           >
           <add-review
             v-if="addReviewIsOpen"
-            @add-review="onAddReview"
-            @toggleAddReview="toggleAddReview"
+            @addReview="addReview"
+            @openAddReview="openAddReview"
           />
+          </div>
 
-          <review-list :reviews="stay.reviews" />
+
         </div>
         <stay-order :stay="stay" />
       </div>
-
       <div id="map" class="map-container full" v-if="this.stay.loc.lat">
         <h1 class="map-title ">Where you'll be</h1>
         <google-map :loc="stay.loc" v-if="stay.loc" />
@@ -92,8 +92,10 @@
         <div class="stay-location">{{ stay.loc.address }}</div>
         <p class="stay-nearness">{{ stay.loc.nearness }}</p>
       </div>
+
     </template>
     <div v-else>Loading</div>
+
 
     <!-- TODO:HOST COMPONANTE -->
     <div class="host">
@@ -127,7 +129,10 @@
         </div>
         <div class="Response-rate">Response rate: 100%</div>
         <div class="Response-time">Response time: within a few hours</div>
-        <button class="contact">Content host</button>
+        <!-- <button class="contact">Content host</button> -->
+         <el-button
+            >Content host</el-button
+          >
         <div class="securing">
           <img :src="require('@/assets/img/icon/securing.svg')" />
           <p>
@@ -142,11 +147,12 @@
 
 <script>
 import stayOrder from "@/cmps/stay-order.vue";
-// import { showMsg } from "@/services/event-bus.service.js";
+import { showMsg } from "@/services/event-bus.service.js";
 import detailsHeader from "@/cmps/details-header.vue";
 import GoogleMap from "@/cmps/google-map.vue";
 import reviewList from "@/cmps/reviews-list.vue";
 import addReview from "@/cmps/add-review.vue";
+
 
 export default {
   components: { stayOrder, detailsHeader, reviewList, GoogleMap, addReview },
@@ -177,8 +183,20 @@ export default {
         this.stay.host.fullName.indexOf(" ")
       );
     },
-    toggleAddReview() {
+    openAddReview() {
       this.addReviewIsOpen = !this.addReviewIsOpen;
+    },
+     async addReview(review) {
+      try {
+        review.by._Id = this.loggedInUser._id;
+        await this.$store.dispatch({ type: "addReview", review , stay:this.stay });
+        this.loadReviews();
+        this.openAddReview()
+				showMsg('Review added successfully')
+      } catch (err) {
+        showMsg('There was a problem posting the review', 'error')
+        console.log("Error in add Review", err);
+      }
     },
   },
   created() {

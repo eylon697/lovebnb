@@ -1,7 +1,8 @@
 import { storageService } from './async-storage.service.js'
+import { utilService } from './util.service.js';
 
 // propertyType: ["Entire apartment","Hotel room"],
-// amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Hair Dryer","Cookingbasics","Washer","Dryer","Iron","Free street parking","Microwave","Air conditioning","First aid kit"],
+// amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Hair Dryer","Washer","Dryer","Iron","Free street parking","Microwave","Air conditioning","First aid kit"],
 
 const gStays = [{
         _id: "101",
@@ -138,7 +139,7 @@ const gStays = [{
         beds: 2,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Cookingbasics", "Free street parking", ],
+        amenities: ["TV", "Wifi", "Kitchen",  "Free street parking", ],
         host: { _id: "51399391", fullName: "Joshua", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/11_peioso.png' },
         loc: {
             country: "New York",
@@ -246,7 +247,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Cookingbasics", "Washer", "Dryer"],
+        amenities: ["TV", "Wifi", "Kitchen",  "Washer", "Dryer"],
         host: { _id: "51399391", fullName: "Monica", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626614694/d38bb6fe-0a44-4ca4-8a31-ba55915d9ae2_osykfm.jpg' },
         loc: {
             country: "Israel",
@@ -310,7 +311,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics", "Washer", "Dryer", "Air conditioning", "Iron", "First aid kit"],
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed",  "Washer", "Dryer", "Air conditioning", "Iron", "First aid kit"],
         host: { _id: "51399391", fullName: "Joyce", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626616321/17550671-6419-4726-b0ae-654663e9e5fa_oad3qi.jpg' },
         loc: {
             country: "Netherlands",
@@ -372,7 +373,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Cookingbasics", "Washer", "Dryer", "Air conditioning"],
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed",  "Washer", "Dryer", "Air conditioning"],
         host: { _id: "51399391", fullName: "Michael", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626610320/6_y2e5fg.png' },
         loc: {
             country: "New York",
@@ -435,7 +436,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Cookingbasics", "Washer", "Dryer", "Air conditioning", "Microwave"],
+        amenities: ["TV", "Wifi", "Kitchen",  "Washer", "Dryer", "Air conditioning", "Microwave"],
         host: { _id: "51399391", fullName: "Joshua", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626611245/Untitled_design_28_j9dfgr.png' },
         loc: {
             country: "France",
@@ -498,7 +499,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Cookingbasics", "Air conditioning", "Microwave"],
+        amenities: ["TV", "Wifi", "Kitchen",  "Air conditioning", "Microwave"],
         host: { _id: "51399391", fullName: "Joshua", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626611245/Untitled_design_28_j9dfgr.png' },
         loc: {
             country: "Israel",
@@ -603,7 +604,9 @@ export const stayService = {
     query,
     getById,
     getCountries,
-    getMainFilter
+    getMainFilter,
+    getEmptyReview,
+    save
 }
 
 const STAY_KEY = 'stays'
@@ -625,6 +628,9 @@ async function getById(stayId) {
 async function getCountries(filterTxt) {
     return await storageService.get(STAY_KEY, filterTxt)
 }
+async function save(stay) {
+    return await storageService.post(STAY_KEY, stay)
+}
 
 function getMainFilter(filterBy) {
     if (filterBy.country) return "country";
@@ -632,4 +638,14 @@ function getMainFilter(filterBy) {
     else if (filterBy.checkIn) return "checkIn";
     else if (filterBy.guests) return "guests";
     return ''
+}
+
+function getEmptyReview() {
+    return {
+        id:utilService.makeId,
+        txt: '',
+        rate: null,
+        by:{imgUrl:'',fullname:''},
+        at:Date.now()
+    }
 }

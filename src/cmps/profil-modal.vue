@@ -7,7 +7,7 @@
         :to="'/profile/' + userId"
         v-if="isLoggedinUser"
       >
-        <span>Account</span>
+        <span>Orders</span>
       </router-link>
     </button>
     <button v-if="!isLoggedinUser" @click.stop="login">Login</button>

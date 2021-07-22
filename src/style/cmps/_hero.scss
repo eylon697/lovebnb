@@ -1,42 +1,40 @@
 .hero {
-  height: 91vh;
-  background-image: url(~@/assets/img/hero/home.png);
-  // background-image: url(~@/assets/img/hero/view2.png);
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-bottom: 20px;
-
-  .flexible {
-    position: absolute;
-    top: 44%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    & p {
-      font-weight: 500;
-      font-size: 1rem;
-      color: $clr4;
+    height: 89vh;
+    background-image: url(~@/assets/img/hero/home.png);
+    // background-image: url(~@/assets/img/hero/view2.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 40px;
+    .flexible {
+        position: absolute;
+        top: 44%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        & p {
+            font-weight: 500;
+            font-size: 1rem;
+            color: $clr4;
+        }
+        & button {
+            border: unset;
+            cursor: pointer;
+            padding: 1rem 2.45rem;
+            border-radius: 3rem;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0px 6px 16px rgba($color: #000000, $alpha: 0.12);
+            & span {
+                font-weight: 500;
+                font-size: 1.125rem;
+                background: -webkit-linear-gradient(0deg, rgba(111, 1, 156, 1) 0%, rgba(198, 1, 126, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
     }
-    & button {
-      border: unset;
-      cursor: pointer;
-      padding: 1rem 2.45rem;
-      border-radius: 3rem;
-      margin-top: 20px;
-      background-color: #fff;
-      box-shadow: 0px 6px 16px rgba($color: #000000, $alpha: 0.12);
-      & span {
-        font-weight: 500
-;
-        font-size: 1.125rem;
-        background: -webkit-linear-gradient(0deg, rgba(111, 1, 156, 1) 0%, rgba(198, 1, 126, 1) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    }
-  }
 }

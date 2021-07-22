@@ -1,7 +1,7 @@
 <template>
   <div class="block date">
     <el-date-picker
-      style="color:#000;"
+      style="color: #000"
       @input="x"
       v-model="dateRange"
       type="daterange"

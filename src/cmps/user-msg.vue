@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import { eventBus, SHOW_MSG } from '@/services/event-bus.service.js';
+import { eventBus, SHOW_MSG } from "@/services/event-bus.service.js";
 export default {
   created() {
-    eventBus.$on(SHOW_MSG, msg => {
+    eventBus.$on(SHOW_MSG, (msg) => {
       this.msg = msg;
       var delay = msg.delay || 2000;
       this.alive = true;
@@ -39,12 +39,12 @@ export default {
       return `alert-${this.msg.type}`;
     },
     alertIcon() {
-      if (this.msg.type === 'error') {
-        return 'cancel';
+      if (this.msg.type === "error") {
+        return "cancel";
       }
-      if (this.msg.type === 'warning') {
-        return 'error';
-      } else return 'check_circle_outline';
+      if (this.msg.type === "warning") {
+        return "error";
+      } else return "check_circle_outline";
     },
   },
 };

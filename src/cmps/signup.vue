@@ -29,7 +29,6 @@
         <button class="checkout-btn" ref="myBtn"><span>Continue</span></button>
       </form>
     </div>
-   
   </section>
 </template>
 

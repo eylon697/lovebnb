@@ -139,7 +139,7 @@ const gStays = [{
         beds: 2,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen",  "Free street parking", ],
+        amenities: ["TV", "Wifi", "Kitchen", "Free street parking", ],
         host: { _id: "51399391", fullName: "Joshua", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/11_peioso.png' },
         loc: {
             country: "New York",
@@ -247,7 +247,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen",  "Washer", "Dryer"],
+        amenities: ["TV", "Wifi", "Kitchen", "Washer", "Dryer"],
         host: { _id: "51399391", fullName: "Monica", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626614694/d38bb6fe-0a44-4ca4-8a31-ba55915d9ae2_osykfm.jpg' },
         loc: {
             country: "Israel",
@@ -311,7 +311,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed",  "Washer", "Dryer", "Air conditioning", "Iron", "First aid kit"],
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Washer", "Dryer", "Air conditioning", "Iron", "First aid kit"],
         host: { _id: "51399391", fullName: "Joyce", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626616321/17550671-6419-4726-b0ae-654663e9e5fa_oad3qi.jpg' },
         loc: {
             country: "Netherlands",
@@ -373,7 +373,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed",  "Washer", "Dryer", "Air conditioning"],
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Washer", "Dryer", "Air conditioning"],
         host: { _id: "51399391", fullName: "Michael", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626610320/6_y2e5fg.png' },
         loc: {
             country: "New York",
@@ -436,7 +436,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen",  "Washer", "Dryer", "Air conditioning", "Microwave"],
+        amenities: ["TV", "Wifi", "Kitchen", "Washer", "Dryer", "Air conditioning", "Microwave"],
         host: { _id: "51399391", fullName: "Joshua", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626611245/Untitled_design_28_j9dfgr.png' },
         loc: {
             country: "France",
@@ -499,7 +499,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen",  "Air conditioning", "Microwave"],
+        amenities: ["TV", "Wifi", "Kitchen", "Air conditioning", "Microwave"],
         host: { _id: "51399391", fullName: "Joshua", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626611245/Untitled_design_28_j9dfgr.png' },
         loc: {
             country: "Israel",
@@ -642,10 +642,10 @@ function getMainFilter(filterBy) {
 
 function getEmptyReview() {
     return {
-        id:utilService.makeId,
+        id: utilService.makeId,
         txt: '',
         rate: null,
-        by:{imgUrl:'',fullname:''},
-        at:Date.now()
+        by: { imgUrl: '', fullname: '' },
+        at: Date.now()
     }
 }

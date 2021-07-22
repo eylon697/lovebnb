@@ -27,46 +27,44 @@
       {{ typeToShow }}
     </button>
 
-    <div @click.stop class="types-modal" v-if="typeOpen" >
-			<div>
-				<input v-model="filterBy.propertyType" type="checkbox" value="Entire apartment" id="Entire apartment" />
-				<label for="Entire apartment"
-					>Entire apartment</label
-				>
-			</div>
-			<div>
-				<input v-model="filterBy.propertyType" type="checkbox" value="Hotel room" id="Hotel room" />
-				<label for="Hotel room">Hotel room</label>
-			</div>
-			<div>
-				<input v-model="filterBy.propertyType" type="checkbox" value="Outdoor getaways" id="Outdoor getaways" />
-				<label for="Outdoor getaways">Outdoor getaways</label>
-			</div>
-	
-			<div class="button-container">
-				<button @click.stop="clearFilter">Clear</button>
-				<button @click.stop="loadStays">Update</button>
-			</div>
-		</div>
+    <div @click.stop class="types-modal" v-if="typeOpen">
+      <div>
+        <input
+          v-model="filterBy.propertyType"
+          type="checkbox"
+          value="Entire apartment"
+          id="Entire apartment"
+        />
+        <label for="Entire apartment">Entire apartment</label>
+      </div>
+      <div>
+        <input
+          v-model="filterBy.propertyType"
+          type="checkbox"
+          value="Hotel room"
+          id="Hotel room"
+        />
+        <label for="Hotel room">Hotel room</label>
+      </div>
+      <div>
+        <input
+          v-model="filterBy.propertyType"
+          type="checkbox"
+          value="Outdoor getaways"
+          id="Outdoor getaways"
+        />
+        <label for="Outdoor getaways">Outdoor getaways</label>
+      </div>
 
-
-    <button @click.stop="onChangeBeds">
-    Rooms and beds
-    </button>
-    
-    <div @click.stop class="beds-modal" v-if="bedsOpen">
-      
-
-
-
-
+      <div class="button-container">
+        <button @click.stop="clearFilter">Clear</button>
+        <button @click.stop="loadStays">Update</button>
+      </div>
     </div>
 
+    <button @click.stop="onChangeBeds">Rooms and beds</button>
 
-
-
-
-
+    <div @click.stop class="beds-modal" v-if="bedsOpen"></div>
   </form>
 </template>
 
@@ -106,16 +104,16 @@ export default {
     },
     loadStays() {
       this.$store.dispatch({ type: "loadStays", filterBy: this.filterBy });
-      this.closeModals()
+      this.closeModals();
     },
-   
+
     clearFilter() {
       this.filterBy.price = [0, 1500];
       this.filterBy.types = [];
       this.filterBy.amenities = [];
       this.filterBy.city = "";
       this.$store.dispatch({ type: "loadStays", filterBy: this.filterBy });
-       this.closeModals()
+      this.closeModals();
     },
   },
   computed: {

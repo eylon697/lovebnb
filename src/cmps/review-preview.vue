@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     formatDate() {
-        return utilService.getformatDate(this.review.at);
+      return utilService.getformatDate(this.review.at);
     },
   },
 };

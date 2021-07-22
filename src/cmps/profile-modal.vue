@@ -1,12 +1,8 @@
 
 <template>
   <div class="profile-modal" @click.stop="closeUserModal">
-    <button>
-      <router-link
-        class="account"
-        :to="'/profile/' + userId"
-        v-if="isLoggedinUser"
-      >
+    <button v-if="isLoggedinUser">
+      <router-link class="account" :to="'/profile/' + userId">
         <span>Orders</span>
       </router-link>
     </button>

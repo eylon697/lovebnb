@@ -1,8 +1,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js';
 
-// propertyType: ["Entire apartment","Hotel room"],
-// amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Hair Dryer","Washer","Dryer","Iron","Free street parking","Microwave","Air conditioning","First aid kit"],
+
 
 const gStays = [{
         _id: "101",
@@ -31,7 +30,7 @@ const gStays = [{
         beds: 2,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Washer", "Dryer", "Iron"],
+        amenities: ["TV", "Wifi", "Kitchen", "Washer", "Dryer", "Iron","Refrigerator"],
         host: { _id: "51399391", fullName: "Jeniffer", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626609132/4418653a-0dd7-43a1-b813-03148e1baf5c_flylht.jpg' },
         loc: {
             country: "New York",
@@ -132,14 +131,14 @@ const gStays = [{
             },
         ],
         price: 70.0,
-        summary: "Guests enjoy weekly maid & laundry in-residence w/ gorgeous new kitchen, granite countertop workspace, floor-to-ceiling marble bathroom, and dark hardwood floors throughout.All in a smart-access, uber-secure building equipped with ultra high-speed fiberoptic wifi (1,000 Mbps) located next to museums and Central Park.",
+        summary: "Guests enjoy weekly maid & laundry in-residence gorgeous new kitchen, granite countertop workspace, floor-to-ceiling marble bathroom, and dark hardwood floors throughout. All in a smart-access, uber-secure building equipped with ultra high-speed fiberoptic wifi (1,000 Mbps) located next to museums and Central Park.",
         propertyType: "Entire home",
         guests: 4,
         bedrooms: 2,
         beds: 2,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Free street parking", ],
+        amenities: ["TV", "Wifi", "Kitchen", "Free street parking","Refrigerator" ],
         host: { _id: "51399391", fullName: "Joshua", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/11_peioso.png' },
         loc: {
             country: "New York",
@@ -247,7 +246,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Washer", "Dryer"],
+        amenities: ["TV", "Wifi", "Kitchen", "Washer", "Dryer","Refrigerator"],
         host: { _id: "51399391", fullName: "Monica", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626614694/d38bb6fe-0a44-4ca4-8a31-ba55915d9ae2_osykfm.jpg' },
         loc: {
             country: "Israel",
@@ -311,7 +310,7 @@ const gStays = [{
         beds: 1,
         bathrooms: 1,
         closeDates: [],
-        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed", "Washer", "Dryer", "Air conditioning", "Iron", "First aid kit"],
+        amenities: ["TV", "Wifi", "Kitchen", "Pets allowed","Refrigerator", "Washer", "Dryer", "Air conditioning", "Iron", "First aid kit"],
         host: { _id: "51399391", fullName: "Joyce", imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626616321/17550671-6419-4726-b0ae-654663e9e5fa_oad3qi.jpg' },
         loc: {
             country: "Netherlands",

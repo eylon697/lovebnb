@@ -1,12 +1,23 @@
 <template>
   <div id="app">
-    <app-header @openScreen="openScreen" @closeScreen="closeScreen"  @login="login" @signUp="onSignUp" @logout="logout" />
+    <app-header
+      @openScreen="openScreen"
+      @closeScreen="closeScreen"
+      @login="login"
+      @signUp="onSignUp"
+      @logout="logout"
+      :isWarningOpen="isWarningOpen"
+    />
     <login @login="login" v-if="isLoginOpen" />
     <signup @signUp="signUp" v-if="isSignupOpen" @onSignUp="onSignUp" />
     <user-msg />
-    <div v-if="isScreenOpen || isLoginOpen || isSignupOpen" class="screen" @click="closeHeder"></div>
-    <div v-if=" isLoginOpen || isSignupOpen" class="screen-blocking" ></div>
-    <router-view />
+    <div
+      v-if="isScreenOpen || isLoginOpen || isSignupOpen"
+      class="screen"
+      @click="closeHeder"
+    ></div>
+    <div v-if="isLoginOpen || isSignupOpen" class="screen-blocking"></div>
+    <router-view @warning="openWarning" />
     <app-footer />
   </div>
 </template>
@@ -33,14 +44,15 @@ export default {
       isScreenOpen: false,
       isLoginOpen: false,
       isSignupOpen: false,
+      isWarningOpen: false,
     };
   },
   created() {
-		window.addEventListener('click', this.bodyClick)
-	},
+    window.addEventListener("click", this.bodyClick);
+  },
   destroyed() {
-		window.removeEventListener('click', this.bodyClick)
-	},
+    window.removeEventListener("click", this.bodyClick);
+  },
   methods: {
     openScreen() {
       this.isScreenOpen = true;
@@ -53,18 +65,21 @@ export default {
       eventBus.$emit("closeHeder");
     },
     bodyClick() {
-			this.isLoginOpen = false
-			this.isSignupOpen = false
-		},
-    login(){
-      this.isLoginOpen=!this.isLoginOpen
-
+      this.isLoginOpen = false;
+      this.isSignupOpen = false;
+    },
+    login() {
+      this.isLoginOpen = !this.isLoginOpen;
     },
 
     onSignUp() {
       this.isSignupOpen = !this.isSignupOpen;
     },
-    
+    openWarning() {
+      this.isWarningOpen = !this.isWarningOpen;
+      console.log(this.isWarningOpen);
+    },
+
     async signUp(userCred) {
       try {
         await this.$store.dispatch({ type: "signup", userCred });

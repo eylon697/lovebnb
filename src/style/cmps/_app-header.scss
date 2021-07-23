@@ -37,7 +37,7 @@
             font-weight: 900;
             color: $clr3;
             font-size: 27px;
-            letter-spacing: .001px;
+            letter-spacing: 0.001px;
             a {
                 text-decoration: none;
             }
@@ -86,7 +86,7 @@
                 align-items: center;
                 background-color: $clr2;
                 border: solid $clr1 1px;
-                padding: .9px 6px 0 8px;
+                padding: 0.9px 6px 0 8px;
                 border-radius: 50px;
                 height: 48px;
                 width: 300px;
@@ -135,6 +135,9 @@
                 color: $clr5;
                 font-weight: 500;
             }
+            .lng {
+                cursor: pointer;
+            }
             .preference {
                 cursor: pointer;
                 display: flex;
@@ -159,6 +162,21 @@
                 img {
                     height: 28px;
                     border-radius: 10px;
+                }
+                .warning {
+                    // box-shadow: rgb(255 255 255) 0px 0px 0px 1.5px !important;
+                    position: absolute;
+                    z-index: 60;
+                    border-radius: 50%;
+                    height: 10px;
+                    min-width: 10px;
+                    right: 6px;
+                    top: 6px;
+                    color: $clr3;
+                    background-color: $clr3;
+                    // animation-name: keyframe_5k3zne ;
+                    // animation-duration: 0.4s ;
+                    // animation-timing-function: cubic-bezier(0.175, 0.885, 0.35, 1.1) !important;
                 }
             }
         }

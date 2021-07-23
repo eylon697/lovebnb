@@ -1,0 +1,163 @@
+.profile {
+    flex-grow: 1;
+    margin-top: 170px;
+    font-size: 1rem;
+    display: flex;
+    .title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+    .small {
+        margin-bottom: 20px;
+    }
+    .orders-container {
+        display: flex;
+        gap: 40px;
+    }
+    .list-orders {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .card {
+            display: flex;
+            border: 2px solid $clr1;
+            border-radius: 10px;
+            align-items: center;
+            padding: 20px;
+            div.success {
+                color: #168c16;
+                // background-color: #168c16;
+                border-radius: 3em;
+                text-align: center;
+                padding: 1px 15px;
+                width: auto;
+            }
+            div.warning {
+                color: $clr3;
+                // background-color: $clr3;
+                border-radius: 3em;
+                text-align: center;
+                padding: 1px 20px;
+                // width: auto;
+                font-weight: 600;
+            }
+            .action {
+                cursor: pointer;
+                .change {
+                    cursor: pointer;
+                }
+            }
+            .name {
+                text-overflow: ellipsis;
+            }
+        }
+        img {
+            border-radius: 30px;
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+        }
+        .info {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+            .by {
+                color: $clr3;
+                font-weight: 600;
+                margin-bottom: 8px;
+            }
+        }
+        .expire {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .order-info {
+            color: $clr7;
+        }
+        .action {
+            margin-left: 50px;
+
+            .accept {
+                color: rgb(29, 167, 29);
+                font-weight: 500;
+            }
+            .reject {
+                color: rgb(211, 71, 7);
+                font-weight: 500;
+            }
+        }
+        .accepted {
+            color: rgb(29, 167, 29);
+        }
+    }
+
+    .summary {
+        border: 2px solid $clr1;
+        border-radius: 10px;
+        padding: 20px;
+        width: 400px;
+        .header {
+            border-bottom: 1px solid $clr1;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            .txt {
+            }
+            .fantastic {
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+            .great {
+                margin-bottom: 20px;
+            }
+            .v {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                i {
+                    color: lightseagreen;
+                    font-size: 2rem;
+                }
+            }
+        }
+        .middle {
+            border-bottom: 1px solid $clr1;
+            margin-bottom: 40px;
+            .revenue {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .days {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+        }
+        .buttom {
+            margin-bottom: 40px;
+            .reating {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .reviews {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .fa-airbnb {
+                color: #ff385c;
+                font-size: 15rem;
+                transform: scale(1, -1);
+                margin-left: 26px;
+            }
+        }
+        .num {
+            color: rgb(29, 167, 29);
+        }
+    }
+}

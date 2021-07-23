@@ -4,7 +4,8 @@ import HomePage from '@/views/home-page.vue'
 import stayApp from '@/views/stay-app.vue'
 import stayDetails from '@/views/stay-details.vue'
 import stayReviews from '@/views/stay-reviews.vue'
-import profile from '@/views/profile.vue'
+import trips from '@/views/trips.vue'
+import deshboard from '@/views/deshboard.vue'
 
 Vue.use(VueRouter)
 
@@ -29,9 +30,14 @@ const routes = [{
         component: stayDetails
     },
     {
-        path: '/profile/:userId',
-        name: 'profile',
-        component: profile,
+        path: '/trips/:userId',
+        name: 'trips',
+        component: trips,
+      },
+    {
+        path: '/deshboard/:userId',
+        name: 'deshboard',
+        component: deshboard,
       },
 
 ]

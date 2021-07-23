@@ -195,7 +195,6 @@ export default {
     async placeOrder() {
       if (!this.order.dates || this.order.dates.length < 2)
         return this.$refs.datePicker.focus();
-      console.log(this.order);
       if (this.order.status === "edit") return this.checkAvailability();
       try {
         if (this.order.status === "unavailable")
@@ -204,6 +203,7 @@ export default {
         await orderService.placeOrder(this.getFullOrder());
         // TODO: USER MSG
         // TODO: ROUT TO ORDER SUMMERY
+        this.$emit('warning')
         this.$router.push("/");
       } catch (err) {
         this.isLoading = false;

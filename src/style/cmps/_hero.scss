@@ -1,4 +1,71 @@
 .hero {
+
+
+    // option 3===============
+    // .bgc-img-contaner {
+    //     height: 89vh;
+    //     width: 100%;
+    //     position: relative;
+    // }
+    // .bgc-img {
+    //     height: 89vh;
+    //     width: 100%;
+    //     object-fit: cover;
+    // }
+    // #cf {
+    //     position: relative;
+    //     margin: 0 auto;
+    // }
+
+    // #cf img {
+    //     // position: absolute;
+    //     left: 0;
+    //     -webkit-transition: opacity 3s ease-in-out;
+    //     -moz-transition: opacity 3s ease-in-out;
+    //     -o-transition: opacity 3s ease-in-out;
+    //     transition: opacity 3s ease-in-out;
+    // }
+
+    // @keyframes cf3FadeInOut {
+    //     0% {
+    //         opacity: 1;
+    //     }
+    //     45% {
+    //         opacity: 1;
+    //     }
+    //     55% {
+    //         opacity: 0;
+    //     }
+    //     100% {
+    //         opacity: 0;
+    //     }
+    // }
+
+    // #cf img.top {
+    //     animation-name: cf3FadeInOut;
+    //     animation-timing-function: ease-in-out;
+    //     animation-iteration-count: infinite;
+    //     animation-duration: 10s;
+    //     animation-direction: alternate;
+    // }
+    // =========================
+
+
+
+
+// option 2================
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // -webkit-transition: background-image 2s ease;
+    // transition: background-image 2s ease;
+    // ==============================
+
+
+
+
+
+
     height: 89vh;
     // background-image: url(~@/assets/img/hero/home.png);
     background-image: url(~@/assets/img/hero/cmophoto-net-EmVKKf3wUZQ-unsplash.jpg);
@@ -8,6 +75,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 40px;
+
+
+
     .flexible {
         position: absolute;
         top: 44%;
@@ -19,8 +89,8 @@
         align-items: center;
         & p {
             font-weight: 500;
-            font-size: 1rem;
-            color: $clr4;
+            font-size: 1.8rem;
+            color: $clr2;
         }
         & button {
             border: unset;
@@ -31,8 +101,8 @@
             background-color: #fff;
             box-shadow: 0px 6px 16px rgba($color: #000000, $alpha: 0.12);
             & span {
-                font-weight: 500;
-                font-size: 1.125rem;
+                font-weight: 600;
+                font-size: 1.4rem;
                 background: -webkit-linear-gradient(0deg, rgba(111, 1, 156, 1) 0%, rgba(198, 1, 126, 1) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;

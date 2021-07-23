@@ -25,7 +25,7 @@ library.add(faUserSecret)
 
 Vue.use(VueGoogleMaps, {
     load: {
-        key: 'AIzaSyDyKytLc6HSBg15d2n3erx3dlTpxi4Xci8',
+        key: 'AIzaSyCKdUVCE7CXLZO4_3YoDO2WjbwmaEwLYCU',
         libraries: 'places',
         language: 'en',
     },

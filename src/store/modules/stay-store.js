@@ -89,12 +89,5 @@ export const stayStore = {
         saveStay() {
 
         },
-        // addReview({ commit }, { stay, review })  {
-        //     console.log(review);
-        //     const stayCopy = JSON.parse(JSON.stringify(stay))
-        // 	stayCopy.reviews.unshift(review)
-        // 	await stayService.save(stayCopy)
-        // 	return stayCopy
-        // },
     }
 }

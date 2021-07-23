@@ -1,11 +1,14 @@
 
 <template>
   <div class="profile-modal" @click.stop="closeUserModal">
-    <button v-if="isLoggedinUser">
-      <router-link class="account" :to="'/profile/' + userId">
-        <span>Orders</span>
+    <!-- <button v-if="isLoggedinUser"> -->
+      <router-link  v-if="isLoggedinUser" class="trip" :to="'/trips/' + userId">
+        <span>Trips</span>
       </router-link>
-    </button>
+      <router-link  v-if="isLoggedinUser" class="deshboard" :to="'/deshboard/' + userId">
+        <span>Deshboard</span>
+      </router-link>
+    <!-- </button> -->
     <button v-if="!isLoggedinUser" @click.stop="login">Login</button>
     <button v-if="!isLoggedinUser" @click.stop="onSignUp">SignUp</button>
     <button @click.stop="addStay">Host your home</button>
@@ -35,9 +38,9 @@ export default {
       this.$emit("logout");
       this.$emit("closeUserModal");
     },
-    closeUserModal(){
-      this.$emit("closeUserModal")
-    }
+    closeUserModal() {
+      this.$emit("closeUserModal");
+    },
   },
   computed: {
     userId() {

@@ -26,10 +26,14 @@
           @logout="logout"
           @closeUserModal="closeUserModal"
         />
-
-        <!-- <nav>TODO:PAGE HOST
-          <router-link class="host" to="stay/profile">Become a host</router-link>
-        </nav> -->
+        <!-- TODO:PAGE HOST -->
+        <nav>
+          <router-link class="host" to="stay/profile"
+            >Become a host</router-link
+          >
+        </nav>
+        <img class="lng" :src="require('@/assets/img/icon/lng.svg')">
+         
         <div @click.stop="openUserModal" class="preference">
           <i class="fas fa-bars"></i>
           <button class="btn-user">
@@ -43,6 +47,7 @@
               :src="require('@/assets/img/user/5.png')"
             />
           </button>
+          <div v-if="isWarningOpen" class="warning"></div>
         </div>
       </div>
     </div>
@@ -58,6 +63,9 @@ import { eventBus } from "../services/event-bus.service";
 import profileModal from "../cmps/profile-modal.vue";
 
 export default {
+  props: {
+    isWarningOpen: Boolean,
+  },
   components: {
     stayFilter,
     profileModal,

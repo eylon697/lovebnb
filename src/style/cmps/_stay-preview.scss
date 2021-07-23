@@ -99,7 +99,7 @@
         background-color: rgbargba(70, 67, 67, 0.65);
         border: unset;
         &:hover {
-            background-color: rgba(104, 102, 102, 0.65);
+            background-color: rgba(245, 240, 240, 0.65);
         }
     }
     .el-carousel__indicators.el-carousel__indicators--horizontal {
@@ -121,6 +121,7 @@
     .el-carousel {
         &:hover {
             .el-carousel__arrow.el-carousel__arrow--left {
+                color:$clr1;
                 opacity: 1
             }
             .el-carousel__arrow.el-carousel__arrow--right {
@@ -130,5 +131,11 @@
     }
     .img-carousell.el-carousel.el-carousel--horizontal {
         margin-bottom: 15px;
+    }
+    .el-icon-arrow-right:before{
+        color:gray
+    }
+    .el-icon-arrow-left:before{
+        color:gray
     }
 }

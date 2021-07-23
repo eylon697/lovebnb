@@ -13,7 +13,7 @@
             />
             <!-- @input="loadCountries" -->
             <datalist id="countries">
-              <!-- <template v-if="countries">
+            <!-- <template v-if="countries">
                 <option v-for="(country, idx) in countries" :key="idx">
                   {{ country }}
                 </option>

@@ -22,7 +22,7 @@ const gOrders = [{
         price: 138.0,
     },
     status: 'pending',
-}, ]
+}]
 
 // const BASR_URL='/..'TODO: inner url
 
@@ -100,6 +100,7 @@ function placeOrder() {
 }
 
 // var order = {
+//     _id: ''
 //     dates,
 //     guests,
 //     nightPrice: this.stay.price,

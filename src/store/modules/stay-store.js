@@ -77,7 +77,7 @@ export const stayStore = {
         },
         async loadStay({ commit, state }, { stayId }) {
             try {
-                const stay = await stayService.getById(stayId)
+                const stay = await stayService.getOne(stayId)
                 commit({ type: 'setStay', stay })
                 console.log('Stay Loaded successfuly', state.stay)
             } catch (err) {
@@ -92,9 +92,9 @@ export const stayStore = {
         // addReview({ commit }, { stay, review })  {
         //     console.log(review);
         //     const stayCopy = JSON.parse(JSON.stringify(stay))
-		// 	stayCopy.reviews.unshift(review)
-		// 	await stayService.save(stayCopy)
-		// 	return stayCopy
+        // 	stayCopy.reviews.unshift(review)
+        // 	await stayService.save(stayCopy)
+        // 	return stayCopy
         // },
     }
 }

@@ -11,7 +11,8 @@ module.exports = {
 
 async function query(req, res) {
     try {
-        const items = await itemService.query(req.query.filterBy)
+        const filterBy = JSON.parse(req.query.filterBy)
+        const items = await itemService.query(filterBy)
         res.send(items)
     } catch (err) {
         logger.error(`Failed to get ${ITEM_KEY}s`, err)

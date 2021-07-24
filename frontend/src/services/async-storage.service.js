@@ -48,12 +48,9 @@ function _filter(stays, filterBy) {
 }
 
 function _isAvailable(filterDates, stayClosedDates) {
-    const res = filterDates.every(date => {
-        return stayClosedDates.every(stayDate => {
-            date === stayDate
-        })
+    return !filterDates.some(date => {
+        return stayClosedDates.some(stayDate => date === stayDate)
     })
-    return res
 }
 
 function get(entityType, entityId) {

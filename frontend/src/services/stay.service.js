@@ -1,6 +1,8 @@
 import { utilService } from './util.service.js';
 import { httpService } from './http.service.js';
 
+const ITEM_KEY = 'stay'
+
 export const stayService = {
     query,
     getOne,
@@ -10,8 +12,6 @@ export const stayService = {
     getMainFilter,
     getEmptyReview,
 }
-
-const ITEM_KEY = 'stay'
 
 function query(filterBy) {
     return httpService.get(`${ITEM_KEY}`, { filterBy })

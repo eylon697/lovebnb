@@ -10,19 +10,20 @@
 }
 
 .stay-filter {
+    position: relative;
     z-index: 50;
-    padding-top: 0.5px;
     animation-name: slide-fwd-bottom;
     animation-duration: .4s;
     border-radius: 40px;
     font-size: .75rem;
     display: flex;
     align-items: center;
-    width: fit-content;
+    // width: fit-content;
     background-color: #ffffff;
     padding-inline-end: 7px;
     border: $clr1 solid 1px;
     text-overflow: ellipsis;
+    margin-top: 10px;
     .first {
         border-radius: 40px;
         display: flex;
@@ -36,24 +37,22 @@
         background-color: #eaeaea;
     }
     .location>div {
-        padding: 14px 32px;
+        padding: 14px 18px 14px 32px;
         div {
             min-width: 95px;
             max-width: 203px;
         }
     }
     .dates {
-        position: static;
         display: flex;
         flex-direction: row;
         align-items: center;
         cursor: pointer;
-        .date-picker {
+        .el-date-editor.el-range-editor.el-input__inner.date-picker.el-date-editor--daterange {
             position: absolute;
+            left: 30px !important;
+            top: 26px !important;
             visibility: hidden;
-            top: 100px;
-            right: 47.3vw;
-            justify-self: center;
         }
         .check-in,
         .check-out {

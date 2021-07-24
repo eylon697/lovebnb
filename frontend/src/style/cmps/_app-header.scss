@@ -33,7 +33,7 @@
         margin-bottom: 11px;
         .logo {
             padding-bottom: 6px;
-            width: 193px;
+            width: 210px;
             font-weight: 900;
             color: $clr3;
             font-size: 27px;
@@ -125,7 +125,7 @@
             position: relative;
             display: flex;
             justify-content: flex-end;
-            width: 193px;
+            width: 210px;
             align-items: center;
             gap: 15px;
             font-weight: 600;
@@ -188,7 +188,7 @@
     height: 85px;
     transition: height 0.4s;
     &.open {
-        height: 151px;
+        height: 161px;
         transition: height 0.4s;
         &.home-top {
             height: 85px;

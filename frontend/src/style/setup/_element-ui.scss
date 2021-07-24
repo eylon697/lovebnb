@@ -1,0 +1,46 @@
+div.popper__arrow,
+div.popper__arrow::after {
+    display: none;
+}
+
+.el-date-table td.end-date span,
+.el-date-table td.start-date span {
+    background-color: $clr3 !important;
+}
+
+.el-date-table td.today span {
+    color: $clr3 !important;
+}
+
+.available.in-range div {
+    background-color: #ff385c1a !important;
+}
+
+td.available span:hover,
+.el-date-table td.available:hover {
+    color: $clr3 !important;
+}
+
+.el-date-table td.end-date span,
+.el-date-table td.start-date span {
+    color: $clr2 !important;
+}
+
+td.available.in-range.end-date {
+    color: $clr5 !important;
+}
+
+.el-date-table td.in-range div,
+.el-date-table td.in-range div:hover,
+.el-date-table.is-week-mode .el-date-table__row.current div,
+.el-date-table.is-week-mode .el-date-table__row:hover div {
+    background-color: #ff385c1f;
+}
+
+.ball-pulse-sync>div,
+.ball-pulse>div {
+    position: relative;
+    top: 4px !important;
+    width: 12px!important;
+    height: 12px!important;
+}

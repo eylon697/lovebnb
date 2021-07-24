@@ -14,7 +14,6 @@ module.exports = {
 
 async function query(filterBy) {
     try {
-        filterBy = JSON.parse(filterBy)
         const collection = await dbService.getCollection(ITEM_KEY)
         return await collection.find().toArray()
     } catch (err) {

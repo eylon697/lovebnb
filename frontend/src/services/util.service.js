@@ -43,7 +43,8 @@ function _isToday(someDate) {
 }
 
 function toShortFormat(date) {
-    let monthNames = ["Jan", "Feb", "Mar", "Apr",
+    let monthNames = [
+        "Jan", "Feb", "Mar", "Apr",
         "May", "Jun", "Jul", "Aug",
         "Sep", "Oct", "Nov", "Dec"
     ];

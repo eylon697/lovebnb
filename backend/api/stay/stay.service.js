@@ -5,7 +5,6 @@ const logger = require('../../services/logger.service')
 const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 
-
 module.exports = {
     query,
     getOne,
@@ -15,9 +14,11 @@ module.exports = {
 
 async function query(filterBy) {
     try {
-        // var filterBy = JSON.parse(filterBy)
+        const criteria = itemUtil.buildCriteria(filterBy)
         const collection = await dbService.getCollection(ITEM_KEY)
-        return await collection.find().toArray()
+        const items = await collection.find(criteria).toArray()
+        console.log('items', items);
+        return items.filter(item => itemUtil.isAvailable(filterBy.dates, item.closeDates))
     } catch (err) {
         logger.error(`Failed to find ${ITEM_KEY}s`, err)
         throw err

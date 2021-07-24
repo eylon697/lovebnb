@@ -10,7 +10,7 @@
         <div class="info">
           <h1>The Greatest</h1>
           <h1>Outdoors</h1>
-          <p>Wishlists curated By Homebnb</p>
+          <p>Wishlists curated By lovebnb</p>
           <button>Get inspired</button>
         </div>
       </div>

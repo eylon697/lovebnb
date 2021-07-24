@@ -9,8 +9,8 @@
       </div>
       <div class="middle">
         <div class="places" v-if="isOpen">
-          <div>Places to stay</div>
-          <div class="sep"></div>
+          <!-- <div>Places to stay</div> -->
+          <!-- <div class="sep"></div> -->
         </div>
         <button v-else @click.stop="openHeader">
           <span>Start your search</span>
@@ -32,7 +32,7 @@
             >Become a host</router-link
           >
         </nav>
-        <img class="lng" :src="require('@/assets/img/icon/lng.svg')">
+        <!-- <img class="lng" :src="require('@/assets/img/icon/lng.svg')"> -->
          
         <div @click.stop="openUserModal" class="preference">
           <i class="fas fa-bars"></i>

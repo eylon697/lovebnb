@@ -62,9 +62,9 @@
       </div>
     </div>
 
-    <button @click.stop="onChangeBeds">Rooms and beds</button>
+    <!-- <button @click.stop="onChangeBeds">Rooms and beds</button>
 
-    <div @click.stop class="beds-modal" v-if="bedsOpen"></div>
+    <div @click.stop class="beds-modal" v-if="bedsOpen"></div> -->
   </form>
 </template>
 
@@ -99,7 +99,7 @@ export default {
     },
     closeModals() {
       this.typeOpen = false;
-      this.isPriceModalOpen = false;
+      this.priceOpen = false;
       this.isAmenitiesModalOpen = false;
     },
     loadStays() {

@@ -82,6 +82,7 @@ export default {
 
     async signUp(userCred) {
       try {
+        console.log(userCred);
         await this.$store.dispatch({ type: "signup", userCred });
         console.log("app", userCred);
         showMsg("Signed up successfully!");

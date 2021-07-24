@@ -1,30 +1,7 @@
-// import { httpService } from './http.service.js'
-import { Promise } from 'core-js'
-import { storageService } from './async-storage.service.js'
-// import { utilService } from './util.service.js'
+import { httpService } from './http.service.js'
 
-const gOrders = [{
-    _id: 'o100',
-    _hostId: 'u101',
-    createdAt: 1626734627736,
-    buyer: {
-        _id: 'u101',
-        fullname: 'User 1',
-        imgUrl: 'imgs/user1.jpg',
-    },
-    totalPrice: 160,
-    startDate: 162818371828,
-    endDate: 162829321938,
-    guests: 2,
-    stay: {
-        _id: '101',
-        name: 'Junior King size suite',
-        price: 138.0,
-    },
-    status: 'pending',
-}]
 
-// const BASR_URL='/..'TODO: inner url
+
 
 export const orderService = {
     query,
@@ -35,9 +12,9 @@ export const orderService = {
     checkAvailability,
     placeOrder
 }
-const ORDER_KEY = 'orders'
+const BASE_URL = 'order/'
 
-// async function query(filterBy) {
+// async function query(filterBy) { TODO:REMOVE!!
 //     const staysInStorage = await storageService.queryfiltered(ORDER_KEY, filterBy)
 //     if (!staysInStorage || !staysInStorage.length) {
 //         storageService.postMany(STAY_KEY, gStays)
@@ -46,35 +23,31 @@ const ORDER_KEY = 'orders'
 //     return staysInStorage
 // }
 
+// async function query() {  TODO:REMOVE!!
+//     const ordersInStorage = await storageService.query(ORDER_KEY)
+//     if (!ordersInStorage || !ordersInStorage.length) {
+//         storageService.postMany(ORDER_KEY, gOrders)
+//         return gOrders
+//     }
+//     return ordersInStorage
+// }
+
 async function query() {
-    const ordersInStorage = await storageService.query(ORDER_KEY)
-    if (!ordersInStorage || !ordersInStorage.length) {
-        storageService.postMany(ORDER_KEY, gOrders)
-        return gOrders
-    }
-    return ordersInStorage
+	return await httpService.get(BASE_URL)
 }
 
 
 function getById(orderId) {
-    // return httpService.get(`${BASE_URL}${orderId}`)
-    return storageService.get(ORDER_KEY, orderId)
+    return httpService.get(`${BASE_URL}${orderId}`)
 }
 
 function remove(orderId) {
-    // return httpService.delete(`${BASE_URL}${orderId}`)
-    return storageService.remove(ORDER_KEY, orderId)
-
+    return httpService.delete(`${BASE_URL}${orderId}`)
 }
 
 function save(order) {
-    console.log('from service', order);
-    return storageService.post(ORDER_KEY, order);
-    // if (order._id) {
-    // 	return httpService.put(`${BASE_URL}${order._id}`, order)
-    // } else {
-    // 	return httpService.post(BASE_URL, order)
-    // }
+    console.log(order,'from order service');
+    return httpService.post(BASE_URL, order)
 }
 
 function getEmptyOrder() {

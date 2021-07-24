@@ -49,7 +49,9 @@
               <div>Total reviews</div>
               <span  class="num">25</span>
             </div>
-            <i class="fab fa-airbnb"></i>
+            <div class="svg-container">
+              <img  :src="require('@/assets/img/icon/trip.svg')">
+            </div>
           </div>
         </div>
       </div>
@@ -70,7 +72,7 @@ export default {
       orders: [
         {
           _id: "o1",
-          dates: [1626962745962, 1626961435962],
+          dates: [new Date(), new Date()],
           guests: 2,
           created: "0123456789123",
           status: "Pending",
@@ -88,7 +90,7 @@ export default {
         },
         {
           _id: "o2",
-          dates: [1626962855962, 1626991535962],
+          dates: [new Date(), new Date()],
           guests: 3,
           created: "0123456789123",
           status: "Confirmed",
@@ -106,7 +108,7 @@ export default {
         },
         {
           _id: "o3",
-          dates: [1626962535962, 1626968535962],
+          dates: [new Date(), new Date()],
           guests: 2,
           created: "0123456789123",
           status: "Confirmed",
@@ -124,7 +126,7 @@ export default {
         },
         {
           _id: "o4",
-          dates: [1626962565962, 1626968585962],
+          dates: [new Date(), new Date()],
           guests: 2,
           created: "0123456789123",
           status: "Confirmed",
@@ -143,5 +145,11 @@ export default {
       ],
     };
   },
+  computed:{
+    // orders(){
+      // const orders = this.$store.getters.orders
+    // }
+
+  }
 };
 </script>  

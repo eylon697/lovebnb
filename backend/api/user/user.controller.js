@@ -39,6 +39,7 @@ async function deleteUser(req, res) {
 async function updateUser(req, res) {
     try {
         const user = req.body
+        console.log(user, 'from backend');
         const savedUser = await userService.update(user)
         res.send(savedUser)
     } catch (err) {

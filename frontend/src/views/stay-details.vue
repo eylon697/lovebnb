@@ -30,7 +30,9 @@
                 <span v-if="stay.baths > 1">s</span>
               </div>
             </div>
-            <img :src="stay.host.imgUrl" />
+            <div class="user-img">
+              <img :src="stay.host.imgUrl" />
+            </div>
           </div>
           <div class="greats">
             <div class="great" v-for="(great, idx) in stay.greats" :key="idx">
@@ -47,7 +49,7 @@
           <div></div>
 
           <div class="summary">
-            <div class="txt">{{stay.summary}}</div>
+            <div class="txt">{{ stay.summary }}</div>
           </div>
 
           <!-- TODO:COMPONANTE amenities -->
@@ -70,33 +72,31 @@
               <span class="sep"> · </span>
               <span>{{ stay.reviews.length }} reviews</span>
             </div>
-          <review-list :reviews="stay.reviews" />
-          <el-button v-if="loggedInUser" @click.stop="openAddReview"
-            >Add Review</el-button
-          >
-          <add-review
-            v-if="addReviewIsOpen"
-            @addReview="addReview"
-            @openAddReview="openAddReview"
-          />
+            <review-list :reviews="stay.reviews" />
+            <el-button v-if="loggedInUser" @click.stop="openAddReview"
+              >Add Review</el-button
+            >
+            <add-review
+              v-if="addReviewIsOpen"
+              @addReview="addReview"
+              @openAddReview="openAddReview"
+            />
           </div>
-
-
         </div>
         <stay-order :stay="stay" @warning="warning" />
       </div>
 
       <div id="map" class="map-container" v-if="this.stay.loc.lat">
-        <h1 class="map-title ">Where you'll be</h1>
+        <h1 class="map-title">Where you'll be</h1>
         <google-map :loc="stay.loc" v-if="stay.loc" />
-        <div  v-else>loading...</div>
+        <div v-else>loading...</div>
         <div class="stay-location">{{ stay.loc.address }}</div>
-        <p v-if="stay.loc.nearness" class="stay-nearness">{{ stay.loc.nearness }}</p>
+        <p v-if="stay.loc.nearness" class="stay-nearness">
+          {{ stay.loc.nearness }}
+        </p>
       </div>
-
     </template>
     <div v-else>Loading</div>
-
 
     <!-- TODO:HOST COMPONANTE -->
     <div class="host">
@@ -131,9 +131,7 @@
         <div class="Response-rate">Response rate: 100%</div>
         <div class="Response-time">Response time: within a few hours</div>
         <!-- <button class="contact">Content host</button> -->
-         <el-button
-            >Content host</el-button
-          >
+        <el-button>Content host</el-button>
         <div class="securing">
           <img :src="require('@/assets/img/icon/securing.svg')" />
           <p>
@@ -153,7 +151,6 @@ import detailsHeader from "@/cmps/details-header.vue";
 import GoogleMap from "@/cmps/google-map.vue";
 import reviewList from "@/cmps/reviews-list.vue";
 import addReview from "@/cmps/add-review.vue";
-
 
 export default {
   components: { stayOrder, detailsHeader, reviewList, GoogleMap, addReview },
@@ -187,22 +184,26 @@ export default {
     openAddReview() {
       this.addReviewIsOpen = !this.addReviewIsOpen;
     },
-     async addReview(review) {
+    async addReview(review) {
       try {
         review.by._Id = this.loggedInUser._id;
-        await this.$store.dispatch({ type: "addReview", review , stay:this.stay });
+        await this.$store.dispatch({
+          type: "addReview",
+          review,
+          stay: this.stay,
+        });
         this.loadReviews();
-        this.openAddReview()
-				showMsg('Review added successfully')
+        this.openAddReview();
+        showMsg("Review added successfully");
       } catch (err) {
-        showMsg('There was a problem posting the review', 'error')
+        showMsg("There was a problem posting the review", "error");
         console.log("Error in add Review", err);
       }
     },
-    warning(){
-      console.log('warning','details');
-      this.$emit("warning")
-    }
+    warning() {
+      console.log("warning", "details");
+      this.$emit("warning");
+    },
   },
   created() {
     console.log("stayId", this.stayId);

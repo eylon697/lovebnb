@@ -14,39 +14,38 @@
     .orders-container {
         display: flex;
         gap: 40px;
+        flex-grow:1
+    }
+    .list-container{
+        flex-grow: 0.7;
     }
     .list-orders {
         display: flex;
         flex-direction: column;
         gap: 20px;
-
+        min-width:780px;
         .card {
             display: flex;
             border: 2px solid $clr1;
             border-radius: 10px;
             align-items: center;
             padding: 20px;
-            div.success {
-                color: #168c16;
-                // background-color: #168c16;
-                border-radius: 3em;
-                text-align: center;
-                padding: 1px 15px;
-                width: auto;
+            justify-content: space-between;
+            .left{
+                display: flex;
+                .user-img{
+                    height: 60px;
+                    min-width: 60px;
+                    margin-right: 20px;
+                }
             }
-            div.warning {
-                color: $clr3;
-                // background-color: $clr3;
-                border-radius: 3em;
-                text-align: center;
-                padding: 1px 20px;
-                // width: auto;
-                font-weight: 600;
-            }
+           
+
             .action {
                 cursor: pointer;
                 .change {
                     cursor: pointer;
+                    min-width: 110px;
                 }
             }
             .name {
@@ -55,16 +54,14 @@
         }
         img {
             border-radius: 30px;
-            width: 60px;
-            height: 60px;
-            margin-right: 20px;
+            width: 100%;
+            height: 100%;
         }
         .info {
             display: flex;
             flex-direction: column;
             margin-right: 20px;
             .by {
-                color: $clr3;
                 font-weight: 600;
                 margin-bottom: 8px;
             }
@@ -74,7 +71,7 @@
             font-size: 1rem;
         }
         .order-info {
-            color: $clr7;
+            // color: $clr7;
         }
         .action {
             margin-left: 50px;
@@ -98,12 +95,14 @@
         border-radius: 10px;
         padding: 20px;
         width: 400px;
+        flex-grow:0.3;
         .header {
             border-bottom: 1px solid $clr1;
             margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             .txt {
+
             }
             .fantastic {
                 font-weight: bold;
@@ -125,7 +124,7 @@
         }
         .middle {
             border-bottom: 1px solid $clr1;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             .revenue {
                 display: flex;
                 justify-content: space-between;
@@ -138,7 +137,6 @@
             }
         }
         .buttom {
-            margin-bottom: 40px;
             .reating {
                 display: flex;
                 justify-content: space-between;
@@ -149,15 +147,15 @@
                 justify-content: space-between;
                 margin-bottom: 20px;
             }
-            .fa-airbnb {
-                color: #ff385c;
-                font-size: 15rem;
-                transform: scale(1, -1);
-                margin-left: 26px;
+
+            .svg-container {
+                img {
+                    width: 100%;
+                }
             }
         }
-        .num {
-            color: rgb(29, 167, 29);
+        .fa-star {
+            color: $clr3
         }
     }
 }

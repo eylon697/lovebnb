@@ -1,5 +1,4 @@
 import { orderService } from '../../services/order.service.js'
-// import { userService } from '../../services/user.service.js'
 
 export const orderStore = {
 
@@ -39,11 +38,9 @@ export const orderStore = {
                 throw err
             }
         },
-        async saveOrder({ commit }, { order, stay }) {
+        async saveOrder({ commit, rootGetters }, { order, stay }) {
             console.log('order coming to store', 'order', order, 'stay', stay);
             try {
-                // const type = order._id ? 'updateOrder' : 'addOrder'
-                // const user = rootGetters.loggedinUser// getter from userStore-TODO:inner rootGetters next to commit ^
                 const miniStay = {
                     _id: stay._id,
                     name: stay.name,
@@ -52,6 +49,7 @@ export const orderStore = {
                 }
                 order.stay = miniStay
                 order.host = stay.host
+                order.by = rootGetters.loggedinUser
                 const savedOrder = await orderService.save(order)
                 console.log(' from store the service return', savedOrder);
                 commit('addOrder', { order: savedOrder })

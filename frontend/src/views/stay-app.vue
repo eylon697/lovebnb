@@ -12,7 +12,7 @@
 <script>
 import stayList from "@/cmps/stay-list.vue";
 import listFilter from "@/cmps/list-filter.vue";
-import { utilService } from "../services/util.service.js";
+// import { utilService } from "../services/util.service.js";
 export default {
   components: {
     stayList,
@@ -30,7 +30,7 @@ export default {
       return this.$store.getters.stays;
     },
     filterBy() {
-      return utilService.convertFilter(this.$route.query);
+       return this.$store.getters.filterBy;
     },
   },
   created() {

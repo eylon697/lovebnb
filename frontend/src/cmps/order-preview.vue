@@ -55,7 +55,7 @@ export default {
 
   methods: {
     changeStatus(order, newStatus) {
-      console.log("change");
+      console.log('order-preview',newStatus);
       order.status = newStatus;
       showMsg("order status updated");
     },

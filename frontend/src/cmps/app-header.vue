@@ -47,7 +47,7 @@
               :src="require('@/assets/img/user/5.png')"
             />
           </button>
-          <div v-if="isWarningOpen" class="warning"></div>
+          <div v-if="isWarningOpen" class="warning">1</div>
         </div>
       </div>
     </div>

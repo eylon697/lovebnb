@@ -31,7 +31,16 @@
       <div>
         <input
           v-model="filterBy.propertyType"
-          type="checkbox"
+          type="radio"
+          value=""
+          id=""
+        />
+        <label for="All">ALL</label>
+      </div>
+      <div>
+        <input
+          v-model="filterBy.propertyType"
+          type="radio"
           value="Entire apartment"
           id="Entire apartment"
         />
@@ -40,7 +49,7 @@
       <div>
         <input
           v-model="filterBy.propertyType"
-          type="checkbox"
+          type="radio"
           value="Hotel room"
           id="Hotel room"
         />
@@ -49,7 +58,7 @@
       <div>
         <input
           v-model="filterBy.propertyType"
-          type="checkbox"
+          type="radio"
           value="Outdoor getaways"
           id="Outdoor getaways"
         />
@@ -107,11 +116,18 @@ export default {
       this.closeModals();
     },
 
-    clearFilter() {
+    clearTypeFilter() {
+      // this.filterBy.price = [0, 1500];
+      this.filterBy.propertyType = "";
+      // this.filterBy.amenities = [];
+      this.$store.dispatch({ type: "loadStays", filterBy: this.filterBy });
+      this.closeModals();
+    },
+
+    clearPriceFilter() {
       this.filterBy.price = [0, 1500];
-      this.filterBy.types = [];
-      this.filterBy.amenities = [];
-      this.filterBy.city = "";
+      // this.filterBy.propertyType = "";
+      // this.filterBy.amenities = [];
       this.$store.dispatch({ type: "loadStays", filterBy: this.filterBy });
       this.closeModals();
     },
@@ -126,11 +142,8 @@ export default {
     },
 
     typeToShow() {
-      if (this.filterBy.propertyType === "") {
-        return this.filterBy.propertyType;
-      } else {
-        return "Types";
-      }
+      if (this.filterBy.propertyType === "") return "Types";
+      else return this.filterBy.propertyType;
     },
 
     amenitiesToShow() {

@@ -14,6 +14,7 @@ $break-normal: 960px;
 $break-wide: 1000px;
 // $break-wide: 1100px;
 .main-layout {
+    gap: 10px;
     display: grid;
     grid-template-columns: 2rem 1fr 2rem;
     grid-auto-flow: dense;

@@ -1,6 +1,6 @@
 .stay-preview {
-    -webkit-box-shadow: 0px 1px 5px -2px rgba(85, 85, 85, 0.37);
-    box-shadow: 0px 1px 5px -2px rgba(85, 85, 85, 0.37);
+    // -webkit-box-shadow: 0px 1px 5px -2px rgba(85, 85, 85, 0.37);
+    // box-shadow: 0px 1px 5px -2px rgba(85, 85, 85, 0.37);
     border-radius: 10px;
     position: relative;
     cursor: pointer;
@@ -12,11 +12,13 @@
     }
     .info {
         font-size: 1rem;
-        padding: 3px 15px 0 15px;
+        // padding: 3px 15px 0 0px;
+        text-overflow: ellipsis;
     }
     img {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        border-radius: 10px;
+        // border-top-left-radius: 10px;
+        // border-top-right-radius: 10px;
         width: 100%;
         height: 200px;
         object-fit: cover;
@@ -47,24 +49,30 @@
     }
     .fa-star {
         position: relative;
-        top: 1.5px;
+        top: 5.5px;
         color: $clr3;
+        margin-bottom: 6px;
     }
     .card-rating {
-        font-size: .875rem;
+        font-size: 0.875rem;
+        // padding: 3px 15px 0 0px;
+        img {
+            width: 16px;
+            height: 16px;
+        }
     }
     .card-rating span {
         font-weight: 300;
     }
     .card-rating .rate {
-        font-weight: 600;
+        // font-weight: 600;
     }
     .price {
         span {
-            font-size: .875rem;
             font-weight: 300;
             &:first-child {
                 font-weight: 600;
+
                 margin-inline-end: 3px;
             }
             display: inline-block;
@@ -75,7 +83,8 @@
     }
     .type {
         // font-size: .875rem;
-        margin-bottom: 10px;
+        margin-bottom: 6px;
+        text-overflow: ellipsis;
         // font-weight: 300;
     }
     .name {
@@ -84,20 +93,23 @@
         white-space: nowrap;
         margin-bottom: 10px;
         font-size: 1.1rem;
-        font-weight: 600;
+        // font-weight: 600;
     }
     .el-carousel__button {
         border: unset;
         width: 1px;
         margin: 0;
+        padding: 3px;
     }
     .el-carousel__indicators--horizontal {
         width: 80%;
         @include center;
     }
     .el-carousel__arrow {
-        background-color: rgbargba(70, 67, 67, 0.65);
+        background-color: rgba(255, 255, 255, 0.979);
+
         border: unset;
+
         &:hover {
             background-color: rgba(245, 240, 240, 0.65);
         }
@@ -105,37 +117,46 @@
     .el-carousel__indicators.el-carousel__indicators--horizontal {
         position: relative;
         height: 15px !important;
-        bottom: 30px;
+        bottom: 22px;
     }
     .img-carousell.el-carousel.el-carousel--horizontal,
     .el-carousel__container,
     .el-carousel__item.is-active.is-animating {
         height: 200px !important;
     }
-    .el-carousel__arrow.el-carousel__arrow--left {
-        opacity: 0
-    }
+    .el-carousel__arrow.el-carousel__arrow--left,
     .el-carousel__arrow.el-carousel__arrow--right {
-        opacity: 0
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+
     .el-carousel {
         &:hover {
             .el-carousel__arrow.el-carousel__arrow--left {
-                color:$clr1;
-                opacity: 1
+                color: $clr1;
+                opacity: 1;
             }
             .el-carousel__arrow.el-carousel__arrow--right {
-                opacity: 1
+                opacity: 1;
             }
         }
     }
     .img-carousell.el-carousel.el-carousel--horizontal {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
-    .el-icon-arrow-right:before{
-        color:gray
+    .el-icon-arrow-right:before {
+        color: rgb(75, 75, 75);
     }
-    .el-icon-arrow-left:before{
-        color:gray
+    .el-icon-arrow-left:before {
+        color: rgb(75, 75, 75);
     }
+}
+
+div.el-slider__bar {
+    background-color: $clr3 !important;
+}
+div.el-slider__button {
+    border: 2px $clr3 solid !important;
 }

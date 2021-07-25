@@ -61,7 +61,7 @@ export const userStore = {
     //     userName: "orly@amdadi.com",
     //     password: "tinkerbell",
     //     imgUrl: "http://some-img",
-    //     orders: [
+    //     hostOrders: [
     //         {
     //             _id: '',
     //             dates: [],
@@ -73,16 +73,22 @@ export const userStore = {
     //                 name: '',
     //                 imgUrl: ''
     //             },
-    //             host: {
+    //             guest: {
     //                 _id: '',
     //                 name: '',
     //                 imgUrl: ''
     //             },
     //         }
     //     ],
-    //     host: {
-    //         stays: [{}],
-    //         orders: [
+       
+    //         stays:     [
+    //                            { 
+    //                     _id: '',
+    //                     name: '',
+    //                     imgUrl: ''
+    //                                }
+    //                ],
+    //         hostOrders: [
     //             {
     //                 _id: '',
     //                 dates: [],
@@ -118,7 +124,7 @@ export const userStore = {
     //                 },
     //             }
     //         ]
-    //     }
+        
     // }
     // var order = {
     //     dates,

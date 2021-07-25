@@ -2,8 +2,15 @@
   <!--******** Profile Host********** -->
   <!-- TODO:Check if the user is a host => if (stay.host && stay.host.stays && stay.host.stays.length) -->
 
-  <section class="profile main-layout">
-    <div class="head">
+  <section class="profile main-layout" v-if="loggedInUser">
+    <div v-if="!loggedInUser.hostOrder">
+      <router-link to="/">Become a Host</router-link>
+    </div>
+    <div  v-if="loggedInUser.hostOrder && !loggedInUser.hostOrder">
+      No orders
+    </div>
+    <!-- v-if="loggedInUser.hostOrder && loggedInUser.hostOrder" -->
+    <div class="deshboard" v-else>
       <div class="title">Pending / Accepted</div>
       <div class="small">
         <span>{{ orders.length }} new items </span>
@@ -12,7 +19,7 @@
         <!-- TODO:dinamic response -->
       </div>
       <div class="orders-container">
-        <list-orders v-if="orders" :orders="orders" />
+        <list-orders v-if="orders" :orders="loggedInUser.hostOrder" />
 
         <div class="summary">
           <div class="header">
@@ -47,10 +54,10 @@
             </div>
             <div class="reviews">
               <div>Total reviews</div>
-              <span  class="num">25</span>
+              <span class="num">25</span>
             </div>
             <div class="svg-container">
-              <img  :src="require('@/assets/img/icon/trip.svg')">
+              <img :src="require('@/assets/img/icon/trip.svg')" />
             </div>
           </div>
         </div>
@@ -145,11 +152,14 @@ export default {
       ],
     };
   },
-  computed:{
-    // orders(){
-      // const orders = this.$store.getters.orders
-    // }
-
-  }
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.loggedinUser;
+    },
+  },
+  created() {
+    // await this.$store.dispatch({ type: 'loadHostOrders' })
+    // if (!loggedInUser) this.$router.push("/");
+  },
 };
 </script>  

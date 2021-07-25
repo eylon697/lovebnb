@@ -1,82 +1,14 @@
 .hero {
-
-
-    // option 3===============
-    // .bgc-img-contaner {
-    //     height: 89vh;
-    //     width: 100%;
-    //     position: relative;
-    // }
-    // .bgc-img {
-    //     height: 89vh;
-    //     width: 100%;
-    //     object-fit: cover;
-    // }
-    // #cf {
-    //     position: relative;
-    //     margin: 0 auto;
-    // }
-
-    // #cf img {
-    //     // position: absolute;
-    //     left: 0;
-    //     -webkit-transition: opacity 3s ease-in-out;
-    //     -moz-transition: opacity 3s ease-in-out;
-    //     -o-transition: opacity 3s ease-in-out;
-    //     transition: opacity 3s ease-in-out;
-    // }
-
-    // @keyframes cf3FadeInOut {
-    //     0% {
-    //         opacity: 1;
-    //     }
-    //     45% {
-    //         opacity: 1;
-    //     }
-    //     55% {
-    //         opacity: 0;
-    //     }
-    //     100% {
-    //         opacity: 0;
-    //     }
-    // }
-
-    // #cf img.top {
-    //     animation-name: cf3FadeInOut;
-    //     animation-timing-function: ease-in-out;
-    //     animation-iteration-count: infinite;
-    //     animation-duration: 10s;
-    //     animation-direction: alternate;
-    // }
-    // =========================
-
-
-
-
-// option 2================
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // background-position: center;
-    // -webkit-transition: background-image 2s ease;
-    // transition: background-image 2s ease;
-    // ==============================
-
-
-
-
-
-
-    height: 89vh;
-    // background-image: url(~@/assets/img/hero/home.png);
-    background-image: url(~@/assets/img/hero/cmophoto-net-EmVKKf3wUZQ-unsplash.jpg);
-    // background-image: url(~@/assets/img/hero/upgraded-points-KVym2PAn1gA-unsplash.jpg);
-    // background-image: url(~@/assets/img/hero/view2.png);
-    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transition: background-image 10s linear;
+    transition: background-image 10s linear;
+    min-height: 90vh;
+    // background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 40px;
-
-
 
     .flexible {
         position: absolute;

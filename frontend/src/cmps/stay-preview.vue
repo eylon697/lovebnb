@@ -18,6 +18,14 @@
       <!-- <img class="like" v-if="isLike" :src="require('@/assets/img/stay-details/heart2.svg')" /> -->
       <img v-else :src="require('@/assets/img/stay-details/heart.svg')" />
     </div>
+         <div class="card-rating">
+           <i class="fas fa-star"> </i>
+               <!-- <img  :src="require('@/assets/img/icon/star.svg')" /> -->
+          <span class="rate"> {{ stay.rateAvg }} </span>
+          <span>(</span>
+          <span>{{ stay.reviews.length }} </span>
+          <span>reviews)</span>
+        </div>
 
     <div class="info">
       <div>
@@ -33,13 +41,7 @@
         <p class="name">{{ stay.name }}</p>
       </div>
       <div class="buttom">
-        <div class="card-rating">
-          <i class="fas fa-star"></i>
-          <span class="rate"> {{ stay.rateAvg }} </span>
-          <span>(</span>
-          <span>{{ stay.reviews.length }} </span>
-          <span>reviews)</span>
-        </div>
+   
         <div class="price">
           <span>${{ stay.price }} </span>
           <span> / night</span>

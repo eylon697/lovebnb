@@ -83,7 +83,7 @@
             />
           </div>
         </div>
-        <stay-order :stay="stay" @warning="warning" />
+        <stay-order :stay="stay" @noticeTag="noticeTag" />
       </div>
 
       <div id="map" class="map-container" v-if="this.stay.loc.lat">
@@ -202,9 +202,9 @@ export default {
         console.log("Error in add Review", err);
       }
     },
-    warning() {
-      console.log("warning", "details");
-      this.$emit("warning");
+    noticeTag() {
+      console.log("noticeTag", "details");
+      this.$emit("noticeTag");
     },
   },
   created() {

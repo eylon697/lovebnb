@@ -84,6 +84,7 @@ import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 import { orderService } from "../services/order.service.js";
 import { utilService } from "../services/util.service.js";
+import { showMsg } from "../services/event-bus.service.js";
 export default {
   props: { stay: Object },
   components: { DatePicker },
@@ -171,29 +172,6 @@ export default {
         },
       };
     },
-
-    setStatus(status) {
-      if (!status || typeof status !== "string") status = "edit";
-      this.order.status = status;
-    },
-    async placeOrder() {
-      try {
-        if (!this.order.dates || this.order.dates.length < 2)
-          return this.focusDates();
-        if (this.order.status === "edit") return this.checkAvailability();
-        if (this.order.status === "unavailable")
-          return new Error("unavailable");
-        this.isLoading = true;
-        await this.$store.dispatch({
-          type: "saveOrder",
-          order: this.getFullOrder(),
-        });
-        this.$emit("noticeTag");
-      } catch (err) {
-        this.isLoading = false;
-        console.log("failed to place order", err);
-      }
-    },
     async checkAvailability() {
       try {
         this.isLoading = true;
@@ -206,10 +184,34 @@ export default {
         this.isLoading = false;
       }
     },
-    focusDates() {
-      this.$refs.datePicker.focus();
+    setStatus(status) {
+      if (!status || typeof status !== "string") status = "edit";
+      this.order.status = status;
+    },
+    async placeOrder() {
+      if (!this.order.dates || this.order.dates.length < 2)
+        return this.$refs.datePicker.focus();
+      if (this.order.status === "edit") return this.checkAvailability();
+      try {
+        if (this.order.status === "unavailable")
+          return new Error("unavailable");
+        this.isLoading = true;
+        await this.$store.dispatch({
+          type: "saveOrder",
+          order: this.getFullOrder(),
+        });
+        showMsg("Your order sent!");
+
+        // this.router.push('/orders')
+        this.$emit("warning");
+      } catch (err) {
+        showMsg("failed to place order");
+        this.isLoading = false;
+        console.log("failed to place order", err);
+      }
     },
   },
+
   mounted() {
     console.log(this);
     this.$refs.orderBtn.onmousemove = (e) => {

@@ -9,7 +9,8 @@ module.exports = {
     getByUsername,
     remove,
     update,
-    add
+    add,
+    saveHostOrder
 }
 
 async function query(filterBy = {}) {
@@ -122,4 +123,21 @@ function _buildCriteria(filterBy) {
         criteria.balance = { $gte: filterBy.minBalance }
     }
     return criteria
+}
+
+async function saveHostOrder(userId, miniOrder) {
+    try {
+        const user = getById(userId)
+        if (user.hostOrders) {
+            const idx = hostOrders.findIndex(order => order._id === miniOrder._id)
+            if (idx !== -1) user.hostOrders[idx] = miniOrder
+            else user.hostOrders.push(miniOrder)
+        } else user.hostOrders = [miniOrder]
+        const collection = await dbService.getCollection('user')
+        await collection.updateOne({ '_id': userId }, { $set: user })
+        return user
+    } catch (err) {
+        logger.error(`Faild to push mini order to user ${user._id}`, err)
+        throw err
+    }
 }

@@ -148,17 +148,17 @@ export default {
       }
     },
     getFullOrder() {
-      let { dates, guests } = this.order;
+      let { dates, guests, status } = this.order;
       let { nightsPrice, servPrice, totalPrice, coinFormater } = this;
       return {
         dates,
         guests,
+        status,
         nightPrice: this.stay.price,
         nightsPrice,
         servPrice,
         totalPrice,
         coinFormater,
-        created: Date.now(),
         stay: {
           _id: this.stay._id,
           name: this.stay.name,
@@ -167,11 +167,6 @@ export default {
         host: {
           _id: this.stay.host._id,
           fullName: this.stay.host.fullName,
-          imgUrl: this.stay.host.imgUrl,
-        },
-        guest: {
-          _id: "1",
-          fullName: "Muki Kuki",
           imgUrl: this.stay.host.imgUrl,
         },
       };
@@ -200,11 +195,13 @@ export default {
         if (this.order.status === "unavailable")
           return new Error("unavailable");
         this.isLoading = true;
-        await orderService.placeOrder(this.getFullOrder());
+        await this.$store.dispatch({
+          type: "saveOrder",
+          order: this.getFullOrder(),
+        });
         // TODO: USER MSG
-        // TODO: ROUT TO ORDER SUMMERY
-        this.$emit('warning')
-        this.$router.push("/");
+        // this.router.push('/orders')
+        this.$emit("warning");
       } catch (err) {
         this.isLoading = false;
         console.log("failed to place order", err);

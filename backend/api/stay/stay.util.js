@@ -39,6 +39,8 @@ function getItemToSave(item) {
         bathrooms,
         closeDates,
         amenities,
+        created: Date.now(),
+        status,
         host,
         loc,
         rateAvg,

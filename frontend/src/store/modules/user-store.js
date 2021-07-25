@@ -80,68 +80,70 @@ export const userStore = {
     //             },
     //         }
     //     ],
-    //     host: {
-    //         stays: [{}],
-    //         orders: [
-    //             {
-    //                 _id: '',
-    //                 dates: [],
-    //                 guests: 0,
-    //                 created: 0123456789123,
-    //                 status: 'pending',
-    //                 stay: {
-    //                     _id: '',
-    //                     name: '',
-    //                     imgUrl: ''
-    //                 },
-    //                 guest: {
-    //                     _id: '',
-    //                     name: '',
-    //                     imgUrl: ''
-    //                 },
-    //             },
-    //             {
-    //                 _id: '',
-    //                 dates: [],
-    //                 guests: 0,
-    //                 created: 0123456789123,
-    //                 status: 'pending',
-    //                 stay: {
-    //                     _id: '',
-    //                     name: '',
-    //                     imgUrl: ''
-    //                 },
-    //                 guest: {
-    //                     _id: '',
-    //                     name: '',
-    //                     imgUrl: ''
-    //                 },
-    //             }
-    //         ]
-    //     }
-    // }
-    // var order = {
-    //     dates,
-    //     guests,
-    //     nightPrice: this.stay.price,
-    //     nightsPrice,
-    //     servPrice,
-    //     totalPrice,
-    //     created: 0123456789123,
-    //     coinFormater,
-    //     stay: {
-    //         _id: this.stay._id,
-    //         name: this.stay.name,
-    //         imgUrl: this.stay.imgUrls[0],
-    //     },
-    //     host: {
-    //         _id: this.stay.host._id,
-    //         fullName: this.stay.host.fullName,
-    //         imgUrl: this.stay.host.imgUrl,
-    //     },
-    //     guest: {
-    //         _id: "1",
-    //         fullName: "Muki Kuki",
-    //         imgUrl: this.stay.host.imgUrl,
-    //     },
-    // };
+
+//         stays: [
+//     {}
+// ],
+//         orders: [
+//             {
+//                 _id: '',
+//                 dates: [],
+//                 guests: 0,
+//                 created: 0123456789123,
+//                 status: 'pending',
+//                 stay: {
+//                     _id: '',
+//                     name: '',
+//                     imgUrl: ''
+//                 },
+//                 guest: {
+//                     _id: '',
+//                     name: '',
+//                     imgUrl: ''
+//                 },
+//             },
+//             {
+//                 _id: '',
+//                 dates: [],
+//                 guests: 0,
+//                 created: 0123456789123,
+//                 status: 'pending',
+//                 stay: {
+//                     _id: '',
+//                     name: '',
+//                     imgUrl: ''
+//                 },
+//                 guest: {
+//                     _id: '',
+//                     name: '',
+//                     imgUrl: ''
+//                 },
+//             }
+//         ]
+//     
+// }
+// var order = {
+//     dates,
+//     guests,
+//     nightPrice: this.stay.price,
+//     nightsPrice,
+//     servPrice,
+//     totalPrice,
+//     created: 0123456789123,
+//     coinFormater,
+//     stay: {
+//         _id: this.stay._id,
+//         name: this.stay.name,
+//         imgUrl: this.stay.imgUrls[0],
+//     },
+//     host: {
+//         _id: this.stay.host._id,
+//         fullName: this.stay.host.fullName,
+//         imgUrl: this.stay.host.imgUrl,
+//     },
+//     guest: {
+//         _id: "1",
+//         fullName: "Muki Kuki",
+//         imgUrl: this.stay.host.imgUrl,
+//     },
+// };

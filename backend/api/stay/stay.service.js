@@ -35,7 +35,7 @@ async function getOne(_id) {
     }
 }
 
-async function saveOne(itemToSave) {
+async function saveOne(itemToSave, status) {
     try {
         const item = itemUtil.getItemToSave(itemToSave)
         const collection = await dbService.getCollection(ITEM_KEY)
@@ -45,6 +45,7 @@ async function saveOne(itemToSave) {
             delete item._id
             await collection.insertOne(item)
         }
+        item.status = status
         return item
     } catch (err) {
         logger.error(`Failed to insert ${ITEM_KEY}`, err)

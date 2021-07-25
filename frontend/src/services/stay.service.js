@@ -22,7 +22,9 @@ function getOne(_id) {
 }
 
 function saveOne(item) {
-    return item ? httpService.put(`${ITEM_KEY}`, item) : httpService.post(`${ITEM_KEY}`, item)
+    return item._id ?
+        httpService.put(`${ITEM_KEY}`, item) :
+        httpService.post(`${ITEM_KEY}`, item)
 }
 
 function removeOne(_id) {

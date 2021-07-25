@@ -30,7 +30,7 @@
                 <span v-if="stay.baths > 1">s</span>
               </div>
             </div>
-            <div class="user-img">
+            <div v-if="stay" class="user-img">
               <img :src="stay.host.imgUrl" />
             </div>
           </div>
@@ -95,52 +95,54 @@
           {{ stay.loc.nearness }}
         </p>
       </div>
+
+      <!-- TODO:HOST COMPONANTE -->
+      <div class="host">
+        <div class="header">
+          <img :src="stay.host.imgUrl" />
+          <img
+            if="stay.rateAvg>4.7"
+            class="medal"
+            :src="require('@/assets/img/icon/medal.svg')"
+          />
+
+          <div class="title">Hosted by {{ stay.host.fullName }}</div>
+        </div>
+        <div if="stay.rateAvg > 4.7" class="rate">
+          <i class="fas fa-star"></i>
+          <div>{{ stay.reviews.length }} reviews</div>
+          <div>
+            <img
+              class="validation"
+              :src="require('@/assets/img/icon/validation.svg')"
+            />
+            Identity verified
+          </div>
+        </div>
+
+        <div class="content">
+          <div v-if="stay.rateAvg > 4.7">
+            <div class="super-host">
+              {{ stay.host.fullName }} is a Superhost
+            </div>
+            <p>Superhosts are experienced, highly rated hosts who are</p>
+            <p>committed to providing great stays for guests.</p>
+          </div>
+          <div class="Response-rate">Response rate: 100%</div>
+          <div class="Response-time">Response time: within a few hours</div>
+          <!-- <button class="contact">Content host</button> -->
+          <el-button>Content host</el-button>
+          <div class="securing">
+            <img :src="require('@/assets/img/icon/securing.svg')" />
+            <p>
+              To protect your payment, never transfer money or communicate
+              outside of the Airbnb website or app.
+            </p>
+          </div>
+        </div>
+      </div>
     </template>
     <div v-else>Loading</div>
-
-    <!-- TODO:HOST COMPONANTE -->
-    <div class="host">
-      <div class="header">
-        <img :src="stay.host.imgUrl" />
-        <img
-          if="stay.rateAvg>4.7"
-          class="medal"
-          :src="require('@/assets/img/icon/medal.svg')"
-        />
-
-        <div class="title">Hosted by {{ stay.host.fullName }}</div>
-      </div>
-      <div if="stay.rateAvg > 4.7" class="rate">
-        <i class="fas fa-star"></i>
-        <div>{{ stay.reviews.length }} reviews</div>
-        <div>
-          <img
-            class="validation"
-            :src="require('@/assets/img/icon/validation.svg')"
-          />
-          Identity verified
-        </div>
-      </div>
-
-      <div class="content">
-        <div v-if="stay.rateAvg > 4.7">
-          <div class="super-host">{{ stay.host.fullName }} is a Superhost</div>
-          <p>Superhosts are experienced, highly rated hosts who are</p>
-          <p>committed to providing great stays for guests.</p>
-        </div>
-        <div class="Response-rate">Response rate: 100%</div>
-        <div class="Response-time">Response time: within a few hours</div>
-        <!-- <button class="contact">Content host</button> -->
-        <el-button>Content host</el-button>
-        <div class="securing">
-          <img :src="require('@/assets/img/icon/securing.svg')" />
-          <p>
-            To protect your payment, never transfer money or communicate outside
-            of the Airbnb website or app.
-          </p>
-        </div>
-      </div>
-    </div>
   </section>
 </template>
 

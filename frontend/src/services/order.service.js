@@ -1,8 +1,5 @@
 import { httpService } from './http.service.js'
 
-
-
-
 export const orderService = {
     query,
     getById,
@@ -12,42 +9,24 @@ export const orderService = {
     checkAvailability,
     placeOrder
 }
-const BASE_URL = 'order/'
+const ITEM_KEY = 'order'
 
-// async function query(filterBy) { TODO:REMOVE!!
-//     const staysInStorage = await storageService.queryfiltered(ORDER_KEY, filterBy)
-//     if (!staysInStorage || !staysInStorage.length) {
-//         storageService.postMany(STAY_KEY, gStays)
-//         return gStays
-//     }
-//     return staysInStorage
-// }
-
-// async function query() {  TODO:REMOVE!!
-//     const ordersInStorage = await storageService.query(ORDER_KEY)
-//     if (!ordersInStorage || !ordersInStorage.length) {
-//         storageService.postMany(ORDER_KEY, gOrders)
-//         return gOrders
-//     }
-//     return ordersInStorage
-// }
-
-async function query() {
-	return await httpService.get(BASE_URL)
+async function query(filterBy) {
+    return await httpService.get(`${ITEM_KEY}/`, filterBy)
 }
 
-
-function getById(orderId) {
-    return httpService.get(`${BASE_URL}${orderId}`)
+function getById(_id) {
+    return httpService.get(`${ITEM_KEY}/${_id}`)
 }
 
-function remove(orderId) {
-    return httpService.delete(`${BASE_URL}${orderId}`)
+function remove(_id) {
+    return httpService.delete(`${ITEM_KEY}/${_id}`)
 }
 
-function save(order) {
-    console.log(order,'from order service');
-    return httpService.post(BASE_URL, order)
+function save(item) {
+    return item._id ?
+        httpService.put(`${ITEM_KEY}/`, { item, status }) :
+        httpService.post(`${ITEM_KEY}/`, { item, status })
 }
 
 function getEmptyOrder() {

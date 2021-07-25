@@ -1,9 +1,6 @@
 <template>
   <section class="list-container">
-    <div class="list-orders">
-     
-      <order-preview v-for="(order, idx) in orders" :key="idx" :order="order" />
-    </div>
+    <order-preview v-for="(order, idx) in orders" :key="idx" :order="order" />
   </section>
 </template>
 

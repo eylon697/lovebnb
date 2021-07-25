@@ -28,7 +28,7 @@ function getItemToSave(item) {
         nightsPrice,
         servPrice,
         totalPrice,
-        created,
+        created: Date.now(),
         coinFormater,
         stay,
         host,

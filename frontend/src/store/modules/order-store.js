@@ -41,19 +41,15 @@ export const orderStore = {
         async saveOrder({ commit, rootGetters }, { order, stay }) {
             console.log('order coming to store', 'order', order, 'stay', stay);
             try {
-                const miniStay = {
-                    _id: stay._id,
-                    name: stay.name,
-                    price: stay.price,
-                    country: stay.loc.address,
+                const { _id, fullName, imgUrl } = rootGetters.loggedinUser
+                order.guest = {
+                    _id,
+                    fullName,
+                    imgUrl,
                 }
-                order.stay = miniStay
-                order.host = stay.host
-                order.by = rootGetters.loggedinUser
-                const savedOrder = await orderService.save(order)
+                const savedOrder = await orderService.save(order, status)
                 console.log(' from store the service return', savedOrder);
                 commit('addOrder', { order: savedOrder })
-
                 return savedOrder
             } catch (err) {
                 console.log('Failed to save order', err)

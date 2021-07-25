@@ -32,8 +32,8 @@ async function getOne(req, res) {
 
 async function saveOne(req, res) {
     try {
-        const item = req.body
-        const savedItem = await itemService.saveOne(item)
+        const item = req.body.item
+        const savedItem = await itemService.saveOne(item, status)
         res.send(savedItem)
     } catch (err) {
         console.log(`Failed to save ${ITEM_KEY}:`, item, err);

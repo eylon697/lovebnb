@@ -6,7 +6,7 @@
     <div v-if="!loggedInUser.hostOrder">
       <router-link to="/">Become a Host</router-link>
     </div>
-    <div  v-if="loggedInUser.hostOrder && !loggedInUser.hostOrder">
+    <div  v-if="loggedInUser.hostOrder && !loggedInUser.hostOrder.length">
       No orders
     </div>
     <div class="deshboard" v-if="loggedInUser.hostOrder && loggedInUser.hostOrder.length" >

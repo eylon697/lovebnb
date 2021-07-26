@@ -9,11 +9,13 @@
       </div>
       <div class="middle">
         <div class="places" v-if="isOpen">
+           <div class="explore" @click="goToExplore">Explore</div>
           <!-- <div>Places to stay</div> -->
           <!-- <div class="sep"></div> -->
         </div>
         <button v-else @click.stop="openHeader">
           <span>Start your search</span>
+          <!-- <span> {{searchToShow}}</span> -->
           <i class="fas fa-search"></i>
         </button>
       </div>
@@ -28,7 +30,6 @@
         />
         <!-- TODO:PAGE HOST -->
         <nav>
-          <div class="explore" @click="goToExplore">Explore</div>
           <router-link class="host" to="stay/profile"
             >Become a host</router-link
           >
@@ -77,10 +78,14 @@ export default {
     };
   },
   computed: {
+    filterBy(){
+     return this.$store.getters.filterBy
+    },
     classObject() {
       return {
         open: this.isOpen,
-        "home-top": this.$route.name === "HomePage" && !this.scrollDiff,
+        home: this.$route.name === "HomePage",
+        top: !this.scrollDiff,
       };
     },
     loggedinUser() {
@@ -97,6 +102,10 @@ export default {
     window.removeEventListener("scroll", this.onScroll);
   },
   methods: {
+    searchToShow(){
+      if (this.filterBy.city==="") return 'start your search'
+      else return this.filterBy.city
+    },
     goToExplore() {
       this.$router.push(`/stay`);
     },

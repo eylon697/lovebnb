@@ -11,7 +11,7 @@
 // LAYOUT BREAKPOINTS
 $break-narrow: 660px;
 $break-normal: 960px;
-$break-wide: 1000px;
+$break-wide: 1128px;
 // $break-wide: 1100px;
 .main-layout {
     gap: 10px;
@@ -31,9 +31,21 @@ $break-wide: 1000px;
         @include layout-columns($break-normal);
     }
     @include for-wide-layout {
-        @include layout-columns(10fr);
+        @include layout-columns($break-wide);
     }
 }
+.home-page.main-layout{
+    @include for-wide-layout {
+        @include layout-columns(1600px);
+    }
+}
+.app-header.home.main-layout{
+    @include for-wide-layout {
+        @include layout-columns(1600px);
+    }
+}
+
+
 
 .el-popper[x-placement^=bottom] .popper__arrow::after,
 div.popper__arrow,

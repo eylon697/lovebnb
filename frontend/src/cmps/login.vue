@@ -43,10 +43,10 @@ export default {
     async login() {
       try {
         await this.$store.dispatch({ type: "login", userCred: this.userCred });
-        showMsg("Logged in successfully");
+        showMsg("Logged in successfully",'success');
         this.close();
       } catch (err) {
-        showMsg("Logged in failed", "error");
+        showMsg("Logged in failed");
         console.log("err", err);
       }
     },

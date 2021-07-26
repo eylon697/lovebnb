@@ -1,5 +1,5 @@
 <template>
-  <div class="user-msg" v-if="alive" :class="alertClass">
+  <div class="user-msg" v-if="alive" :class="msgClass">
     <div class="msg-container">
       <p>{{ msg.txt }}</p>
     </div>
@@ -13,7 +13,9 @@
 import { eventBus, SHOW_MSG } from "@/services/event-bus.service.js";
 export default {
   created() {
-    eventBus.$on(SHOW_MSG, (msg) => {
+    eventBus.$on(SHOW_MSG, (msg, type = "error") => {
+      console.log();
+      this.type = type;
       this.msg = msg;
       var delay = msg.delay || 2000;
       this.alive = true;
@@ -26,6 +28,7 @@ export default {
     return {
       alive: false,
       msg: null,
+      type: "error",
     };
   },
   methods: {
@@ -34,11 +37,11 @@ export default {
     },
   },
   computed: {
-    alertClass() {
-      if (!this.msg) return;
-      return `alert-${this.msg.type}`;
+    msgClass() {
+      return {
+        success: this.type === "success",
+      };
     },
-    
   },
 };
 </script>

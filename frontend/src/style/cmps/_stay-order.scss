@@ -7,6 +7,7 @@
     height: fit-content;
     border: 1px solid rgb(230, 230, 230);
     min-width: 250px;
+    font-size: 1rem;
     .order-header {
         display: flex;
         align-items: center;
@@ -14,11 +15,10 @@
         margin-top: 10px;
         margin-bottom: 24px;
         .price {
-            font-size: 0.875rem;
             span {
-                font-size: 1rem;
+                font-size: 1.4rem;
                 color: #000;
-                font-weight: 600;
+                font-weight: 500;
             }
         }
         .rating {
@@ -35,7 +35,7 @@
                 font-weight: 500;
             }
             .reviews {
-                font-size: 0.875rem;
+                color: $clr5;
             }
         }
     }
@@ -133,7 +133,7 @@
     }
     .order-btn {
         width: 100%;
-        padding: 24px 0;
+        padding: 20px 0;
         border-radius: 10px;
         background-color: rgb(189, 30, 89);
         display: flex;
@@ -154,7 +154,7 @@
         span {
             position: relative;
             pointer-events: none;
-            font-size: 1rem;
+            font-size: 1.3rem;
         }
         &::before {
             --size: 0;

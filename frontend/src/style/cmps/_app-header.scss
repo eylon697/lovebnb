@@ -24,6 +24,7 @@
     -webkit-box-shadow: -1px -9px 7px 11px rgba(151, 151, 151, 0.64);
     box-shadow: -1px -9px 7px 11px rgba(151, 151, 151, 0.64);
     padding: 13px 0;
+
     .top {
         height: 48px;
         padding-top: 10px;
@@ -200,7 +201,7 @@
     &.open {
         height: 171px;
         transition: height 0.4s;
-        &.home-top {
+        &.home.top {
             height: 85px;
             background-color: unset;
             -webkit-box-shadow: none;

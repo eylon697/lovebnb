@@ -4,6 +4,7 @@
     top: 100px;
     right: 220px;
     background-color: #66c54f;
+    // background-color: $clr3;
     color: #fefefe;
     width: 365px;
     min-height: 40px;
@@ -27,22 +28,20 @@
             font-weight: 600;
         }
     }
-}
-
-.msg-container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    p {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-        word-wrap: break-word;
+    .msg-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        p {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            word-wrap: break-word;
+        }
     }
-  }
-
-  .success{
-    background-color: #66c54f;
-  }
-  .error{
-    background-color: $clr3;
-  }
+    &.success{
+      background-color: #66c54f;
+    }
+    &.error{
+      background-color: $clr3;
+    }
+}

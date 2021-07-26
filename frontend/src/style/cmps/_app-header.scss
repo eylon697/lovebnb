@@ -135,6 +135,14 @@
                 color: $clr5;
                 font-weight: 500;
             }
+            nav {
+                display: flex;
+                cursor: pointer;
+                gap: 10px;
+            }
+            .explore {
+                color:#FFFFFF ;
+            }
             .lng {
                 cursor: pointer;
             }

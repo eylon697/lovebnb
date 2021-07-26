@@ -9,8 +9,7 @@
     <div  v-if="loggedInUser.hostOrder && !loggedInUser.hostOrder">
       No orders
     </div>
-    <!-- v-if="loggedInUser.hostOrder && loggedInUser.hostOrder" -->
-    <div class="deshboard" v-else>
+    <div class="deshboard" v-if="loggedInUser.hostOrder && loggedInUser.hostOrder.length" >
       <div class="title">Pending / Accepted</div>
       <div class="small">
         <span>{{ orders.length }} new items </span>
@@ -63,17 +62,12 @@
         </div>
       </div>
     </div>
-    <bar-chart class="chart" />
-
-    <!--Profil USER -->
   </section>
 </template>
 <script>
-import barChart from "../cmps/bar-chart.vue";
 import listOrders from "../cmps/list-orders.vue";
-// import {utilservice} from '../services/util.service.js'
 export default {
-  components: { barChart, listOrders },
+  components: { listOrders },
   data() {
     return {
       orders: [

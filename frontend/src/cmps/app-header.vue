@@ -28,12 +28,11 @@
         />
         <!-- TODO:PAGE HOST -->
         <nav>
+          <div class="explore" @click="goToExplore">Explore</div>
           <router-link class="host" to="stay/profile"
             >Become a host</router-link
           >
         </nav>
-        <!-- <img class="lng" :src="require('@/assets/img/icon/lng.svg')"> -->
-         
         <div @click.stop="openUserModal" class="preference">
           <i class="fas fa-bars"></i>
           <button class="btn-user">
@@ -44,7 +43,7 @@
             <img
               class="user-img"
               v-else
-              :src="require('@/assets/img/user/5.png')"
+              :src="loggedinUser.imgUrl"
             />
           </button>
           <div v-if="isWarningOpen" class="warning">1</div>
@@ -88,15 +87,6 @@ export default {
       return this.$store.getters.loggedinUser;
     },
 
-    // userId(){
-    //   const user = this.$store.getters.loggedinUser
-    // 	if (user && user?._id) {
-    // 		return user._id
-    // 	} else {
-    // 		return ''
-    // 	}
-
-    // }
   },
   created() {
     if (this.$route.name === "HomePage") this.openHeader();
@@ -107,6 +97,9 @@ export default {
     window.removeEventListener("scroll", this.onScroll);
   },
   methods: {
+    goToExplore() {
+      this.$router.push(`/stay`);
+    },
     openHeader() {
       if (this.scrollDiff || this.$route.name !== "HomePage")
         this.$emit("openScreen");

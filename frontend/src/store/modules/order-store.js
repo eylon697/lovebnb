@@ -38,8 +38,7 @@ export const orderStore = {
                 throw err
             }
         },
-        async saveOrder({ commit, rootGetters }, { order, stay }) {
-            console.log('order coming to store', 'order', order, 'stay', stay);
+        async saveOrder({ commit, rootGetters }, { order }) {
             try {
                 const { _id, fullName, imgUrl } = rootGetters.loggedinUser
                 order.guest = {

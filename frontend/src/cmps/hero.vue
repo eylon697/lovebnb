@@ -1,11 +1,9 @@
 <template>
   <section class="hero full" :style="{ backgroundImage: `url(${changeBg})` }">
-
     <div class="flexible">
       <p>Not sure where to go? Perfect.</p>
-      <button><span>I’m flexible</span></button>
+      <button @click="goToExplore"><span>I’m flexible</span></button>
     </div>
-   
   </section>
 </template>
 <script>
@@ -17,8 +15,13 @@ export default {
     };
   },
 
-  computed: {
+  methods: {
+    goToExplore() {
+      this.$router.push(`/stay`);
+    },
+  },
 
+  computed: {
     changeBg() {
       const imgUrl = require(`@/assets/img/hero/home${this.imgUrl}.png`);
       return imgUrl;

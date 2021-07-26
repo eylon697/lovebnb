@@ -7,14 +7,14 @@
       <div>Past</div>
     </div>
     <div class="card-trip">
-      <img :src="order.stay.imgUrl" />
+      <img :src="loggedinUser.orders.stay.imgUrl" />
       <div class="date">
         <span>{{ checkIn }}</span>
         <span>-</span>
         <span>{{ checkOut }}</span>
       </div>
       <div class="city">{{ order.stay.city }}</div>
-      <span class="name">{{ order.stay.name }}</span>
+      <span class="name">{{loggedinUser.orders.stay.name }}</span>
     </div>
 
     <img :src="require('@/assets/img/icon/trip.svg')" />
@@ -133,6 +133,11 @@ export default {
     checkOut() {
       return utilService.toShortFormat(this.order.dates[1]);
     },
+
+    loggedInUser() {
+      return this.$store.getters.loggedinUser;
+    },
+  
     // dataToShow(){
     // checkIn=utilservice.dataToShow(this.date)
     // }

@@ -201,11 +201,9 @@ export default {
           order: this.getFullOrder(),
         });
         showMsg("Your order sent!");
-
-        // this.router.push('/orders')
-        this.$emit("warning");
+        this.$emit("noticeTag");
       } catch (err) {
-        showMsg("failed to place order");
+        showMsg("failed to place order",'error');
         this.isLoading = false;
         console.log("failed to place order", err);
       }

@@ -35,8 +35,8 @@
     }
     .main-content {
         display: grid;
-        grid-template-columns: 3fr 1fr;
-        gap: 40px
+        grid-template-columns: 2fr 1fr;
+        gap: 150px
     }
     .info {
         // padding-top: 40px;
@@ -232,6 +232,9 @@
                 display: flex;
                 gap: 15px;
                 margin-bottom: 40px;
+            }
+            .cell.active{
+                
             }
         }
     }

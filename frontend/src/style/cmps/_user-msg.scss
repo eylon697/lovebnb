@@ -10,6 +10,7 @@
     z-index: 999;
     border-radius: 5px;
     box-shadow: 0 0 5px 2px #00000040;
+
   
     button {
       position: absolute;
@@ -37,4 +38,11 @@
       font-size: 0.9rem;
       word-wrap: break-word;
     }
+  }
+
+  .success{
+    background-color: lightgreen;
+  }
+  .error{
+    background-color: lightgreen;
   }

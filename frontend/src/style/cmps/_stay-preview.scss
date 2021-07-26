@@ -6,14 +6,17 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    // flex-wrap: wrap;
+    min-width: 300px;
     height: fit-content;
     & * {
         overflow: hidden !important;
     }
     .info {
         font-size: 1rem;
-        // padding: 3px 15px 0 0px;
         text-overflow: ellipsis;
+        letter-spacing: 0.3px;
+        line-height: 1.5rem;
     }
     img {
         border-radius: 10px;
@@ -27,7 +30,6 @@
     .buttom {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 15px;
     }
     .heart {
         position: absolute;
@@ -54,8 +56,8 @@
         margin-bottom: 6px;
     }
     .card-rating {
-        font-size: 0.875rem;
-        // padding: 3px 15px 0 0px;
+        margin-bottom: 6px;
+        font-size: 1rem;
         img {
             width: 16px;
             height: 16px;
@@ -70,6 +72,7 @@
     .price {
         span {
             font-weight: 300;
+            font-size: 1.1rem;
             &:first-child {
                 font-weight: 600;
 
@@ -82,8 +85,7 @@
         color: $clr3;
     }
     .type {
-        // font-size: .875rem;
-        margin-bottom: 6px;
+        font-size: 1.2rem;
         text-overflow: ellipsis;
         // font-weight: 300;
     }
@@ -91,8 +93,8 @@
         // overflow-y: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        margin-bottom: 10px;
-        font-size: 1.1rem;
+        margin-bottom: 8px;
+        font-size: 1.2rem;
         // font-weight: 600;
     }
     .el-carousel__button {

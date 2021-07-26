@@ -38,14 +38,7 @@ export default {
       if (!this.msg) return;
       return `alert-${this.msg.type}`;
     },
-    alertIcon() {
-      if (this.msg.type === "error") {
-        return "cancel";
-      }
-      if (this.msg.type === "warning") {
-        return "error";
-      } else return "check_circle_outline";
-    },
+    
   },
 };
 </script>

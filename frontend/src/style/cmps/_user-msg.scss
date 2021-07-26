@@ -1,18 +1,16 @@
 .user-msg {
     display: flex;
-    position: fixed;
-    top: 100px;
-    right: 220px;
+    position: absolute;
+    top: 80px;
+    right: 0px;
     background-color: #66c54f;
-    // background-color: $clr3;
     color: #fefefe;
-    width: 365px;
-    min-height: 40px;
+    // width: 250px;
+    min-height: 20px;
     z-index: 999;
     border-radius: 5px;
     box-shadow: 0 0 5px 2px #00000040;
-
-  
+    padding: 10px 20px;
     button {
         position: absolute;
         top: 5px;
@@ -29,19 +27,21 @@
         }
     }
     .msg-container {
-        height: 100%;
         display: flex;
         align-items: center;
+        margin-inline-end: 15px;
         p {
-            padding: 10px 20px;
             font-size: 0.9rem;
-            word-wrap: break-word;
         }
     }
-    &.success{
-      background-color: #66c54f;
+    &.success {
+        background-color: #66c54f;
     }
-    &.error{
-      background-color: $clr3;
+    &.error {
+        background-color: $clr3;
     }
+}
+
+.open .user-msg {
+    top: 170px;
 }

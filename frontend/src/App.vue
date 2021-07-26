@@ -10,7 +10,7 @@
     />
     <login @login="login" v-if="isLoginOpen" />
     <signup @signUp="signUp" v-if="isSignupOpen" @onSignUp="onSignUp" />
-    <user-msg />
+    <!-- <user-msg /> -->
     <div
       v-if="isScreenOpen || isLoginOpen || isSignupOpen"
       class="screen"
@@ -26,7 +26,7 @@
 import appHeader from "./cmps/app-header.vue";
 import appFooter from "./cmps/app-footer.vue";
 import { eventBus } from "./services/event-bus.service.js";
-import userMsg from "./cmps/user-msg.vue";
+// import userMsg from "./cmps/user-msg.vue";
 import login from "./cmps/login.vue";
 import signup from "./cmps/signup.vue";
 import { showMsg } from "@/services/event-bus.service";
@@ -35,7 +35,7 @@ export default {
   components: {
     appHeader,
     appFooter,
-    userMsg,
+    // userMsg,
     login,
     signup,
   },

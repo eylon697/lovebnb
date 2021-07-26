@@ -35,8 +35,8 @@
     }
     .main-content {
         display: grid;
-        grid-template-columns: 2.3fr 1fr;
-        gap: 40px
+        grid-template-columns: 2fr 1fr;
+        gap: 80px;
     }
     .info {
         // padding-top: 40px;
@@ -233,9 +233,7 @@
                 gap: 15px;
                 margin-bottom: 40px;
             }
-            .cell.active{
-                
-            }
+            .cell.active {}
         }
     }
 }

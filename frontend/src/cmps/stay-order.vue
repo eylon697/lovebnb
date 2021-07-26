@@ -7,11 +7,13 @@
       <div class="rating">
         <i class="fas fa-star"></i>
         <span class="rate"> {{ stay.rateAvg }} </span>
-        <span>(</span>
-        <a href="#reviews">
-          <span class="reviews">{{ stay.reviews.length }} reviews</span>
-        </a>
-        <span>)</span>
+        <div>
+          <span>(</span>
+          <a href="#reviews">
+            <span class="reviews">{{ stay.reviews.length }} reviews</span>
+          </a>
+          <span>)</span>
+        </div>
       </div>
     </div>
 
@@ -135,6 +137,8 @@ export default {
           return "Reserve";
         case "unAvailable":
           return "unAvailable";
+        case "pending":
+          return "Sent!";
       }
       return "Check availabilty";
     },
@@ -177,25 +181,32 @@ export default {
       this.order.status = status;
     },
     async placeOrder() {
-      if (!this.order.dates || this.order.dates.length < 2)
-        return this.$refs.datePicker.focus();
-      if (this.order.status === "edit") return this.checkAvailability();
       try {
+        if (!this.order.dates || this.order.dates.length < 2)
+          return this.$refs.datePicker.focus();
+        if (this.order.status === "edit") return this.checkAvailability();
         if (this.order.status === "unAvailable")
           return new Error("unAvailable");
-        this.isLoading = true;
-        this.order.servPrice = this.servPrice;
+
+        this.toggleLoading();
         await this.$store.dispatch({
           type: "saveOrder",
           order: this.order,
         });
-        showMsg("Your order sent!", "success");
+        
+        this.order.status = 'pending'
+        this.toggleLoading();
+        showMsg("Your order sent!");
         this.$emit("noticeTag");
+  
       } catch (err) {
         showMsg("failed to place order");
-        this.isLoading = false;
+        this.toggleLoading();
         console.log("failed to place order", err);
       }
+    },
+    toggleLoading() {
+      this.isLoading = !this.isLoading;
     },
   },
 

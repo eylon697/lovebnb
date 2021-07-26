@@ -10,10 +10,10 @@
     font-size: 1rem;
     .order-header {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: space-between;
         margin-top: 10px;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         .price {
             span {
                 font-size: 1.4rem;
@@ -23,12 +23,9 @@
         }
         .rating {
             display: flex;
-            align-content: center;
-            align-items: center;
-            justify-content: center;
             gap: 3px;
+            margin-bottom: 1px;
             i {
-                margin-bottom: 3px;
                 color: #ff385c;
             }
             .rate {
@@ -87,7 +84,7 @@
         justify-content: space-around;
         border: 1px solid #ccc;
         border-top: none;
-        padding: 14px 10px;
+        padding: 14px 0;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
         margin-bottom: 24px;

@@ -46,19 +46,19 @@ function _getFullOrder(order, stay, guest) {
     order.stay = {
         _id,
         name,
-        imgUrl: imgUrls[0],
+        imgUrl: imgUrls[0].url,
         nightPrice: price,
         city: loc.city
     }
     const { host } = stay
     order.host = {
         _id: host._id,
-        fullName: host.fullמame,
+        fullName: host.fullName,
         imgUrl: host.imgUrl,
     }
     order.guest = {
         _id: guest._id,
-        fullName: guest.fullמame,
+        fullName: guest.fullName,
         imgUrl: guest.imgUrl,
     }
     order.status = 'pending'

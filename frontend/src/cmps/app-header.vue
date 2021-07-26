@@ -49,6 +49,7 @@
           </button>
           <div v-if="isWarningOpen" class="warning">1</div>
         </div>
+         <user-msg />
       </div>
     </div>
     <!-- </div> -->
@@ -61,6 +62,8 @@
 import stayFilter from "../cmps/stay-filter.vue";
 import { eventBus } from "../services/event-bus.service";
 import profileModal from "../cmps/profile-modal.vue";
+import userMsg from "./user-msg.vue";
+
 
 export default {
   props: {
@@ -69,6 +72,7 @@ export default {
   components: {
     stayFilter,
     profileModal,
+    userMsg
   },
   data() {
     return {

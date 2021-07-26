@@ -3,7 +3,7 @@
   <!-- TODO:Check if the user is a host => if (stay.host && stay.host.stays && stay.host.stays.length) -->
 
   <section class="profile main-layout" v-if="loggedInUser">
-    <div v-if="!loggedInUser.hostOrder">
+    <div v-if="!loggedInUser.stays || !loggedInUser.stays.length">
       <router-link to="/">Become a Host</router-link>
     </div>
     <div  v-if="loggedInUser.hostOrder && !loggedInUser.hostOrder.length">

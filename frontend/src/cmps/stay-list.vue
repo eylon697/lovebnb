@@ -3,6 +3,12 @@
     <div class="list-header">
       <div>{{ stays.length }} stays</div>
       <h1>{{ title }}</h1>
+      <!-- <list-filter
+        v-if="stays"
+        :filterBy="filter"
+        :stays="stays"
+        @filter="setFilter"
+      /> -->
       <div>
         Review COVID-19 travel restrictions before you book.
         <a
@@ -23,14 +29,21 @@
 <script>
 import { utilService } from "../services/util.service";
 import stayPreview from "./stay-preview.vue";
+// import listFilter from "./list-filter.vue";
 export default {
   props: {
     stays: Array,
+    // filter: Object,
   },
   data() {
     return {
       filterBy: JSON.parse(JSON.stringify(this.$route.query)),
     };
+  },
+  methods: {
+    // setFilter() {
+    //   this.$emit("filter");
+    // },
   },
   computed: {
     title() {
@@ -39,6 +52,7 @@ export default {
   },
   components: {
     stayPreview,
+    // listFilter,
   },
 };
 </script>

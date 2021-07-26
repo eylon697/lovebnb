@@ -6,14 +6,12 @@ async function query(filterBy = {}) {
     try {
         // const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('review')
-        // const reviews = await collection.find(criteria).toArray()
-        var reviews = await collection.aggregate([
-            {
+            // const reviews = await collection.find(criteria).toArray()
+        var reviews = await collection.aggregate([{
                 $match: filterBy
             },
             {
-                $lookup:
-                {
+                $lookup: {
                     localField: 'byUserId',
                     from: 'user',
                     foreignField: '_id',
@@ -24,8 +22,7 @@ async function query(filterBy = {}) {
                 $unwind: '$byUser'
             },
             {
-                $lookup:
-                {
+                $lookup: {
                     localField: 'aboutUserId',
                     from: 'user',
                     foreignField: '_id',
@@ -37,8 +34,8 @@ async function query(filterBy = {}) {
             }
         ]).toArray()
         reviews = reviews.map(review => {
-            review.byUser = { _id: review.byUser._id, fullname: review.byUser.fullname }
-            review.aboutUser = { _id: review.aboutUser._id, fullname: review.aboutUser.fullname }
+            review.byUser = { _id: review.byUser._id, fullName: review.byUser.fullName }
+            review.aboutUser = { _id: review.aboutUser._id, fullName: review.aboutUser.fullName }
             delete review.byUserId
             delete review.aboutUserId
             return review
@@ -57,7 +54,7 @@ async function remove(reviewId) {
         const store = asyncLocalStorage.getStore()
         const { userId, isAdmin } = store
         const collection = await dbService.getCollection('review')
-        // remove only if user is owner/admin
+            // remove only if user is owner/admin
         const query = { _id: ObjectId(reviewId) }
         if (!isAdmin) query.byUserId = ObjectId(userId)
         await collection.deleteOne(query)
@@ -95,5 +92,3 @@ module.exports = {
     remove,
     add
 }
-
-

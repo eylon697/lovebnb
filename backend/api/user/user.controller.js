@@ -2,6 +2,15 @@ const userService = require('./user.service')
 const socketService = require('../../services/socket.service')
 const logger = require('../../services/logger.service')
 
+
+module.exports = {
+    getUser,
+    getUsers,
+    deleteUser,
+    updateUser,
+
+}
+
 async function getUser(req, res) {
     try {
         const user = await userService.getById(req.params.id)
@@ -39,18 +48,10 @@ async function deleteUser(req, res) {
 async function updateUser(req, res) {
     try {
         const user = req.body
-        console.log(user, 'from backend');
         const savedUser = await userService.update(user)
         res.send(savedUser)
     } catch (err) {
         logger.error('Failed to update user', err)
         res.status(500).send({ err: 'Failed to update user' })
     }
-}
-
-module.exports = {
-    getUser,
-    getUsers,
-    deleteUser,
-    updateUser
 }

@@ -36,7 +36,7 @@ async function saveOne(req, res) {
         const savedItem = await itemService.saveOne(item)
         res.send(savedItem)
     } catch (err) {
-        console.log(`Failed to save ${ITEM_KEY}:`, item, err);
+        logger.error(`Failed to save ${ITEM_KEY}:`, item, err);
         res.status(403).send(`Failed to save ${ITEM_KEY}`)
     }
 }

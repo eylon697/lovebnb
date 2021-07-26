@@ -44,7 +44,7 @@
             <img
               class="user-img"
               v-else
-              :src="require('@/assets/img/user/5.png')"
+              :src="'https://res.cloudinary.com/lovebnb/image/upload/v1627221258/pp_la6w4n.jpg'"
             />
           </button>
           <div v-if="isWarningOpen" class="warning">1</div>

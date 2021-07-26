@@ -1,6 +1,6 @@
 const ITEM_KEY = 'order'
 
-const itemUtil = require(`./${ITEM_KEY}.util`)
+const stayUtil = require(`../stay/stay.util`)
 const logger = require('../../services/logger.service')
 const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
@@ -10,6 +10,7 @@ module.exports = {
     getOne,
     saveOne,
     removeOne,
+    checkAvailability,
 }
 
 async function query(filterBy) {
@@ -32,16 +33,12 @@ async function getOne(_id) {
     }
 }
 
-async function saveOne(itemToSave) {
+async function saveOne(item) {
     try {
-        const item = itemUtil.getItemToSave(itemToSave)
         const collection = await dbService.getCollection(ITEM_KEY)
-        if (itemToSave._id)
-            await collection.updateOne({ '_id': item._id }, { $set: item })
-        else {
-            delete item._id
-            await collection.insertOne(item)
-        }
+        if (item._id)
+            await collection.updateOne({ '_id': ObjectId(item._id) }, { $set: item })
+        else await collection.insertOne(item)
         return item
     } catch (err) {
         logger.error(`Failed to insert ${ITEM_KEY}`, err)
@@ -55,6 +52,18 @@ async function removeOne(_id) {
         await collection.deleteOne({ '_id': ObjectId(_id) })
     } catch (err) {
         logger.error(`Failed to remove ${ITEM_KEY} ${_id}`, err)
+        throw err
+    }
+}
+
+async function checkAvailability(dates, stayId) {
+    try {
+        const collection = await dbService.getCollection('stay')
+        const stay = await collection.findOne({ '_id': ObjectId(stayId) })
+        console.log(stay);
+        return stayUtil.isAvailable(dates, stay.closeDates)
+    } catch (err) {
+        logger.error(`Failed to check availability`, err)
         throw err
     }
 }

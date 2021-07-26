@@ -13,9 +13,9 @@
       <form action="" @submit.prevent="login">
         <input
           type="text"
-          placeholder="Enter email or username"
-          v-model="userCred.username"
-          ref="usernameInput"
+          placeholder="Enter email or userName"
+          v-model="userCred.userName"
+          ref="userNameInput"
         />
         <input
           type="password"
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       userCred: {
-        username: "",
+        userName: "",
         password: "",
       },
     };
@@ -55,7 +55,7 @@ export default {
     },
   },
   mounted() {
-    this.$refs.usernameInput.focus();
+    this.$refs.userNameInput.focus();
     this.$refs.myBtn.onmousemove = (e) => {
       const x = e.offsetX;
       const y = e.offsetY;

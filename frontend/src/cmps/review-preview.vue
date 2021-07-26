@@ -4,7 +4,7 @@
     <section class="details">
       <img :src="review.by.imgUrl" />
       <div>
-        <h1>{{ review.by.fullname }}</h1>
+        <h1>{{ review.by.fullName }}</h1>
         <div>{{ formatDate }}</div>
       </div>
     </section>

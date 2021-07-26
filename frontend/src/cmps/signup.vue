@@ -13,13 +13,13 @@
       <form @submit.prevent="signUp">
         <input
           type="text"
-          placeholder="Enter email or username"
-          v-model="userCred.username"
+          placeholder="Enter email or userName"
+          v-model="userCred.userName"
         />
         <input
           type="text"
           placeholder="Enter full name"
-          v-model="userCred.fullname"
+          v-model="userCred.fullName"
         />
         <input
           type="password"
@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       userCred: {
-        username: "",
-        fullname: "",
+        userName: "",
+        fullName: "",
         password: "",
       },
     };

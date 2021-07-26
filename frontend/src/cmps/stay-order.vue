@@ -129,8 +129,8 @@ export default {
       switch (this.order.status) {
         case "available":
           return "Reserve";
-        case "unavailable":
-          return "Unavailable";
+        case "unAvailable":
+          return "unAvailable";
       }
       return "Check availabilty";
     },
@@ -148,40 +148,24 @@ export default {
         this.setStatus("edit");
       }
     },
-    getFullOrder() {
-      let { dates, guests, status } = this.order;
-      let { nightsPrice, servPrice, totalPrice, coinFormater } = this;
-      return {
-        dates,
-        guests,
-        status,
-        nightPrice: this.stay.price,
-        nightsPrice,
-        servPrice,
-        totalPrice,
-        coinFormater,
-        stay: {
-          _id: this.stay._id,
-          name: this.stay.name,
-          imgUrl: this.stay.imgUrls[0],
-        },
-        host: {
-          _id: this.stay.host._id,
-          fullName: this.stay.host.fullName,
-          imgUrl: this.stay.host.imgUrl,
-        },
-      };
-    },
     async checkAvailability() {
       try {
         this.isLoading = true;
-        await orderService.checkAvailability(this.order);
-        this.setStatus("available");
+        const isAvailable = await orderService.checkAvailability(
+          this.order.dates,
+          this.stay._id
+        );
         this.isLoading = false;
+        if (isAvailable) {
+          this.setStatus("available");
+          showMsg("Your order available!");
+        } else {
+          this.setStatus("unAvailable");
+          showMsg("Not available!");
+        }
       } catch (err) {
-        this.setStatus("unavailable");
-        console.log("failed to check availability", err);
         this.isLoading = false;
+        console.log("failed to check availability", err);
       }
     },
     setStatus(status) {
@@ -193,17 +177,16 @@ export default {
         return this.$refs.datePicker.focus();
       if (this.order.status === "edit") return this.checkAvailability();
       try {
-        if (this.order.status === "unavailable")
-          return new Error("unavailable");
+        if (this.order.status === "unAvailable")
+          return new Error("unAvailable");
         this.isLoading = true;
+        this.order.servPrice = this.servPrice;
         await this.$store.dispatch({
           type: "saveOrder",
-          order: this.getFullOrder(),
+          order: this.order,
         });
         showMsg("Your order sent!");
-
-        // this.router.push('/orders')
-        this.$emit("warning");
+        this.$emit("noticeTag");
       } catch (err) {
         showMsg("failed to place order");
         this.isLoading = false;
@@ -213,7 +196,6 @@ export default {
   },
 
   mounted() {
-    console.log(this);
     this.$refs.orderBtn.onmousemove = (e) => {
       const x = e.offsetX;
       const y = e.offsetY;

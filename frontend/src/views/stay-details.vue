@@ -73,9 +73,9 @@
               <span>{{ stay.reviews.length }} reviews</span>
             </div>
             <review-list :reviews="stay.reviews" />
-            <el-button v-if="loggedInUser" @click.stop="openAddReview"
+            <!-- <el-button v-if="loggedInUser" @click.stop="openAddReview"
               >Add Review</el-button
-            >
+            > -->
             <add-review
               v-if="addReviewIsOpen"
               @addReview="addReview"
@@ -203,12 +203,10 @@ export default {
       }
     },
     noticeTag() {
-      console.log("noticeTag", "details");
       this.$emit("noticeTag");
     },
   },
   created() {
-    console.log("stayId", this.stayId);
     this.loadStay();
   },
 };

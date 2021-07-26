@@ -1,12 +1,16 @@
 const ITEM_KEY = 'order'
 const itemService = require(`./${ITEM_KEY}.service`)
+const utilService = require(`./${ITEM_KEY}.util`)
 const logger = require('../../services/logger.service')
+
+const userService = require(`../user/user.service`)
 
 module.exports = {
     query,
     getOne,
     saveOne,
     removeOne,
+    checkAvailability
 }
 
 async function query(req, res) {
@@ -32,11 +36,14 @@ async function getOne(req, res) {
 
 async function saveOne(req, res) {
     try {
-        const item = req.body.item
-        const savedItem = await itemService.saveOne(item, status)
+        const savedItem = await itemService.saveOne(req.body)
+        const hostMiniOrder = utilService.getHostMiniOrder(savedItem)
+        const guestMiniOrder = utilService.getGuestMiniOrder(savedItem)
+        await userService.saveHostOrder(savedItem.host._id, hostMiniOrder)
+        await userService.saveGuestOrder(savedItem.guest._id, guestMiniOrder)
         res.send(savedItem)
     } catch (err) {
-        console.log(`Failed to save ${ITEM_KEY}:`, item, err);
+        logger.error(`Failed to save ${ITEM_KEY}:`, err);
         res.status(403).send(`Failed to save ${ITEM_KEY}`)
     }
 }
@@ -48,5 +55,16 @@ async function removeOne(req, res) {
     } catch (err) {
         logger.error(`Failed to remove ${ITEM_KEY}`, err)
         res.status(500).send({ err: `Failed to remove ${ITEM_KEY}` })
+    }
+}
+
+async function checkAvailability(req, res) {
+    try {
+        const { dates, stayId } = req.query
+        const isAvailable = await itemService.checkAvailability(dates, stayId)
+        res.send(isAvailable)
+    } catch (err) {
+        logger.error(`Failed to checkAvailability`, err)
+        res.status(500).send({ err: `Failed to checkAvailability` })
     }
 }

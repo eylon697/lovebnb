@@ -60,7 +60,6 @@ async function checkAvailability(dates, stayId) {
     try {
         const collection = await dbService.getCollection('stay')
         const stay = await collection.findOne({ '_id': ObjectId(stayId) })
-        console.log(stay);
         return stayUtil.isAvailable(dates, stay.closeDates)
     } catch (err) {
         logger.error(`Failed to check availability`, err)

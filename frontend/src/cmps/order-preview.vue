@@ -1,12 +1,12 @@
 <template>
-  <section>
+  <section class="order-preview">
     <div class="card">
       <div class="left">
         <div class="user-img">
           <img :src="order.guest.imgUrl" />
         </div>
         <div class="info">
-          <div class="by">Request by {{ order.guest.name }}</div>
+          <div class="by">Request by {{ order.guest.fullName }}</div>
           <div class="expire" v-if="order.status === 'pending'">
             Expires in 12 hours
           </div>
@@ -17,7 +17,7 @@
             <span> · </span>
             <span>{{ checkIn }}</span>
             <span>-</span>
-            <span>{{checkOut }}</span>
+            <span>{{ checkOut }}</span>
             <span> · </span>
             <span>{{ order.guests }} guests </span>
           </div>
@@ -27,9 +27,9 @@
       <div class="action">
         <div class="change" v-if="order.status === 'Pending'">
           <span @click="changeStatus(order, 'Confirmed')" class="accept"
-            >Accept 
+            >Accept
           </span>
-          <span>/ </span> 
+          <span>/ </span>
           <span @click="changeStatus(order, 'Reject')" class="reject"
             >Reject
           </span>
@@ -55,17 +55,17 @@ export default {
 
   methods: {
     changeStatus(order, newStatus) {
-      console.log('order-preview',newStatus);
+      console.log("order-preview", newStatus);
       order.status = newStatus;
       showMsg("order status updated");
     },
   },
   computed: {
     checkIn() {
-      return utilService.toShortFormat(this.order.dates[0]);
+      return utilService.toShortFormat(new Date(this.order.dates[0]));
     },
     checkOut() {
-      return utilService.toShortFormat(this.order.dates[1]);
+      return utilService.toShortFormat(new Date(this.order.dates[this.order.dates.length-1]));
     },
     longText(txt) {
       if (txt.length < 10) return txt;

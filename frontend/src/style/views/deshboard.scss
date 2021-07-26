@@ -14,33 +14,32 @@
     .orders-container {
         display: flex;
         gap: 40px;
-        flex-grow:1
+        flex-grow: 1
     }
-    .list-container{
+    .list-container {
         flex-grow: 0.7;
     }
     .list-orders {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        min-width:780px;
+        min-width: 780px;
         .card {
+            background-color: black;
             display: flex;
             border: 2px solid $clr1;
             border-radius: 10px;
             align-items: center;
             padding: 20px;
             justify-content: space-between;
-            .left{
+            .left {
                 display: flex;
-                .user-img{
+                .user-img {
                     height: 60px;
                     min-width: 60px;
                     margin-right: 20px;
                 }
             }
-           
-
             .action {
                 cursor: pointer;
                 .change {
@@ -75,7 +74,6 @@
         }
         .action {
             margin-left: 50px;
-
             .accept {
                 color: rgb(29, 167, 29);
                 font-weight: 500;
@@ -89,21 +87,18 @@
             color: rgb(29, 167, 29);
         }
     }
-
     .summary {
         border: 2px solid $clr1;
         border-radius: 10px;
         padding: 20px;
         width: 400px;
-        flex-grow:0.3;
+        flex-grow: 0.3;
         .header {
             border-bottom: 1px solid $clr1;
             margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
-            .txt {
-
-            }
+            .txt {}
             .fantastic {
                 font-weight: bold;
                 margin-bottom: 8px;
@@ -115,10 +110,9 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-
                 i {
                     // color: lightseagreen;
-                    color:$clr3;
+                    color: $clr3;
                     font-size: 2rem;
                 }
             }
@@ -148,7 +142,6 @@
                 justify-content: space-between;
                 margin-bottom: 20px;
             }
-
             .svg-container {
                 img {
                     width: 100%;

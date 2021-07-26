@@ -7,7 +7,11 @@
       <div class="rating">
         <i class="fas fa-star"></i>
         <span class="rate"> {{ stay.rateAvg }} </span>
-        <span class="reviews"> ({{ stay.reviews.length }} reviews)</span>
+        <span>(</span>
+        <a href="#reviews">
+          <span class="reviews">{{ stay.reviews.length }} reviews</span>
+        </a>
+        <span>)</span>
       </div>
     </div>
 
@@ -158,7 +162,7 @@ export default {
         this.isLoading = false;
         if (isAvailable) {
           this.setStatus("available");
-          showMsg("Your order available!");
+          showMsg("Your order available!", "success");
         } else {
           this.setStatus("unAvailable");
           showMsg("Not available!");
@@ -185,10 +189,10 @@ export default {
           type: "saveOrder",
           order: this.order,
         });
-        showMsg("Your order sent!");
+        showMsg("Your order sent!", "success");
         this.$emit("noticeTag");
       } catch (err) {
-        showMsg("failed to place order",'error');
+        showMsg("failed to place order");
         this.isLoading = false;
         console.log("failed to place order", err);
       }

@@ -85,10 +85,10 @@ export default {
         console.log(userCred);
         await this.$store.dispatch({ type: "signup", userCred });
         console.log("app", userCred);
-        showMsg("Signed up successfully!");
+        showMsg("Signed up successfully!",'success');
         this.isSignupOpen = !this.isSignupOpen;
       } catch (err) {
-        showMsg("Sign up failed!", "error");
+        showMsg("Sign up failed!");
         this.isSignupOpen = !this.isSignupOpen;
       }
     },
@@ -98,7 +98,7 @@ export default {
         this.$router.push("/");
         showMsg("Logged out!");
       } catch (err) {
-        showMsg("Logout failed!", "error");
+        showMsg("Logout failed!");
       }
     },
   },

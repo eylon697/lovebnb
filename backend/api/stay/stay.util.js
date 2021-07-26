@@ -77,13 +77,10 @@ function buildCriteria(filterBy) {
         criteria.bathrooms = { bathrooms: { $lte: bathrooms } };
     if (price && price.length)
         criteria.price = { $gte: price[0], $lte: price[1] };
-    console.log(criteria);
     return criteria;
 }
 
 function isAvailable(filterDates, closedDates) {
-    console.log('filterDates', filterDates);
-    console.log('closedDates', closedDates);
     return !filterDates.some(date => {
         return closedDates.some(stayDate => date === stayDate)
     })

@@ -40,14 +40,8 @@ export const orderStore = {
         },
         async saveOrder({ commit, rootGetters }, { order }) {
             try {
-                const { _id, fullName, imgUrl } = rootGetters.loggedinUser
-                order.guest = {
-                    _id,
-                    fullName,
-                    imgUrl,
-                }
-                const savedOrder = await orderService.save(order, status)
-                console.log(' from store the service return', savedOrder);
+                const { loggedinUser, stay } = rootGetters
+                const savedOrder = await orderService.save(order, stay, loggedinUser)
                 commit('addOrder', { order: savedOrder })
                 return savedOrder
             } catch (err) {
@@ -55,8 +49,5 @@ export const orderStore = {
                 throw err
             }
         }
-
-
-
     }
 }

@@ -10,7 +10,8 @@ module.exports = {
     remove,
     update,
     add,
-    saveHostOrder
+    saveHostOrder,
+    saveGuestOrder
 }
 
 async function query(filterBy = {}) {
@@ -50,13 +51,13 @@ async function getById(userId) {
         throw err
     }
 }
-async function getByUsername(username) {
+async function getByUsername(userName) {
     try {
         const collection = await dbService.getCollection('user')
-        const user = await collection.findOne({ username })
+        const user = await collection.findOne({ userName })
         return user
     } catch (err) {
-        logger.error(`while finding user ${username}`, err)
+        logger.error(`while finding user ${userName}`, err)
         throw err
     }
 }
@@ -76,9 +77,8 @@ async function update(user) {
         // peek only updatable fields!
         const userToSave = {
             _id: ObjectId(user._id),
-            username: user.username,
-            fullname: user.fullname,
-            score: user.score
+            userName: user.userName,
+            fullName: user.fullName,
         }
         const collection = await dbService.getCollection('user')
         await collection.updateOne({ '_id': userToSave._id }, { $set: userToSave })
@@ -93,10 +93,9 @@ async function add(user) {
     try {
         // peek only updatable fields!
         const userToAdd = {
-            username: user.username,
+            userName: user.userName,
             password: user.password,
-            fullname: user.fullname,
-            score: 100
+            fullName: user.fullName,
         }
         const collection = await dbService.getCollection('user')
         await collection.insertOne(userToAdd)
@@ -112,10 +111,10 @@ function _buildCriteria(filterBy) {
     if (filterBy.txt) {
         const txtCriteria = { $regex: filterBy.txt, $options: 'i' }
         criteria.$or = [{
-                username: txtCriteria
+                userName: txtCriteria
             },
             {
-                fullname: txtCriteria
+                fullName: txtCriteria
             }
         ]
     }
@@ -127,17 +126,36 @@ function _buildCriteria(filterBy) {
 
 async function saveHostOrder(userId, miniOrder) {
     try {
-        const user = getById(userId)
+        const collection = await dbService.getCollection('user')
+        const user = await collection.findOne({ '_id': ObjectId(userId) })
         if (user.hostOrders) {
-            const idx = hostOrders.findIndex(order => order._id === miniOrder._id)
+            const idx = user.hostOrders.findIndex(order => order._id === miniOrder._id)
             if (idx !== -1) user.hostOrders[idx] = miniOrder
             else user.hostOrders.push(miniOrder)
         } else user.hostOrders = [miniOrder]
-        const collection = await dbService.getCollection('user')
-        await collection.updateOne({ '_id': userId }, { $set: user })
+
+        await collection.updateOne({ '_id': ObjectId(userId) }, { $set: user })
         return user
     } catch (err) {
-        logger.error(`Faild to push mini order to user ${user._id}`, err)
+        logger.error(`Faild to push mini order to host ${user._id}`, err)
+        throw err
+    }
+}
+
+async function saveGuestOrder(userId, miniOrder) {
+    try {
+        const collection = await dbService.getCollection('user')
+        const user = await collection.findOne({ '_id': ObjectId(userId) })
+        if (user.orders) {
+            const idx = user.orders.findIndex(order => order._id === miniOrder._id)
+            if (idx !== -1) user.orders[idx] = miniOrder
+            else user.orders.push(miniOrder)
+        } else user.orders = [miniOrder]
+
+        await collection.updateOne({ '_id': ObjectId(userId) }, { $set: user })
+        return user
+    } catch (err) {
+        logger.error(`Faild to push mini order to guest ${userId}`, err)
         throw err
     }
 }

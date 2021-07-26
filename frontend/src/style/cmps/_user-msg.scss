@@ -1,9 +1,9 @@
 .user-msg {
     display: flex;
     position: fixed;
-    bottom: 10px;
-    left: 10px;
-    background-color: $clr3;
+    top: 100px;
+    right: 220px;
+    background-color: #66c54f;
     color: #fefefe;
     width: 365px;
     min-height: 40px;
@@ -13,30 +13,30 @@
 
   
     button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      padding: 3px;
-      width: 1.5rem;
-      height: 1.5rem;
-      background-color: transparent;
-      border: unset;
-      span {
-        color: #fefefe;
-        font-size: 1rem;
-        font-weight: 600;
-      }
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        padding: 3px;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: transparent;
+        border: unset;
+        span {
+            color: #fefefe;
+            font-size: 1rem;
+            font-weight: 600;
+        }
     }
-  }
-  
-  .msg-container {
+}
+
+.msg-container {
     height: 100%;
     display: flex;
     align-items: center;
     p {
-      padding: 10px 20px;
-      font-size: 0.9rem;
-      word-wrap: break-word;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        word-wrap: break-word;
     }
   }
 

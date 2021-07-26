@@ -168,8 +168,8 @@
                     border-radius: 32px;
                 }
                 img {
-                    height: 28px;
-                    border-radius: 10px;
+                    height: 32px;
+                    border-radius: 50px;
                 }
                 .warning {
                     // box-shadow: rgb(255 255 255) 0px 0px 0px 1.5px !important;
@@ -198,7 +198,7 @@
     height: 85px;
     transition: height 0.4s;
     &.open {
-        height: 161px;
+        height: 171px;
         transition: height 0.4s;
         &.home-top {
             height: 85px;

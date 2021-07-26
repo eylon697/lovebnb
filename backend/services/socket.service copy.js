@@ -23,7 +23,7 @@ function connectSockets(http, session) {
                 socket.leave(socket.myTopic)
             }
             socket.join(topic)
-            // logger.debug('Session ID is', socket.handshake.sessionID)
+                // logger.debug('Session ID is', socket.handshake.sessionID)
             socket.myTopic = topic
         })
         socket.on('chat newMsg', msg => {
@@ -47,13 +47,13 @@ function emitToAll({ type, data, room = null }) {
 // TODO: Need to test emitToUser feature
 function emitToUser({ type, data, userId }) {
     const sockets = _getAllSockets()
-    const socket = sockets.find(s => s.handshake?.session?.user?._id == userId)
-    // const socket = sockets.find(s => {
-    //     // if (!s.handshake) return logger.debug('No handshake')
-    //     // if (!s.handshake.session) return logger.debug('No handshake.session')
-    //     // if (!s.handshake.session.user) return logger.debug('No handshake.session.user')
-    //     // return s.handshake.session.user._id === userId
-    // })
+    const socket = sockets.find(s => s.handshake ? .session ? .user ? ._id == userId)
+        // const socket = sockets.find(s => {
+        //     // if (!s.handshake) return logger.debug('No handshake')
+        //     // if (!s.handshake.session) return logger.debug('No handshake.session')
+        //     // if (!s.handshake.session.user) return logger.debug('No handshake.session.user')
+        //     // return s.handshake.session.user._id === userId
+        // })
     if (!socket) {
         logger.debug('Socket not found for user: ' + userId)
         _printSockets();
@@ -96,11 +96,12 @@ function _printSockets() {
     console.log(`Sockets: (count: ${sockets.length}):`)
     sockets.forEach(_printSocket)
 }
+
 function _printSocket(socket) {
     var msg = 'Socket - sessionId:' + socket.handshake.sessionID
     if (socket.handshake.session.user) {
-        const {user} = socket.handshake.session
-        msg += ` With session for user: ${user.fullname} (_id=${user._id})`
+        const { user } = socket.handshake.session
+        msg += ` With session for user: ${user.fullName} (_id=${user._id})`
     }
     console.log(msg)
 }
@@ -111,6 +112,3 @@ module.exports = {
     emitToUser,
     broadcast,
 }
-
-
-

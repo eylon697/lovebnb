@@ -47,7 +47,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u102",
-                    fullname: "Tina",
+                    fullName: "Tina",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626604528/3_tmiwvd.png'
                 },
             },
@@ -58,7 +58,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u103",
-                    fullname: "Soraya",
+                    fullName: "Soraya",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/17_kfpnkm.png'
                 },
             },
@@ -69,7 +69,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u104",
-                    fullname: "Mauricio",
+                    fullName: "Mauricio",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626604528/4_vjwk2j.png'
                 },
             },
@@ -80,7 +80,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u105",
-                    fullname: "Fabian",
+                    fullName: "Fabian",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626604528/1_yne2xo.png'
                 },
             },
@@ -91,7 +91,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u106",
-                    fullname: "Matthew",
+                    fullName: "Matthew",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626604528/5_x3lwvo.png'
                 },
             },
@@ -102,7 +102,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u107",
-                    fullname: "Deborah Kim",
+                    fullName: "Deborah Kim",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/10_cmf8jg.png'
                 },
             },
@@ -155,7 +155,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u108",
-                    fullname: "Olga",
+                    fullName: "Olga",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626604528/3_tmiwvd.png',
                 },
             },
@@ -166,7 +166,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u109",
-                    fullname: "Xilin",
+                    fullName: "Xilin",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626611245/Untitled_design_28_j9dfgr.png',
                 },
             },
@@ -177,7 +177,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u110",
-                    fullname: "Janani",
+                    fullName: "Janani",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626610320/6_y2e5fg.png',
                 },
             },
@@ -188,7 +188,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u111",
-                    fullname: "Jazlyn",
+                    fullName: "Jazlyn",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626610320/5_azmfh4.png',
                 },
             },
@@ -199,7 +199,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u112",
-                    fullname: "Alida",
+                    fullName: "Alida",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626616321/17550671-6419-4726-b0ae-654663e9e5fa_oad3qi.jpg',
                 },
             },
@@ -210,7 +210,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u113",
-                    fullname: "Roni",
+                    fullName: "Roni",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/9_wvkluw.png',
                 },
             }
@@ -263,7 +263,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u114",
-                    fullname: "Johanna",
+                    fullName: "Johanna",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/17_kfpnkm.png',
                 },
             },
@@ -274,7 +274,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u115",
-                    fullname: "Sara",
+                    fullName: "Sara",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/10_cmf8jg.png',
                 },
             },
@@ -326,7 +326,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u203",
-                    fullname: "Cameron",
+                    fullName: "Cameron",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626615942/79605792-0455-4933-a14c-45e96a361047_kzimcx.jpg',
                 },
             },
@@ -337,7 +337,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u204",
-                    fullname: "Sara",
+                    fullName: "Sara",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/10_cmf8jg.png',
                 },
             },
@@ -389,7 +389,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u200",
-                    fullname: "Cameron",
+                    fullName: "Cameron",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626615942/79605792-0455-4933-a14c-45e96a361047_kzimcx.jpg',
                 },
             },
@@ -400,7 +400,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u201",
-                    fullname: "Sara",
+                    fullName: "Sara",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/10_cmf8jg.png',
                 },
             },
@@ -452,7 +452,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u200",
-                    fullname: "Cameron",
+                    fullName: "Cameron",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626615942/79605792-0455-4933-a14c-45e96a361047_kzimcx.jpg',
                 },
             },
@@ -463,7 +463,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u201",
-                    fullname: "Sara",
+                    fullName: "Sara",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/10_cmf8jg.png',
                 },
             },
@@ -515,7 +515,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u200",
-                    fullname: "Cameron",
+                    fullName: "Cameron",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626615942/79605792-0455-4933-a14c-45e96a361047_kzimcx.jpg',
                 },
             },
@@ -526,7 +526,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u201",
-                    fullname: "Sara",
+                    fullName: "Sara",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/10_cmf8jg.png',
                 },
             },
@@ -578,7 +578,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u200",
-                    fullname: "Cameron",
+                    fullName: "Cameron",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626615942/79605792-0455-4933-a14c-45e96a361047_kzimcx.jpg',
                 },
             },
@@ -589,7 +589,7 @@ const gStays = [{
                 at: 1626430025442,
                 by: {
                     _id: "u201",
-                    fullname: "Sara",
+                    fullName: "Sara",
                     imgUrl: 'https://res.cloudinary.com/lovebnb/image/upload/v1626657189/10_cmf8jg.png',
                 },
             },

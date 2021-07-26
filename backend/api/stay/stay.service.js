@@ -17,7 +17,6 @@ async function query(filterBy) {
         const criteria = itemUtil.buildCriteria(filterBy)
         const collection = await dbService.getCollection(ITEM_KEY)
         const items = await collection.find(criteria).toArray()
-        console.log('items', items);
         return items.filter(item => itemUtil.isAvailable(filterBy.dates, item.closeDates))
     } catch (err) {
         logger.error(`Failed to find ${ITEM_KEY}s`, err)

@@ -75,11 +75,10 @@ export const stayStore = {
                 throw err;
             }
         },
-        async loadStay({ commit, state }, { stayId }) {
+        async loadStay({ commit }, { stayId }) {
             try {
                 const stay = await stayService.getOne(stayId)
                 commit({ type: 'setStay', stay })
-                console.log('Stay Loaded successfuly', state.stay)
             } catch (err) {
                 console.log('Cannot load stay', err);
                 throw err;

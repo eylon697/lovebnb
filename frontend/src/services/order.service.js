@@ -7,7 +7,6 @@ export const orderService = {
     save,
     getEmptyOrder,
     checkAvailability,
-    placeOrder
 }
 const ITEM_KEY = 'order'
 
@@ -23,10 +22,10 @@ function remove(_id) {
     return httpService.delete(`${ITEM_KEY}/${_id}`)
 }
 
-function save(item) {
-    return item._id ?
-        httpService.put(`${ITEM_KEY}/`, { item, status }) :
-        httpService.post(`${ITEM_KEY}/`, { item, status })
+function save(order, stay, guest) {
+    return order._id ?
+        httpService.put(`${ITEM_KEY}/`, order) :
+        httpService.post(`${ITEM_KEY}/`, _getFullOrder(order, stay, guest))
 }
 
 function getEmptyOrder() {
@@ -37,30 +36,41 @@ function getEmptyOrder() {
     }
 }
 
-function checkAvailability() {
-    // return Promise.reject()
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(new Error)
-            }, 2000)
-        })
-        // console.log('order service - checkAvailability');
+function checkAvailability(dates, stayId) {
+    const params = { dates, stayId }
+    return httpService.get(`${ITEM_KEY}/availability`, params)
 }
 
-function placeOrder() {
-    console.log('order service - placeOrder');
+function _getFullOrder(order, stay, guest) {
+    const { _id, name, imgUrls, price, loc } = stay
+    order.stay = {
+        _id,
+        name,
+        imgUrl: imgUrls[0],
+        nightPrice: price,
+        city: loc.city
+    }
+    const { host } = stay
+    order.host = {
+        _id: host._id,
+        fullName: host.fullמame,
+        imgUrl: host.imgUrl,
+    }
+    order.guest = {
+        _id: guest._id,
+        fullName: guest.fullמame,
+        imgUrl: guest.imgUrl,
+    }
+    order.status = 'pending'
+    return order
 }
-
 // var order = {
 //     _id: ''
 //     dates,
 //     guests,
-//     nightPrice: this.stay.price,
-//     nightsPrice,
+//     nightPrice: 1,
 //     servPrice,
-//     totalPrice,
 //     created: 0123456789123,
-//     coinFormater,
 //     stay: {
 //         _id: this.stay._id,
 //         name: this.stay.name,

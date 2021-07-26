@@ -48,7 +48,7 @@ function getEmptyReview() {
         id: utilService.makeId(),
         txt: '',
         rate: null,
-        by: { imgUrl: '', fullname: '' },
+        by: { imgUrl: '', fullName: '' },
         at: Date.now()
     }
 }

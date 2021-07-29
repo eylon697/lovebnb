@@ -166,7 +166,6 @@ export default {
         this.isLoading = false;
         if (isAvailable) {
           this.setStatus("available");
-          showMsg("Your order available!", "success");
         } else {
           this.setStatus("unAvailable");
           showMsg("Not available!");

@@ -203,7 +203,7 @@ export default {
       }
     },
     noticeTag() {
-      this.$emit("noticeTag");
+      this.$emit("warning");
     },
   },
   created() {

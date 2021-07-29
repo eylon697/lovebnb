@@ -71,9 +71,9 @@
       </div>
     </div>
 
-    <!-- <button @click.stop="onChangeBeds">Rooms and beds</button>
+    <button @click.stop="onChangeBeds">Rooms and beds</button>
 
-    <div @click.stop class="beds-modal" v-if="bedsOpen"></div> -->
+    <div @click.stop class="beds-modal" v-if="bedsOpen"></div>
   </form>
 </template>
 

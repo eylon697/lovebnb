@@ -6,17 +6,7 @@
       <div class="upcoming">Upcoming</div>
       <div>Past</div>
     </div>
-    <div class="card-trip">
-      <img :src="loggedinUser.orders.stay.imgUrl" />
-      <div class="date">
-        <span>{{ checkIn }}</span>
-        <span>-</span>
-        <span>{{ checkOut }}</span>
-      </div>
-      <div class="city">{{ order.stay.city }}</div>
-      <span class="name">{{loggedinUser.orders.stay.name }}</span>
-    </div>
-
+    <list-guest-orders :orders="loggedInUser.orders" />
     <img :src="require('@/assets/img/icon/trip.svg')" />
     <router-link :to="'/'" class="explore">Explore Lovebnb </router-link>
     <div class="help">
@@ -26,6 +16,7 @@
 </template>
 <script>
 import { utilService } from "../services/util.service.js";
+import listGuestOrders from "../cmps/list-guest-orders.vue";
 export default {
   data() {
     return {
@@ -125,6 +116,7 @@ export default {
       ],
     };
   },
+  components: { listGuestOrders },
 
   computed: {
     checkIn() {
@@ -137,7 +129,7 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
-  
+
     // dataToShow(){
     // checkIn=utilservice.dataToShow(this.date)
     // }

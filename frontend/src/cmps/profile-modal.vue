@@ -5,7 +5,7 @@
       <router-link  v-if="isLoggedinUser" class="trip" :to="'/trips/' + userId">
         <span>Trips</span>
       </router-link>
-      <router-link  v-if="isLoggedinUser" class="deshboard" :to="'/deshboard/' + userId">
+      <router-link  v-if="isLoggedinUser" class="deshboard-modal" :to="'/deshboard/' + userId">
         <span>Deshboard</span>
       </router-link>
     <!-- </button> -->

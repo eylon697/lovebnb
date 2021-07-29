@@ -180,6 +180,11 @@ export default {
       if (!status || typeof status !== "string") status = "edit";
       this.order.status = status;
     },
+
+
+
+
+
     async placeOrder() {
       try {
         if (!this.order.dates || this.order.dates.length < 2)
@@ -205,6 +210,14 @@ export default {
         console.log("failed to place order", err);
       }
     },
+
+
+
+
+
+
+
+
     toggleLoading() {
       this.isLoading = !this.isLoading;
     },

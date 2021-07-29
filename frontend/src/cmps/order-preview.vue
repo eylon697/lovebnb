@@ -7,9 +7,9 @@
         </div>
         <div class="info">
           <div class="by">Request by {{ order.guest.fullName }}</div>
-          <div class="expire" v-if="order.status === 'pending'">
+          <!-- <div class="expire" v-if="order.status === 'pending'">
             Expires in 12 hours
-          </div>
+          </div> -->
           <!-- TODO:Dynamic TIME -->
           <div class="expire" v-if="order.status === 'confirmed'">Expired</div>
           <div class="order-info">
@@ -25,17 +25,18 @@
       </div>
 
       <div class="action">
-        <div class="change" v-if="order.status === 'Pending'">
-          <span @click="changeStatus(order, 'Confirmed')" class="accept"
-            >Accept
+        <div class="change" v-if="order.status === 'pending'">
+          <span @click="changeStatus(order, 'confirmed')" class="accept"
+            >Confirm
           </span>
-          <span>/ </span>
-          <span @click="changeStatus(order, 'Reject')" class="reject"
+          <span> · </span>
+          <!-- <span>/ </span> -->
+          <span @click="changeStatus(order, 'reject')" class="reject"
             >Reject
           </span>
         </div>
-        <div class="reject" v-if="order.status === 'Reject'">Reject</div>
-        <div class="accepted" v-if="order.status === 'Confirmed'">Accepted</div>
+        <div class="reject" v-if="order.status === 'reject'">Rejected</div>
+        <div class="accepted" v-if="order.status === 'confirmed'">Confirmed</div>
       </div>
     </div>
   </section>
@@ -55,6 +56,10 @@ export default {
 
   methods: {
     changeStatus(order, newStatus) {
+      // this.$store.dispatch({
+      //   type: "login",
+      //   userCred: { userName: "eden", password: "123" },
+      // });
       console.log("order-preview", newStatus);
       order.status = newStatus;
       showMsg("order status updated");
@@ -65,7 +70,9 @@ export default {
       return utilService.toShortFormat(new Date(this.order.dates[0]));
     },
     checkOut() {
-      return utilService.toShortFormat(new Date(this.order.dates[this.order.dates.length-1]));
+      return utilService.toShortFormat(
+        new Date(this.order.dates[this.order.dates.length - 1])
+      );
     },
     longText(txt) {
       if (txt.length < 10) return txt;

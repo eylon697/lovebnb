@@ -1,8 +1,5 @@
 <template>
-  <!--******** Profile Host********** -->
-  <!-- TODO:Check if the user is a host => if (stay.host && stay.host.stays && stay.host.stays.length) -->
-
-  <section class="profile main-layout" v-if="loggedInUser">
+  <section class="deshboard main-layout" v-if="loggedInUser">
     <div v-if="loggedInUser.stays && loggedInUser.stays.length">
       <div
         v-if="loggedInUser.hostOrders && loggedInUser.hostOrders.length"
@@ -16,7 +13,10 @@
           <!-- TODO:dinamic response -->
         </div>
         <div class="orders-container">
-          <list-orders v-if="loggedInUser.hostOrders" :orders="loggedInUser.hostOrders" />
+          <list-orders
+            v-if="loggedInUser.hostOrders"
+            :orders="loggedInUser.hostOrders"
+          />
 
           <div class="summary">
             <div class="header">
@@ -71,14 +71,28 @@
 import listOrders from "../cmps/list-orders.vue";
 export default {
   components: { listOrders },
+  created(){
+    this.$store.dispatch({
+        type: "login",
+        userCred: { userName: "eden", password: "123" },
+      });
+  },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
-  },
-  created() {
-    // await this.$store.dispatch({ type: 'loadHostOrders' })
-    // if (!loggedInUser) this.$router.push("/");
+    
+    // responseRate() {
+    //   var countConfirmed= 0
+    //   orders.forEach(order=> {
+    //     if (order.status === "confirmed") {
+    //       countConfirmed++;
+    //     }
+    //   });
+    //   return countConfirmed/(orders.length)*100
+
+
+    // },
   },
 };
 </script>  

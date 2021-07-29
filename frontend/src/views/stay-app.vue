@@ -1,11 +1,11 @@
 <template>
   <section class="stay-app main-layout">
-    <!-- <list-filter
+    <list-filter
       v-if="stays"
       :filter="filterBy"
       :stays="stays"
       @filter="setFilter"
-    /> -->
+    />
     <stay-list
       :stays="stays"
       v-if="stays"
@@ -16,12 +16,12 @@
 </template>
 <script>
 import stayList from "@/cmps/stay-list.vue";
-// import listFilter from "@/cmps/list-filter.vue";
+import listFilter from "@/cmps/list-filter.vue";
 // import { utilService } from "../services/util.service.js";
 export default {
   components: {
     stayList,
-    // listFilter,
+    listFilter,
   },
   methods: {
     setFilter(filterBy) {
